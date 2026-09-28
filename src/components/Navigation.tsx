@@ -5,7 +5,6 @@ import './Navigation.css';
 const LINKS = [
   { href: '#work', key: 'work' },
   { href: '#about', key: 'about' },
-  { href: '#insights', key: 'insights' },
   { href: '#contact', key: 'contact' },
 ] as const;
 

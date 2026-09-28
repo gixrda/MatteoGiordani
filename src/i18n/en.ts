@@ -14,7 +14,7 @@ export const en = {
     language: 'Language',
     menu: 'Menu',
     close: 'Close',
-    links: { work: 'Work', about: 'About', insights: 'Insights', contact: 'Contact' },
+    links: { work: 'Work', about: 'About', contact: 'Contact' },
   },
 
   /* ---------------- Narrative ---------------- */
@@ -197,55 +197,6 @@ export const en = {
       text: 'A person described the way I describe websites: structure first. Outside work, endurance sport keeps the same habit — steady, measurable progress.',
       note: 'Portrait: [PLACEHOLDER]',
     },
-  },
-  insights: {
-    label: 'Insights',
-    title: 'Notes on search and the web.',
-    intro:
-      'Short, practical writing on SEO, front-end and performance — for people who run websites, not only for specialists.',
-    filterLabel: 'Filter by topic',
-    categories: {
-      all: 'All',
-      seo: 'SEO',
-      technical: 'Technical SEO',
-      frontend: 'Front-End',
-      performance: 'Performance',
-      cwv: 'Core Web Vitals',
-      growth: 'Growth',
-    },
-    posts: [
-      {
-        category: 'seo',
-        title: 'Search intent comes before keywords.',
-        dek: 'The first question is what someone wants — not which words they type.',
-      },
-      {
-        category: 'technical',
-        title: 'What technical SEO covers — and what it doesn’t.',
-        dek: 'Crawling, rendering and indexing, explained for business owners.',
-      },
-      {
-        category: 'cwv',
-        title: 'LCP, INP, CLS: what each metric is really measuring.',
-        dek: 'Three metrics, three different moments of a visit.',
-      },
-      {
-        category: 'frontend',
-        title: 'Semantic HTML is an SEO decision.',
-        dek: 'Structure written once serves people, assistive technology and search engines.',
-      },
-      {
-        category: 'performance',
-        title: 'Speed starts in the template, not in a plugin.',
-        dek: 'Where performance is won or lost in a real codebase.',
-      },
-      {
-        category: 'growth',
-        title: 'Local visibility: where a small business should start.',
-        dek: 'A practical order of work for businesses that depend on their area.',
-      },
-    ],
-    status: 'Draft · [PLACEHOLDER]',
   },
   contact: {
     label: 'Contact',

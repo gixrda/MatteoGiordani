@@ -308,101 +308,6 @@
   color: var(--on-dark-2);
 }
 
-/* ---------- Insights ---------- */
-
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: clamp(28px, 4vw, 48px);
-}
-
-.filters button {
-  height: 36px;
-  padding: 0 14px;
-  border: 1px solid var(--hairline-strong);
-  border-radius: 999px;
-  background: none;
-  font-size: 0.875rem;
-  transition:
-    background-color 0.3s var(--ease),
-    color 0.3s var(--ease),
-    border-color 0.3s var(--ease);
-}
-
-.filters button:hover {
-  border-color: var(--ink);
-}
-
-.filters button[aria-pressed='true'] {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: var(--ivory);
-}
-
-.posts {
-  border-top: 1px solid var(--ink);
-}
-
-.post {
-  border-bottom: 1px solid var(--hairline);
-}
-
-.post__link {
-  display: grid;
-  grid-template-columns: 48px minmax(120px, 0.7fr) minmax(0, 2.4fr) auto 24px;
-  align-items: baseline;
-  gap: 8px 24px;
-  padding: clamp(20px, 2.4vw, 32px) 0;
-}
-
-.post__category {
-  color: var(--ink-2);
-}
-
-.post__body {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.post__title {
-  font-size: var(--fs-title);
-  font-weight: 560;
-  letter-spacing: var(--tracking-title);
-  line-height: 1.2;
-  transition: transform 0.4s var(--ease);
-}
-
-.post--featured .post__title {
-  font-size: var(--fs-display-m);
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-}
-
-.post__dek {
-  font-size: var(--fs-small);
-  color: var(--ink-2);
-}
-
-.post__status {
-  color: var(--ink-3);
-  white-space: nowrap;
-}
-
-.post__arrow {
-  justify-self: end;
-  transition: transform 0.4s var(--ease);
-}
-
-.post__link:hover .post__title {
-  transform: translateX(6px);
-}
-
-.post__link:hover .post__arrow {
-  transform: translateX(4px);
-}
-
 /* ---------- Contact ---------- */
 
 .contact {
@@ -600,30 +505,6 @@
    ===================================================================== */
 
 @media (max-width: 1100px) {
-  .post__link {
-    grid-template-columns: 40px minmax(0, 1fr) 24px;
-  }
-
-  .post__category {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .post__body {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .post__status {
-    grid-column: 2;
-    grid-row: 3;
-  }
-
-  .post__arrow {
-    grid-column: 3;
-    grid-row: 1;
-  }
-
   .equation li {
     grid-template-columns: clamp(28px, 4vw, 56px) minmax(0, 1fr);
   }

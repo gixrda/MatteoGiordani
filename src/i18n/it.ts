@@ -14,7 +14,7 @@ export const it: Dictionary = {
     language: 'Lingua',
     menu: 'Menu',
     close: 'Chiudi',
-    links: { work: 'Lavori', about: 'Chi sono', insights: 'Insights', contact: 'Contatti' },
+    links: { work: 'Lavori', about: 'Chi sono', contact: 'Contatti' },
   },
 
   /* ---------------- Narrazione ---------------- */
@@ -197,55 +197,6 @@ export const it: Dictionary = {
       text: 'Una persona descritta come descrivo i siti: prima la struttura. Fuori dal lavoro, gli sport di resistenza mantengono la stessa abitudine — progressi costanti e misurabili.',
       note: 'Ritratto: [PLACEHOLDER]',
     },
-  },
-  insights: {
-    label: 'Insights',
-    title: 'Note su ricerca e web.',
-    intro:
-      'Scritti brevi e pratici su SEO, front-end e performance — per chi gestisce un sito, non solo per gli specialisti.',
-    filterLabel: 'Filtra per argomento',
-    categories: {
-      all: 'Tutti',
-      seo: 'SEO',
-      technical: 'SEO tecnica',
-      frontend: 'Front-End',
-      performance: 'Performance',
-      cwv: 'Core Web Vitals',
-      growth: 'Crescita',
-    },
-    posts: [
-      {
-        category: 'seo',
-        title: "L'intento di ricerca viene prima delle keyword.",
-        dek: 'La prima domanda è cosa vuole una persona — non quali parole digita.',
-      },
-      {
-        category: 'technical',
-        title: 'Cosa copre la SEO tecnica — e cosa no.',
-        dek: "Scansione, rendering e indicizzazione, spiegati a chi gestisce un'attività.",
-      },
-      {
-        category: 'cwv',
-        title: 'LCP, INP, CLS: cosa misura davvero ogni metrica.',
-        dek: 'Tre metriche, tre momenti diversi di una visita.',
-      },
-      {
-        category: 'frontend',
-        title: "L'HTML semantico è una scelta SEO.",
-        dek: 'Una struttura scritta una volta serve persone, tecnologie assistive e motori di ricerca.',
-      },
-      {
-        category: 'performance',
-        title: 'La velocità nasce nel template, non in un plugin.',
-        dek: 'Dove si vince o si perde la performance in un codice reale.',
-      },
-      {
-        category: 'growth',
-        title: 'Visibilità locale: da dove dovrebbe iniziare una piccola attività.',
-        dek: 'Un ordine di lavoro pratico per chi dipende dalla propria zona.',
-      },
-    ],
-    status: 'Bozza · [PLACEHOLDER]',
   },
   contact: {
     label: 'Contatti',
