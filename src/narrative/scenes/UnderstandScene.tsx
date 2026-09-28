@@ -4,6 +4,7 @@ import { SceneCaption } from '../SceneCaption';
 import { sceneById } from '../timeline';
 import { useFade, useKeyframes } from '../motion';
 import { ANCHOR, U } from '../geometry';
+import { useI18n } from '../../i18n/I18nContext';
 
 interface Query {
   q: string;
@@ -12,38 +13,39 @@ interface Query {
   to: { x: number; y: number };
 }
 
-/** Illustrative queries for an illustrative local business. */
-const QUERIES: Query[] = [
-  { q: 'strength training near me', intent: 'local', at: { x: 0, y: -16 }, to: ANCHOR.heroCenter },
-  { q: 'how to start lifting weights', intent: 'informational', at: { x: 50, y: -16 }, to: ANCHOR.card3 },
-  { q: 'personal trainer cost', intent: 'commercial', at: { x: 4, y: -9.5 }, to: ANCHOR.card1 },
-  { q: 'your-business opening hours', intent: 'navigational', at: { x: 56, y: -9.5 }, to: ANCHOR.navLinks },
+/** Where each illustrative query sits and which part of the page answers it (text comes from the dictionary). */
+const PLACEMENT = [
+  { at: { x: 0, y: -16 }, to: ANCHOR.heroCenter },
+  { at: { x: 50, y: -16 }, to: ANCHOR.card3 },
+  { at: { x: 4, y: -9.5 }, to: ANCHOR.card1 },
+  { at: { x: 56, y: -9.5 }, to: ANCHOR.navLinks },
 ];
 
 const CAPSULE_H = 4.4;
 
 export function UnderstandCaption() {
+  const { t } = useI18n();
+  const copy = t.scenes.understand;
   return (
-    <SceneCaption
-      scene={sceneById('understand')}
-      title={<>Before optimizing a website, understand how people search.</>}
-    >
-      Queries reveal intent. Intent decides what each page should be — and where it belongs in the site.
+    <SceneCaption scene={sceneById('understand')} title={copy.title}>
+      {copy.body}
     </SceneCaption>
   );
 }
 
 /** Real searches arrive and connect to the parts of the page that should answer them. */
 export function UnderstandOverlay() {
+  const { t } = useI18n();
+  const QUERIES: Query[] = t.demo.queries.map((query, i) => ({ ...query, ...PLACEMENT[i] }));
   return (
     <>
       <svg className="ov-lines" viewBox="0 0 100 64" aria-hidden>
         {QUERIES.map((q, i) => (
-          <QueryLine key={q.q} query={q} i={i} />
+          <QueryLine key={i} query={q} i={i} />
         ))}
       </svg>
       {QUERIES.map((q, i) => (
-        <QueryCapsule key={q.q} query={q} i={i} />
+        <QueryCapsule key={i} query={q} i={i} />
       ))}
     </>
   );

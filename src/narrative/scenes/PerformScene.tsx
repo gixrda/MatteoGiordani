@@ -4,35 +4,31 @@ import { SceneCaption } from '../SceneCaption';
 import { BEAT, sceneById } from '../timeline';
 import { useKeyframes, useStep } from '../motion';
 import { U, type Box } from '../geometry';
+import { useI18n } from '../../i18n/I18nContext';
 
-const STATES = ['Heavy', 'Cleaner', 'Lighter', 'Faster'] as const;
 const STATE_STARTS = [BEAT.heavy[0], BEAT.clean[0], BEAT.lighter[0], BEAT.faster[0]];
-
-/** Conceptual states only — no numbers are shown or implied. */
-const VITALS = [
-  ['LCP', 'Loading', 'The main content appears early.'],
-  ['INP', 'Responsiveness', 'The page reacts without delay.'],
-  ['CLS', 'Visual stability', 'Nothing moves unexpectedly.'],
-] as const;
 
 export function PerformCaption() {
   const { p } = useNarrative();
   const step = useStep(p, STATE_STARTS);
+  const { t } = useI18n();
+  const copy = t.scenes.perform;
   return (
     <SceneCaption
       scene={sceneById('perform')}
-      title={<>Lighter. Faster. Stable.</>}
+      title={copy.title}
       aside={
         <div className="perform">
-          <ol className="perform__states" aria-label="Performance states">
-            {STATES.map((s, i) => (
+          <ol className="perform__states" aria-label={copy.statesLabel}>
+            {copy.states.map((s, i) => (
               <li key={s} className={i <= step ? 'is-on' : undefined} aria-current={i === step ? 'step' : undefined}>
                 {s}
               </li>
             ))}
           </ol>
           <ul className="perform__vitals">
-            {VITALS.map(([abbr, name, text]) => (
+            {/* Conceptual states only — no numbers are shown or implied. */}
+            {copy.vitals.map(({ abbr, name, text }) => (
               <li key={abbr} className={step >= 3 ? 'is-ok' : undefined}>
                 <abbr title={name}>{abbr}</abbr>
                 <span>
@@ -41,7 +37,7 @@ export function PerformCaption() {
               </li>
             ))}
           </ul>
-          <p className="perform__note">Core Web Vitals, shown as concepts — not measured scores.</p>
+          <p className="perform__note">{copy.note}</p>
         </div>
       }
     />

@@ -1,69 +1,32 @@
 import { Reveal } from '../components/Reveal';
-
-const CAPABILITIES = [
-  {
-    index: '01',
-    name: 'SEO',
-    claim: 'Get found.',
-    text: 'Understanding how people search — then shaping the site so the right pages answer them, and search engines can read every one.',
-    topics: [
-      'Technical SEO',
-      'On-page SEO',
-      'Keyword research',
-      'Search Console',
-      'Information architecture',
-      'Internal linking',
-      'SEO audits',
-    ],
-  },
-  {
-    index: '02',
-    name: 'Website Optimization',
-    claim: 'Perform better.',
-    text: 'Working directly in the front-end: faster loading, stable layouts, clearer interfaces and changes shipped in the codebase — not left in a report.',
-    topics: [
-      'Core Web Vitals',
-      'Front-End optimization',
-      'Performance',
-      'UX',
-      'Responsive design',
-      'Technical implementation',
-    ],
-  },
-];
-
-const FLOW = [
-  ['Diagnose', 'Audit, priorities and evidence from Search Console and real-user data.'],
-  ['Implement', 'Front-End and on-page changes, made directly in the website.'],
-  ['Verify', 'Checked against the same data — so progress is measured, not assumed.'],
-];
+import { useI18n } from '../i18n/I18nContext';
 
 export function Services() {
+  const { t } = useI18n();
+  const copy = t.services;
+
   return (
     <section id="services" className="section services" aria-labelledby="services-title">
       <div className="section__inner">
         <div className="section-head">
-          <p className="label section-head__label">Services</p>
+          <p className="section-title section-head__label">{copy.label}</p>
           <div>
             <Reveal>
               <h2 id="services-title" className="display-l">
-                Two capabilities.
+                {copy.title[0]}
                 <br />
-                One system.
+                {copy.title[1]}
               </h2>
             </Reveal>
-            <p className="lead section-head__intro">
-              Search visibility and website quality are usually sold separately. I treat them as one problem, and work
-              on both sides of it.
-            </p>
+            <p className="lead section-head__intro">{copy.intro}</p>
           </div>
         </div>
 
         <div className="services__split">
-          {CAPABILITIES.map((c, i) => (
-            <article key={c.name} className="capability" aria-labelledby={`cap-${i}`}>
+          {copy.capabilities.map((c, i) => (
+            <article key={i} className="capability" aria-labelledby={`cap-${i}`}>
               <p className="capability__name label">
-                <span>{c.index}</span>
+                <span>{String(i + 1).padStart(2, '0')}</span>
                 {c.name}
               </p>
               <h3 id={`cap-${i}`} className="capability__claim display-l">
@@ -71,8 +34,8 @@ export function Services() {
               </h3>
               <p className="capability__text">{c.text}</p>
               <ul className="capability__topics">
-                {c.topics.map((t) => (
-                  <li key={t}>{t}</li>
+                {c.topics.map((topic) => (
+                  <li key={topic}>{topic}</li>
                 ))}
               </ul>
             </article>
@@ -80,9 +43,9 @@ export function Services() {
         </div>
 
         <div className="services__flow">
-          <p className="label">Where they meet</p>
+          <p className="section-title">{copy.flowLabel}</p>
           <ol className="flow">
-            {FLOW.map(([step, text], i) => (
+            {copy.flow.map(({ step, text }, i) => (
               <li key={step}>
                 <span className="flow__index label">{String(i + 1).padStart(2, '0')}</span>
                 <span className="flow__step">{step}</span>

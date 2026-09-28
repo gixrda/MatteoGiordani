@@ -10,18 +10,17 @@ export type SceneId = 'discover' | 'understand' | 'optimize' | 'build' | 'perfor
 export interface Scene {
   id: SceneId;
   index: string;
-  label: string;
   start: number;
   end: number;
 }
 
 export const SCENES: readonly Scene[] = [
-  { id: 'discover', index: '01', label: 'Discover', start: 0.09, end: 0.2 },
-  { id: 'understand', index: '02', label: 'Understand', start: 0.2, end: 0.34 },
-  { id: 'optimize', index: '03', label: 'Optimize', start: 0.34, end: 0.5 },
-  { id: 'build', index: '04', label: 'Build', start: 0.5, end: 0.66 },
-  { id: 'perform', index: '05', label: 'Perform', start: 0.66, end: 0.8 },
-  { id: 'convert', index: '06', label: 'Convert', start: 0.8, end: 0.92 },
+  { id: 'discover', index: '01', start: 0.09, end: 0.2 },
+  { id: 'understand', index: '02', start: 0.2, end: 0.34 },
+  { id: 'optimize', index: '03', start: 0.34, end: 0.5 },
+  { id: 'build', index: '04', start: 0.5, end: 0.66 },
+  { id: 'perform', index: '05', start: 0.66, end: 0.8 },
+  { id: 'convert', index: '06', start: 0.8, end: 0.92 },
 ];
 
 export const sceneById = (id: SceneId) => SCENES.find((s) => s.id === id)!;

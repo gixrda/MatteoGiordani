@@ -84,13 +84,32 @@ function parseColor(c: string): RGBA {
   return [r, g, b, a];
 }
 
+/**
+ * Colour changes force a repaint of everything that inherits them, so progress
+ * is quantised: a transition repaints ~16 times instead of on every frame.
+ * Steps are small enough to read as continuous under the scroll smoothing.
+ */
+const COLOR_STEPS = 16;
+
+function quantize(v: number, xs: readonly number[]): number {
+  const last = xs.length - 1;
+  if (v <= xs[0] || v >= xs[last]) return v;
+  let i = 0;
+  while (i < last - 1 && v > xs[i + 1]) i++;
+  const span = xs[i + 1] - xs[i];
+  if (span === 0) return v;
+  const t = Math.round(((v - xs[i]) / span) * COLOR_STEPS) / COLOR_STEPS;
+  return xs[i] + t * span;
+}
+
 /** Scroll-linked colour keyframes (hex or rgb/rgba), interpolated per channel. */
 export function useColorKeyframes(p: MotionValue<number>, xs: readonly number[], colors: readonly string[]) {
   const channels = colors.map(parseColor);
   const ref = useRef({ xs, channels });
   ref.current = { xs, channels };
-  return useTransform(p, (v) => {
+  return useTransform(p, (raw) => {
     const { xs: x, channels: ch } = ref.current;
+    const v = quantize(raw, x);
     const [r, g, b, a] = [0, 1, 2, 3].map((i) =>
       interp(
         v,

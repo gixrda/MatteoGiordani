@@ -48,24 +48,37 @@
   transform: scaleX(1);
 }
 
-.nav__lang {
+.lang-switch,
+.lang-switch__item {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+.lang-switch {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.06em;
 }
 
-.nav__lang button {
+.lang-switch button {
   border: 0;
   background: none;
   font: inherit;
   opacity: 0.55;
 }
 
-.nav__lang button[aria-pressed='true'] {
+.lang-switch button[aria-pressed='true'] {
   opacity: 1;
+}
+
+.nav-panel__lang {
+  font-size: 0.875rem;
+}
+
+.nav-panel__lang button {
+  min-height: 44px;
+  padding: 0 4px;
 }
 
 .nav__toggle {

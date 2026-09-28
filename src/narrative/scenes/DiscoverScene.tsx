@@ -4,13 +4,14 @@ import { SceneCaption } from '../SceneCaption';
 import { sceneById } from '../timeline';
 import { useFade, useTypedCount } from '../motion';
 import { U } from '../geometry';
-
-const QUERY = 'strength training near me';
+import { useI18n } from '../../i18n/I18nContext';
 
 export function DiscoverCaption() {
+  const { t } = useI18n();
+  const copy = t.scenes.discover;
   return (
-    <SceneCaption scene={sceneById('discover')} title={<>Being online isn't the same as being found.</>}>
-      Most websites exist. Few are found by the people already searching for what they offer.
+    <SceneCaption scene={sceneById('discover')} title={copy.title}>
+      {copy.body}
     </SceneCaption>
   );
 }
@@ -21,6 +22,8 @@ export function DiscoverCaption() {
  */
 export function DiscoverOverlay() {
   const { p } = useNarrative();
+  const { t } = useI18n();
+  const QUERY = t.demo.search;
   const search = useFade(p, 0.1, 0.125, 0.19, 0.205);
   const results = useFade(p, 0.14, 0.16, 0.185, 0.2);
   const typed = useTypedCount(p, [0.11, 0.14], [0, QUERY.length]);
@@ -45,7 +48,7 @@ export function DiscoverOverlay() {
             <i style={{ width: U(12 + i * 2) }} />
           </span>
         ))}
-        <span className="ov-results__row ov-results__row--empty">your-business.it ?</span>
+        <span className="ov-results__row ov-results__row--empty">{t.demo.domain} ?</span>
       </motion.div>
     </>
   );

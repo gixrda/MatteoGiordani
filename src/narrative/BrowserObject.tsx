@@ -4,6 +4,8 @@ import { useNarrative } from './NarrativeContext';
 import { BEAT } from './timeline';
 import { interp, useColorKeyframes, useFade, useKeyframes, useTypedCount } from './motion';
 import { LAYERS, U, type Box } from './geometry';
+import { useI18n } from '../i18n/I18nContext';
+import type { Dictionary } from '../i18n/en';
 
 /**
  * The central object: one website, rendered as separate planes so it can be
@@ -15,9 +17,6 @@ import { LAYERS, U, type Box } from './geometry';
  */
 
 const EXPLODE_XS = [BEAT.explode[0], BEAT.explode[1], BEAT.collapse[0], BEAT.collapse[1]];
-
-const URL_FULL = 'your-business.it/strength-training';
-const URL_DOMAIN = 'your-business.it'.length;
 
 export function BrowserObject() {
   const { p, layout } = useNarrative();
@@ -120,12 +119,15 @@ export function BrowserObject() {
 
 function UrlText() {
   const { p } = useNarrative();
+  const { t } = useI18n();
+  const URL_FULL = t.demo.domain + t.demo.path;
+  const URL_DOMAIN = t.demo.domain.length;
   const count = useTypedCount(p, [0.095, 0.13, 0.27, 0.32], [0, URL_DOMAIN, URL_DOMAIN, URL_FULL.length]);
   const domain = URL_FULL.slice(0, Math.min(count, URL_DOMAIN));
   const path = URL_FULL.slice(URL_DOMAIN, Math.max(count, URL_DOMAIN));
   return (
     <>
-      {count === 0 && <span className="obj-chrome__placeholder">untitled</span>}
+      {count === 0 && <span className="obj-chrome__placeholder">{t.demo.untitled}</span>}
       {domain}
       {path && <span className="obj-chrome__path">{path}</span>}
       {count < URL_FULL.length && count !== URL_DOMAIN && <span className="obj-caret" />}
@@ -190,12 +192,13 @@ function LayerTag({ semantic, component }: { semantic: string; component: string
 }
 
 /** Understand: each block receives the role it plays for search. */
-function Role({ children, style }: { children: ReactNode; style?: CSSProperties }) {
+function Role({ role, style }: { role: keyof Dictionary['demo']['roles']; style?: CSSProperties }) {
   const { p } = useNarrative();
+  const { t } = useI18n();
   const opacity = useFade(p, BEAT.roles[0], BEAT.roles[1], 0.35, 0.39);
   return (
     <motion.span className="obj-role" style={{ ...style, opacity }}>
-      {children}
+      {t.demo.roles[role]}
     </motion.span>
   );
 }
@@ -237,17 +240,18 @@ function HeadPlane() {
   const opacity = useFade(p, 0.4, 0.46, 0.49, 0.515);
   const y = useKeyframes(p, [0.4, 0.46], [10 * u, 0]);
   const z = useKeyframes(p, EXPLODE_XS, [0, 16 * u * ex, 16 * u * ex, 0]);
+  const { t } = useI18n();
   return (
     <motion.div className="obj-head" style={{ opacity, y, z }}>
       <span className="obj-head__tag">&lt;head&gt;</span>
       <span>
-        <b>title</b> Strength training in [City] — your-business
+        <b>title</b> {t.demo.head.title}
       </span>
       <span>
-        <b>meta description</b> Small-group and personal coaching…
+        <b>meta description</b> {t.demo.head.description}
       </span>
       <span>
-        <b>link canonical</b> /strength-training
+        <b>link canonical</b> {t.demo.path}
       </span>
       <span>
         <b>meta robots</b> index, follow
@@ -278,7 +282,7 @@ function HeaderWire() {
       <Bar w={6} top={1.55} left={68} />
       <Bar w={6} top={1.55} left={76} />
       <WBox box={{ top: 0.4, left: 84, width: 6, height: 3.2 }} />
-      <Role style={{ left: U(58), top: U(-2.4) }}>navigation</Role>
+      <Role role="navigation" style={{ left: U(58), top: U(-2.4) }} />
     </>
   );
 }
@@ -298,7 +302,7 @@ function HeroWire() {
           <path d="M0 0 L34 21 M34 0 L0 21" />
         </svg>
       </WBox>
-      <Role style={{ left: U(57), top: U(1) }}>landing page · local</Role>
+      <Role role="landing" style={{ left: U(57), top: U(1) }} />
     </>
   );
 }
@@ -318,8 +322,8 @@ function CardsWire() {
           {i === 0 && <Heading level="H2" style={{ left: U(19.5), top: U(3.4) }} />}
         </WBox>
       ))}
-      <Role style={{ left: U(12), top: U(10.6) }}>service page</Role>
-      <Role style={{ left: U(73.4), top: U(10.6) }}>guide</Role>
+      <Role role="service" style={{ left: U(12), top: U(10.6) }} />
+      <Role role="guide" style={{ left: U(73.4), top: U(10.6) }} />
     </>
   );
 }
@@ -339,41 +343,51 @@ function FooterWire() {
 /* ------------------------------------------------------------------ */
 /* Real UI faces — an illustrative local business, not a client.       */
 
+function Brand({ small }: { small?: boolean }) {
+  const { t } = useI18n();
+  return (
+    <span className={`ui-logo${small ? ' ui-logo--small' : ''}`}>
+      {t.demo.brand[0]}
+      <b>·</b>
+      {t.demo.brand[1]}
+    </span>
+  );
+}
+
 function HeaderUI() {
+  const { t } = useI18n();
   return (
     <div className="ui-header">
-      <span className="ui-logo">
-        your<b>·</b>business
-      </span>
+      <Brand />
       <span className="ui-nav">
-        <span>Services</span>
-        <span>Guides</span>
-        <span>Pricing</span>
-        <span>Contact</span>
+        {t.demo.nav.map((item) => (
+          <span key={item}>{item}</span>
+        ))}
       </span>
-      <span className="ui-btn ui-btn--small">Book</span>
+      <span className="ui-btn ui-btn--small">{t.demo.book}</span>
     </div>
   );
 }
 
 function HeroUI() {
   const { p } = useNarrative();
+  const { t } = useI18n();
   const focus = useFade(p, BEAT.focus[0], BEAT.focus[1], 0.925, 0.945);
   const scale = useTransform(focus, [0, 1], [1, 1.05]);
   const others = useTransform(focus, [0, 1], [1, 0.72]);
   return (
     <div className="ui-hero">
       <motion.div className="ui-hero__text" style={{ opacity: others }}>
-        <span className="ui-eyebrow">Strength studio · [City]</span>
+        <span className="ui-eyebrow">{t.demo.eyebrow}</span>
         <span className="ui-h1">
-          Strength training,
+          {t.demo.h1[0]}
           <br />
-          close to home.
+          {t.demo.h1[1]}
         </span>
-        <span className="ui-p">Small-group sessions and personal coaching, for every level.</span>
+        <span className="ui-p">{t.demo.text}</span>
       </motion.div>
       <motion.span className="ui-btn ui-cta" style={{ scale }}>
-        Book a free session
+        {t.demo.cta}
         <motion.span className="ui-cta__ring" style={{ opacity: focus }} />
       </motion.span>
       <motion.span className="ui-media" style={{ opacity: others }}>
@@ -384,16 +398,11 @@ function HeroUI() {
   );
 }
 
-const CARDS = [
-  ['Service', 'Personal training', 'One-to-one coaching, planned around you.'],
-  ['Service', 'Small groups', 'Up to six people. Same attention.'],
-  ['Guide', 'Start lifting safely', 'A first-month plan for beginners.'],
-];
-
 function CardsUI() {
+  const { t } = useI18n();
   return (
     <div className="ui-cards">
-      {CARDS.map(([kind, title, text]) => (
+      {t.demo.cards.map(({ kind, title, text }) => (
         <span className="ui-card" key={title}>
           <span className="ui-card__kind">{kind}</span>
           <span className="ui-card__title">{title}</span>
@@ -405,16 +414,14 @@ function CardsUI() {
 }
 
 function FooterUI() {
+  const { t } = useI18n();
   return (
     <div className="ui-footer">
-      <span className="ui-logo ui-logo--small">
-        your<b>·</b>business
-      </span>
+      <Brand small />
       <span className="ui-nav ui-nav--small">
-        <span>Hours</span>
-        <span>Location</span>
-        <span>FAQ</span>
-        <span>Contact</span>
+        {t.demo.footer.map((item) => (
+          <span key={item}>{item}</span>
+        ))}
       </span>
     </div>
   );

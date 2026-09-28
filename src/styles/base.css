@@ -216,8 +216,20 @@ button {
   padding-bottom: clamp(48px, 7vw, 96px);
 }
 
+/*
+ * Section title: the name of the section (Services, Where they meet…).
+ * Larger and in the sans face so it anchors the section, while the display
+ * heading beside it keeps the message.
+ */
+.section-title {
+  font-size: clamp(1.25rem, 1.02rem + 0.75vw, 1.85rem);
+  font-weight: 560;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
 .section-head__label {
-  padding-top: 0.7em;
+  padding-top: 0.55em;
 }
 
 .section-head__intro {

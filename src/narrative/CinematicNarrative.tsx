@@ -1,10 +1,11 @@
 import { useCallback, useMemo, useRef, type CSSProperties } from 'react';
-import { motion, useReducedMotion, useScroll } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
 import { NarrativeContext, useNarrative, type NarrativeState } from './NarrativeContext';
 import { useStageLayout, type StageLayout } from './useStageLayout';
 import { useColorKeyframes, useKeyframes } from './motion';
 import { BEAT } from './timeline';
 import { BrowserObject } from './BrowserObject';
+import { useI18n } from '../i18n/I18nContext';
 import { Hero, IntroTitle } from './Hero';
 import { ChapterRail } from './ChapterRail';
 import { DiscoverCaption, DiscoverOverlay } from './scenes/DiscoverScene';
@@ -24,12 +25,21 @@ import './narrative.css';
 export function CinematicNarrative() {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: p } = useScroll({ target: sectionRef, offset: ['start start', 'end end'] });
-  const layout = useStageLayout(stageRef);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end end'] });
+  /*
+   * Scrolling stays native; only the animated value is eased. A wheel notch
+   * becomes a short glide instead of a jump. Overdamped: no overshoot, and it
+   * settles in ~0.2s so fast scrolling never feels detached.
+   */
+  const smoothed = useSpring(scrollYProgress, { stiffness: 170, damping: 34, mass: 0.5, restDelta: 0.00005 });
   const reduced = useReducedMotion() ?? false;
+  const p = reduced ? scrollYProgress : smoothed;
+  const layout = useStageLayout(stageRef);
+  const { t } = useI18n();
 
   const toneXs = [BEAT.dark[0], BEAT.dark[1], BEAT.dawn[0], BEAT.dawn[1]];
-  const background = useColorKeyframes(p, toneXs, ['#f4f0e8', '#07111f', '#07111f', '#f4f0e8']);
+  /* Light → dark → light as the opacity of one layer (compositor-only), not a repainted background. */
+  const night = useKeyframes(p, toneXs, [0, 1, 1, 0]);
   const color = useColorKeyframes(p, toneXs, ['#0b0f14', '#ece7dc', '#ece7dc', '#0b0f14']);
 
   const state = useMemo<NarrativeState>(() => ({ p, layout, reduced }), [p, layout, reduced]);
@@ -51,12 +61,13 @@ export function CinematicNarrative() {
 
   return (
     <NarrativeContext.Provider value={state}>
-      <section ref={sectionRef} id="top" className="narrative" aria-label="How a website gets better">
+      <section ref={sectionRef} id="top" className="narrative" aria-label={t.narrativeLabel}>
         <motion.div
           ref={stageRef}
           className={`stage${layout.compact ? ' stage--compact' : ''}`}
-          style={{ backgroundColor: background, color }}
+          style={{ color }}
         >
+          <motion.div className="stage__night" style={{ opacity: night }} aria-hidden />
           <ObjectStage />
           <Hero />
           <div className="stage__copy">
@@ -91,8 +102,9 @@ function rigKeyframes(layout: StageLayout, reduced: boolean) {
   if (compact) {
     return {
       x: K.map((_, i) => (i === K.length - 1 ? cx : 0)),
-      y: [0.2, 0.08, 0.03, 0.03, 0.06, 0.04, 0.06, 0.06, 0.04, 0.02, 0, 0, 0, 0].map((f) => f * h).concat(cy),
-      s: [0.82, 0.86, 0.86, 0.86, 0.82, 0.82, 0.76, 0.76, 0.8, 0.88, 0.9, 0.92, 0.94, 0.94, fill],
+      /* Perform carries the tallest caption (states + vitals + note): the object steps down for it. */
+      y: [0.2, 0.08, 0.03, 0.03, 0.06, 0.04, 0.06, 0.06, 0.04, 0.02, 0.07, 0.07, 0.03, 0].map((f) => f * h).concat(cy),
+      s: [0.82, 0.86, 0.86, 0.86, 0.82, 0.82, 0.76, 0.76, 0.8, 0.88, 0.86, 0.86, 0.94, 0.94, fill],
       rx: [6, 4, 3, 3, 2, 5, 9, 9, 7, 2, 0, 0, 0, 0, 0].map((v) => v * r),
       ry: [-12, -8, -6, -6, -3, -9, -16, -16, -10, -3, 0, 0, 0, 0, 0].map((v) => v * r),
     };

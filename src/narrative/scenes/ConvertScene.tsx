@@ -4,31 +4,34 @@ import { SceneCaption } from '../SceneCaption';
 import { sceneById } from '../timeline';
 import { useFade, useKeyframes } from '../motion';
 import { ANCHOR, U } from '../geometry';
+import { useI18n } from '../../i18n/I18nContext';
 
 const NODE_X = 2.4;
+/** Journey nodes: search → headline → call to action (labels come from the dictionary). */
 const STEPS = [
-  { label: 'Search', y: -7, t: 0.815 },
-  { label: 'Land', y: ANCHOR.heroH1.y, t: 0.83 },
-  { label: 'Act', y: ANCHOR.heroCta.y, t: 0.845 },
+  { y: -7, t: 0.815 },
+  { y: ANCHOR.heroH1.y, t: 0.83 },
+  { y: ANCHOR.heroCta.y, t: 0.845 },
 ];
 
 export function ConvertCaption() {
+  const { t } = useI18n();
+  const copy = t.scenes.convert;
   return (
     <SceneCaption
       scene={sceneById('convert')}
-      title={<>A website shouldn't only rank. It should work.</>}
+      title={copy.title}
       aside={
-        <ol className="journey-steps label" aria-label="User journey">
-          {STEPS.map((s, i) => (
-            <li key={s.label}>
-              <span>{String(i + 1).padStart(2, '0')}</span> {s.label}
+        <ol className="journey-steps label" aria-label={copy.journeyLabel}>
+          {copy.steps.map((label, i) => (
+            <li key={i}>
+              <span>{String(i + 1).padStart(2, '0')}</span> {label}
             </li>
           ))}
         </ol>
       }
     >
-      Clear hierarchy, one obvious next step, a journey that ends in a conversation. This is where SEO, Front-End and
-      UX meet.
+      {copy.body}
     </SceneCaption>
   );
 }
@@ -36,6 +39,7 @@ export function ConvertCaption() {
 /** The user journey: from the search, through the headline, to one clear action. */
 export function ConvertOverlay() {
   const { p } = useNarrative();
+  const { t } = useI18n();
   const draw = useKeyframes(p, [0.815, 0.855], [0, 1]);
   const opacity = useFade(p, 0.81, 0.82, 0.9, 0.92);
   const first = STEPS[0].y;
@@ -47,7 +51,7 @@ export function ConvertOverlay() {
         <motion.path d={`M${NODE_X} ${first} L${NODE_X} ${last}`} style={{ pathLength: draw }} />
       </svg>
       {STEPS.map((s, i) => (
-        <JourneyNode key={s.label} index={i + 1} {...s} />
+        <JourneyNode key={i} index={i + 1} label={t.scenes.convert.steps[i]} {...s} />
       ))}
     </motion.div>
   );

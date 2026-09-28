@@ -4,12 +4,14 @@ import { SceneCaption } from '../SceneCaption';
 import { sceneById } from '../timeline';
 import { useFade, useKeyframes } from '../motion';
 import { U } from '../geometry';
+import { useI18n } from '../../i18n/I18nContext';
 
 export function BuildCaption() {
+  const { t } = useI18n();
+  const copy = t.scenes.build;
   return (
-    <SceneCaption scene={sceneById('build')} emphasis title={<>I don't stop at the audit. I&nbsp;can build the fix.</>}>
-      The person who finds the problem also writes the components, the layout and the CSS that solve it. Nothing
-      lost in a hand-off.
+    <SceneCaption scene={sceneById('build')} emphasis title={copy.title}>
+      {copy.body}
     </SceneCaption>
   );
 }
@@ -20,6 +22,7 @@ export function BuildCaption() {
  */
 export function BuildOverlay() {
   const { p, layout } = useNarrative();
+  const { t } = useI18n();
   const u = layout.u;
   const component = useFade(p, 0.505, 0.53, 0.6, 0.625);
   const componentY = useKeyframes(p, [0.505, 0.53], [3 * u, 0]);
@@ -39,7 +42,7 @@ export function BuildOverlay() {
           {'\n  '}
           <span className="a">title</span>={'{'}page.h1{'}'}
           {'\n  '}
-          <span className="a">cta</span>=<span className="s">"Book a free session"</span>
+          <span className="a">cta</span>=<span className="s">"{t.demo.cta}"</span>
           {'\n'}
           <span className="t">/&gt;</span>
         </code>
@@ -60,10 +63,12 @@ export function BuildOverlay() {
       <motion.div className="ov-phone" style={{ opacity: phone, x: phoneX, z: 10 * u }}>
         <span className="ov-phone__notch" />
         <span className="ui-logo ui-logo--small">
-          your<b>·</b>business
+          {t.demo.brand[0]}
+          <b>·</b>
+          {t.demo.brand[1]}
         </span>
-        <span className="ov-phone__h1">Strength training, close to home.</span>
-        <span className="ui-btn ov-phone__cta">Book a free session</span>
+        <span className="ov-phone__h1">{t.demo.h1.join(' ')}</span>
+        <span className="ui-btn ov-phone__cta">{t.demo.cta}</span>
         <span className="ov-phone__media" />
         <span className="ov-phone__card" />
         <span className="ov-phone__card" />

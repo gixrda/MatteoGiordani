@@ -19,6 +19,14 @@
   height: 100vh;
   height: 100svh;
   overflow: clip;
+  background: var(--beige);
+}
+
+.stage__night {
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+  will-change: opacity;
 }
 
 /* ---------- Object space ---------- */
@@ -37,6 +45,8 @@
 
 .rig > * {
   position: absolute;
+  /* Each plane moves on its own compositor layer: transform/opacity changes never repaint. */
+  will-change: transform, opacity;
 }
 
 .obj-shadow,
@@ -768,6 +778,7 @@
 
 .hero {
   position: absolute;
+  will-change: transform, opacity;
   left: var(--gutter);
   top: 50%;
   translate: 0 -54%;
@@ -843,6 +854,7 @@
 
 .caption {
   position: absolute;
+  will-change: transform, opacity;
   left: 0;
   right: 0;
   top: 0;

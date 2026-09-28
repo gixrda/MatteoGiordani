@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useNarrative } from './NarrativeContext';
 import { useFade, useKeyframes, useVisibility } from './motion';
 import type { Scene } from './timeline';
+import { useI18n } from '../i18n/I18nContext';
 
 interface SceneCaptionProps {
   scene: Scene;
@@ -17,6 +18,7 @@ interface SceneCaptionProps {
 /** The semantic text of a chapter. Crossfades in and out with its scene range. */
 export function SceneCaption({ scene, title, children, aside, emphasis }: SceneCaptionProps) {
   const { p } = useNarrative();
+  const { t } = useI18n();
   const inEnd = scene.start + 0.028;
   const outStart = scene.end - 0.022;
   const opacity = useFade(p, scene.start, inEnd, outStart, scene.end);
@@ -32,7 +34,7 @@ export function SceneCaption({ scene, title, children, aside, emphasis }: SceneC
     >
       <p className="caption__index label">
         <span>{scene.index}</span>
-        {scene.label}
+        {t.scenes[scene.id].label}
       </p>
       <h2 className="caption__title" id={titleId}>
         {title}
