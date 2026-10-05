@@ -31,7 +31,7 @@ export function AboutView({ locale }: { locale: Locale }) {
           <p className="body">{a.p2}</p>
           <p className="body"><Rich text={a.more2} /></p>
         </div>
-        <Photo alt={t.hero.photoAlt} className="about-photo" priority />
+        <Photo photo="office" alt={a.officePhotoAlt} className="about-photo" priority />
       </section>
 
       <section className="wrap sec" aria-labelledby="eq-title">
@@ -56,15 +56,20 @@ export function AboutView({ locale }: { locale: Locale }) {
         </ol>
       </section>
 
-      <section className="wrap sec" aria-labelledby="tools-title">
-        <h2 id="tools-title" className="cap eq-label">{a.toolsTitle}</h2>
-        <ul className="tags big-tags">
-          {t.hero.tools.map((tool) => <li key={tool} className="tag"><Rich text={tool} /></li>)}
-        </ul>
-        <div className="off">
-          <span className="caption">{a.offLabel}</span>
-          <ul className="tags">{a.off.map((o) => <li key={o} className="tag">{o}</li>)}</ul>
+      <section className="wrap sec" aria-labelledby="method-title">
+        <div className="sec-head reveal">
+          <h2 id="method-title" className="d-m"><Rich text={a.methodTitle} /></h2>
+          <div><p className="body">{a.methodText}</p></div>
         </div>
+        <ol className="method">
+          {a.method.map((m, i) => (
+            <li key={m.title} className="card">
+              <span className="mono acc">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="s-m">{m.title}</h3>
+              <p className="small">{m.text}</p>
+            </li>
+          ))}
+        </ol>
       </section>
     </>
   );

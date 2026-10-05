@@ -85,6 +85,7 @@ const en = {
     trust: ['You talk to the person doing the work', 'Fixes made in the code', 'First call, no commitment'],
     viewWork: 'or view my work',
     photoAlt: 'Matteo Giordani at his desk',
+    cafePhotoAlt: 'Matteo Giordani taking notes at a café table',
     chipHello: "Ciao, I'm Matteo Giordani",
     chipFactTitle: 'ezdirect.it',
     chipFactCap: 'New site live · Sept 2026',
@@ -209,8 +210,16 @@ const en = {
       'Fixes are made in the code, not handed over as a list.',
       'Every change is measured before and after, with Lighthouse and Search Console.',
     ],
-    toolsTitle: 'Tools',
-    more2: '[More about Matteo to write: how you started, what you enjoy in the work]',
+    more2: 'I’m a keen endurance athlete. Distance teaches you that results don’t come in a day: they come from a plan, consistent training and the patience to measure every step. I bring the same discipline to every project: clear priorities, steady work, no shortcuts.',
+    officePhotoAlt: 'Matteo Giordani on a call at his desk',
+    methodTitle: 'An endurance mindset, *applied to your website.*',
+    methodText: 'The habits that get me to the finish line are the same ones I bring to every project.',
+    method: [
+      { title: 'A plan before the start', text: 'No race without preparation: every project starts with an analysis and clear priorities.' },
+      { title: 'Consistency, not sprints', text: 'Steady, verifiable improvements instead of one-off fixes that fade.' },
+      { title: 'Everything is measured', text: 'Before and after, with the same tools. Progress you can see, not promises.' },
+      { title: 'All the way to the finish', text: 'From the first call to the launch, the same person on your project.' },
+    ],
   },
 
   insights: {

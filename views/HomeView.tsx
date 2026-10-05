@@ -214,7 +214,7 @@ export function HomeView({ locale }: { locale: Locale }) {
             </div>
             <Link href={href.about(locale)} className="tlink">{t.about.more}<Icon name="arrow-right" className="nudge" /></Link>
           </div>
-          <Photo alt={h.photoAlt} className="about-photo" />
+          <Photo photo="office" alt={t.about.officePhotoAlt} className="about-photo" />
         </div>
       </section>
 
@@ -285,7 +285,7 @@ export function ContactBlock({ locale, as: H = 'h2' }: { locale: Locale; as?: 'h
   const c = t.contact;
   return (
     <div className="contact">
-      <Photo alt={t.hero.photoAlt} className="contact-photo" />
+      <Photo photo="cafe" alt={t.hero.cafePhotoAlt} className="contact-photo" />
       <div className="stack">
         <H id="contact-title" className={`${H === 'h1' ? 'd-l' : 'd-m'} reveal`}><Rich text={c.h2} /></H>
         <p className="body"><Rich text={c.text} /></p>

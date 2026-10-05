@@ -48,6 +48,7 @@ const it: Dict = {
     trust: ['Parli con chi fa il lavoro', 'Le correzioni finiscono nel codice', 'Prima call senza impegno'],
     viewWork: 'oppure guarda i miei lavori',
     photoAlt: 'Matteo Giordani alla sua scrivania',
+    cafePhotoAlt: 'Matteo Giordani prende appunti al tavolino di un caffè',
     chipHello: 'Ciao, sono Matteo Giordani',
     chipFactTitle: 'ezdirect.it',
     chipFactCap: 'Nuovo sito live · sett. 2026',
@@ -170,8 +171,16 @@ const it: Dict = {
       'Le correzioni si fanno nel codice, non si consegnano come una lista.',
       'Ogni modifica viene misurata prima e dopo, con Lighthouse e Search Console.',
     ],
-    toolsTitle: 'Tool',
-    more2: '[Altro su Matteo da scrivere: come hai iniziato, cosa ti piace di questo lavoro]',
+    more2: 'Sono un grande appassionato di sport di endurance. La distanza insegna che i risultati non arrivano in un giorno: arrivano con un piano, allenamenti costanti e la pazienza di misurare ogni progresso. Porto la stessa disciplina in ogni progetto: priorità chiare, lavoro costante, nessuna scorciatoia.',
+    officePhotoAlt: 'Matteo Giordani al telefono alla sua scrivania',
+    methodTitle: 'Mentalità da endurance, *applicata al tuo sito.*',
+    methodText: 'Le abitudini che mi portano al traguardo sono le stesse che porto in ogni progetto.',
+    method: [
+      { title: 'Un piano prima della partenza', text: 'Nessuna gara senza preparazione: ogni progetto parte da un’analisi e da priorità chiare.' },
+      { title: 'Costanza, non sprint', text: 'Miglioramenti continui e verificabili, non interventi spot che si esauriscono.' },
+      { title: 'Si misura tutto', text: 'Prima e dopo, con gli stessi strumenti. Progressi che vedi, non promesse.' },
+      { title: 'Fino al traguardo', text: 'Dalla prima call alla messa online, sempre la stessa persona sul tuo progetto.' },
+    ],
   },
 
   insights: {

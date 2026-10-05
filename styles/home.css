@@ -264,12 +264,16 @@
 .about-how { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; }
 .how-list { display: grid; border-top: 1px solid var(--ln); }
 .how-list li { display: grid; grid-template-columns: 48px 1fr; padding: 18px 0; border-bottom: 1px solid var(--ln); align-items: baseline; }
-.big-tags .tag { height: 36px; padding: 0 16px; font-size: 13px; }
 @media (max-width: 900px) {
   .about, .about-how { grid-template-columns: 1fr; gap: 32px; }
   .equation { grid-template-columns: 1fr; gap: 32px; }
   .eq-op { position: static; translate: none; font-size: 32px; }
 }
+
+.method { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.method li { display: grid; align-content: start; gap: 12px; padding: 24px; }
+@media (max-width: 1024px) { .method { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .method { grid-template-columns: minmax(0, 1fr); } }
 
 /* Insights (§7.9) */
 .insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
