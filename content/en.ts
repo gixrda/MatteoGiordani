@@ -49,6 +49,7 @@ const en = {
     menu: 'Menu',
     close: 'Close menu',
     book: 'Book a call',
+    navCta: 'Let’s talk',
     lightTheme: 'Light theme',
     language: 'Language',
     exampleSite: 'Example site',
@@ -190,7 +191,7 @@ const en = {
     p1: 'I started with technology, studied Communication & Marketing, and eventually found the intersection between the two in websites and search.',
     p2: 'Today, I work across SEO and Front-End development, combining the way people search with the way websites are built.',
     offLabel: 'Off-screen:',
-    off: ['Running', 'Sport', 'Design', 'Digital products'],
+    off: ['Endurance', 'Sport', 'Travel', 'Nature'],
     more: 'More about me',
     // About page
     metaTitle: 'About — Matteo Giordani',
@@ -232,7 +233,7 @@ const en = {
     text: "A few details and I'll reply to set up the call. [Reply time to confirm]",
     need: 'What do you need?',
     needChoose: 'Choose one',
-    needs: ['Get found on Google', 'A faster website', 'Fix or rebuild my website', 'Not sure yet'],
+    needs: ['SEO and visibility on Google', 'Site speed and Core Web Vitals', 'Development, redesign or front-end fixes', 'An initial review of my website'],
     name: 'Name',
     email: 'Email',
     website: 'Website',
@@ -243,19 +244,52 @@ const en = {
     privacyLink: 'privacy policy',
     submit: 'Book a call',
     errors: {
-      need: 'Choose what you need, even "Not sure yet".',
+      need: 'Choose the option closest to your request.',
       name: 'Add your name so I know who I’m talking to.',
       email: 'Add an email address like name@business.it.',
       privacy: 'Tick the box to accept the privacy policy, otherwise I can’t reply.',
     },
     success: 'Your email app has opened with your request. Send it and I’ll reply to set up the call.',
-    direct: 'Or write directly:',
     instagram: 'Instagram [to add]',
     metaTitle: 'Contact — Matteo Giordani',
     metaDescription: 'Tell me about your website and book a first call, no commitment.',
   },
 
-  ctaBand: { h2: 'Let’s make your website *work harder.*' },
+  faq: {
+    h2: 'Frequently asked *questions*',
+    text: 'What business owners ask me most about how I work, costs and tools.',
+    tabsLabel: 'FAQ categories',
+    moreTitle: 'Other *questions?*',
+    moreText: 'Book a first call, no commitment, and we’ll talk it through.',
+    groups: [
+      {
+        name: 'How I work',
+        items: [
+          { q: 'Who do I talk to during the project?', a: 'With me. The person who analyses your site is the same person who changes the code, from the first call to the launch.' },
+          { q: 'How does the process work?', a: 'Four steps: a call to understand your business, an analysis that measures what holds the site back, the work done directly on the site, then a before-and-after measurement with the same tools.' },
+          { q: 'Can you work on my existing website?', a: 'Yes, that’s most of the work. I start from what you have and change what’s needed. [Confirm platforms: WordPress, Shopify, custom…]' },
+          { q: 'Can you guarantee first place on Google?', a: 'No, and nobody honestly can. What I can do is remove what’s holding your site back and measure what changes.' },
+        ],
+      },
+      {
+        name: 'Costs and timing',
+        items: [
+          { q: 'How much does it cost?', a: 'There is no price list by page count: the scope depends on how big the site is, where it starts from, what matters first and whether the work is one-off or ongoing. [Confirm your pricing approach]' },
+          { q: 'How long does a project take?', a: 'It depends on the size of the site and its starting point; after the analysis you get a clear plan. [Typical timeframes to confirm]' },
+          { q: 'Do you offer ongoing support?', a: 'A focused intervention, or a monthly follow-up with Search Console checks and fixes. [confirm Matteo offers ongoing work]' },
+          { q: 'When will I see results on Google?', a: 'Technical fixes can be picked up within weeks; rankings usually move over months. You’ll see progress in Search Console along the way, not a promise of positions.' },
+        ],
+      },
+      {
+        name: 'Tools',
+        items: [
+          { q: 'Which tools do you use?', a: 'Search Console, Lighthouse and SEOzen to measure; Figma and Photoshop to design; HTML, CSS and JavaScript to build. Claude, ChatGPT and n8n are part of my daily work too.' },
+          { q: 'Do I need a new website to be fast?', a: 'Usually not. Many sites get much faster with targeted fixes. If the foundation is the problem, I’ll tell you.' },
+          { q: 'Will I still be able to update the site myself?', a: 'That is the goal: I keep your editing workflow where possible and explain anything that changes.' },
+        ],
+      },
+    ],
+  },
 
   servicePage: {
     switcherLabel: 'Services',

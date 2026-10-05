@@ -61,24 +61,11 @@ export function Breadcrumb({ items, children }: { items: Crumb[]; children?: Rea
   );
 }
 
-/** Full-width ink band (home). */
-export function CtaBand({ locale }: { locale: Locale }) {
-  const t = getDict(locale);
-  return (
-    <section className="cta-band" aria-labelledby="cta-band-title">
-      <div className="wrap cta-band-in">
-        <h2 id="cta-band-title" className="d-xl reveal"><Rich text={t.ctaBand.h2} /></h2>
-        <BookButton locale={locale} className="btn btn-on-ink" />
-      </div>
-    </section>
-  );
-}
-
 /** Ink panel with BuildObject state 5 bleeding off the right edge (service + project pages). */
 export function CtaPanel({ locale, title, text, visual }: { locale: Locale; title: string; text: string; visual?: React.ReactNode }) {
   const t = getDict(locale);
   return (
-    <section className="sec-pad" aria-labelledby="cta-panel-title">
+    <section className="sec" aria-labelledby="cta-panel-title">
       <div className="wrap">
         <div className="cta-panel">
           <div className="cta-panel-copy">

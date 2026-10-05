@@ -12,6 +12,7 @@ const it: Dict = {
     menu: 'Menu',
     close: 'Chiudi',
     book: 'Prenota una call',
+    navCta: 'Parliamone',
     lightTheme: 'Tema chiaro',
     language: 'Lingua',
     exampleSite: 'Sito di esempio',
@@ -152,7 +153,7 @@ const it: Dict = {
     p1: 'Sono partito dalla tecnologia, ho studiato Comunicazione & Marketing e alla fine ho trovato il punto d’incontro tra le due: i siti web e la ricerca.',
     p2: 'Oggi lavoro tra SEO e sviluppo front-end, unendo il modo in cui le persone cercano al modo in cui i siti vengono costruiti.',
     offLabel: 'Off-screen:',
-    off: ['Corsa', 'Sport', 'Design', 'Prodotti digitali'],
+    off: ['Endurance', 'Sport', 'Viaggi', 'Natura'],
     more: 'Di più su di me',
     metaTitle: 'Chi sono — Matteo Giordani',
     metaDescription: 'SEO Specialist e Front-End Developer: una formazione tra informatica e comunicazione, al lavoro dove ricerca e siti web si incontrano.',
@@ -193,7 +194,7 @@ const it: Dict = {
     text: 'Qualche dettaglio e ti rispondo per fissare la call. [Tempi di risposta da confermare]',
     need: 'Di cosa hai bisogno?',
     needChoose: 'Scegli un’opzione',
-    needs: ['Farmi trovare su Google', 'Un sito più veloce', 'Sistemare o rifare il sito', 'Non lo so ancora'],
+    needs: ['SEO e visibilità su Google', 'Velocità del sito e Core Web Vitals', 'Sviluppo, restyling o interventi front-end', 'Un’analisi iniziale del sito'],
     name: 'Nome',
     email: 'Email',
     website: 'Sito web',
@@ -204,19 +205,52 @@ const it: Dict = {
     privacyLink: 'informativa sulla privacy',
     submit: 'Prenota una call',
     errors: {
-      need: 'Scegli di cosa hai bisogno, anche “Non lo so ancora”.',
+      need: 'Scegli l’opzione più vicina alla tua richiesta.',
       name: 'Aggiungi il tuo nome, così so con chi sto parlando.',
       email: 'Aggiungi un indirizzo email, ad esempio nome@attivita.it.',
       privacy: 'Spunta la casella per accettare l’informativa, altrimenti non posso risponderti.',
     },
     success: 'Si è aperta la tua app di posta con la richiesta già compilata. Inviala e ti rispondo per fissare la call.',
-    direct: 'Oppure scrivimi direttamente:',
     instagram: 'Instagram [da aggiungere]',
     metaTitle: 'Contatti — Matteo Giordani',
     metaDescription: 'Raccontami il tuo sito e prenota una prima call, senza impegno.',
   },
 
-  ctaBand: { h2: 'Facciamo *lavorare di più* il tuo sito.' },
+  faq: {
+    h2: 'Domande *frequenti*',
+    text: 'Quello che i titolari mi chiedono più spesso su metodo, costi e strumenti.',
+    tabsLabel: 'Categorie delle domande',
+    moreTitle: 'Hai altre *domande?*',
+    moreText: 'Prenota una prima call senza impegno e parliamone insieme.',
+    groups: [
+      {
+        name: 'Come lavoro',
+        items: [
+          { q: 'Con chi parlo durante il progetto?', a: 'Con me. Chi analizza il tuo sito è la stessa persona che interviene sul codice, dalla prima call alla messa online.' },
+          { q: 'Come funziona il processo di lavoro?', a: 'Quattro passaggi: una call per capire la tua attività, un’analisi che misura cosa frena il sito, il lavoro direttamente sul sito e infine una misura prima e dopo con gli stessi strumenti.' },
+          { q: 'Puoi lavorare sul mio sito attuale?', a: 'Sì, è la maggior parte del lavoro. Parto da quello che hai e cambio quello che serve. [Conferma le piattaforme: WordPress, Shopify, custom…]' },
+          { q: 'Puoi garantirmi il primo posto su Google?', a: 'No, e nessuno può farlo onestamente. Quello che posso fare è togliere ciò che frena il tuo sito e misurare cosa cambia.' },
+        ],
+      },
+      {
+        name: 'Costi e tempi',
+        items: [
+          { q: 'Quanto costa un intervento?', a: 'Non c’è un listino a numero di pagine: il lavoro dipende da quanto è grande il sito, da dove parte, da cosa conta prima e se l’intervento è una tantum o continuativo. [Conferma il tuo approccio ai prezzi]' },
+          { q: 'Quanto dura un progetto?', a: 'Dipende dalle dimensioni del sito e dal punto di partenza; dopo l’analisi ricevi un piano chiaro. [Tempi medi da confermare]' },
+          { q: 'Offri un affiancamento continuativo?', a: 'Un intervento mirato, oppure un affiancamento mensile con controlli e correzioni in Search Console. [conferma se offri lavoro continuativo]' },
+          { q: 'Quando vedo i risultati su Google?', a: 'Le correzioni tecniche possono essere recepite in qualche settimana; i posizionamenti di solito si muovono nell’arco di mesi. Vedi i progressi in Search Console strada facendo, non una promessa di posizioni.' },
+        ],
+      },
+      {
+        name: 'Tool',
+        items: [
+          { q: 'Che tool utilizzi?', a: 'Search Console, Lighthouse e SEOzen per misurare; Figma e Photoshop per progettare; HTML, CSS e JavaScript per sviluppare. Claude, ChatGPT e n8n fanno parte del mio lavoro di ogni giorno.' },
+          { q: 'Mi serve un sito nuovo per essere veloce?', a: 'Di solito no. Molti siti diventano molto più veloci con interventi mirati. Se il problema sono le fondamenta, te lo dico.' },
+          { q: 'Potrò aggiornare il sito da solo?', a: 'È proprio l’obiettivo: dove possibile mantengo il tuo modo di modificare il sito e ti spiego tutto ciò che cambia.' },
+        ],
+      },
+    ],
+  },
 
   servicePage: {
     switcherLabel: 'Servizi',

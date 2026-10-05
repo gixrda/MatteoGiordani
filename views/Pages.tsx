@@ -2,7 +2,7 @@
 import { getDict } from '@/lib/i18n';
 import { href, type Locale } from '@/lib/routes';
 import { PERSON, SITE_URL } from '@/lib/site';
-import { Breadcrumb, CtaBand, Photo } from '@/components/Blocks';
+import { Breadcrumb, Photo } from '@/components/Blocks';
 import { JsonLd } from '@/components/JsonLd';
 import { Rich } from '@/components/Rich';
 import { ContactBlock, InsightCards } from './HomeView';
@@ -66,7 +66,6 @@ export function AboutView({ locale }: { locale: Locale }) {
           <ul className="tags">{a.off.map((o) => <li key={o} className="tag">{o}</li>)}</ul>
         </div>
       </section>
-      <CtaBand locale={locale} />
     </>
   );
 }
@@ -84,7 +83,6 @@ export function InsightsView({ locale }: { locale: Locale }) {
         <p className="caption ins-empty"><Rich text={t.insights.empty} /></p>
         <InsightCards locale={locale} />
       </section>
-      <CtaBand locale={locale} />
     </>
   );
 }

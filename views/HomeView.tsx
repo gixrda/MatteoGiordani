@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { getDict } from '@/lib/i18n';
 import { href, PROJECT_SLUGS, type Locale } from '@/lib/routes';
 import { PERSON, SITE_URL, bookHref } from '@/lib/site';
-import { BookButton, CtaBand, Photo, SecHead } from '@/components/Blocks';
+import { BookButton, Photo, SecHead } from '@/components/Blocks';
+import { HomeFaq } from '@/components/HomeFaq';
 import { ContactForm } from '@/components/ContactForm';
 import { Icon } from '@/components/Icon';
 import { JsonLd } from '@/components/JsonLd';
@@ -225,12 +226,38 @@ export function HomeView({ locale }: { locale: Locale }) {
         <InsightCards locale={locale} />
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="sec wrap" aria-labelledby="faq-title">
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: t.faq.groups
+              .flatMap((g) => g.items)
+              .map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\s*\[[^\]]+\]/g, '') } })),
+          }}
+        />
+        <SecHead id="faq-title" title={t.faq.h2} text={t.faq.text} />
+        <HomeFaq
+          groups={t.faq.groups}
+          tabsLabel={t.faq.tabsLabel}
+          more={
+            <div className="card faq-more">
+              <div>
+                <h3 className="s-m"><Rich text={t.faq.moreTitle} /></h3>
+                <p className="small">{t.faq.moreText}</p>
+              </div>
+              <BookButton locale={locale} icon="calendar" />
+            </div>
+          }
+        />
+      </section>
+
       {/* Contact (§7.10) */}
       <section id="contact" className="sec wrap" aria-labelledby="contact-title">
         <ContactBlock locale={locale} />
       </section>
 
-      <CtaBand locale={locale} />
       <StickyBar text={t.ui.stickyBar} book={t.ui.book} bookHref={bookHref(locale)} closeLabel={t.ui.close} />
     </>
   );
@@ -263,10 +290,6 @@ export function ContactBlock({ locale, as: H = 'h2' }: { locale: Locale; as?: 'h
         <H id="contact-title" className={`${H === 'h1' ? 'd-l' : 'd-m'} reveal`}><Rich text={c.h2} /></H>
         <p className="body"><Rich text={c.text} /></p>
         <ContactForm c={c} privacyHref={href.privacy(locale)} />
-        <p className="small contact-direct">
-          {c.direct} <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a> · <a href={PERSON.linkedin} target="_blank" rel="me noopener">LinkedIn</a> ·{' '}
-          {PERSON.instagram ? <a href={PERSON.instagram} target="_blank" rel="me noopener">Instagram</a> : <Rich text={c.instagram} />}
-        </p>
       </div>
     </div>
   );

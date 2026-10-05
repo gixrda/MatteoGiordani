@@ -66,11 +66,13 @@ em { font-style: italic; }
 .sec { padding-top: var(--section); }
 .sec-pad { padding-block: var(--section); }
 .band { background: var(--bg2); }
-.sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 56px; align-items: end; margin-bottom: 48px; }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; justify-items: start; margin-bottom: 48px; }
+.sec-head > h1, .sec-head > h2 { max-width: 22ch; }
+.sec-head > div { max-width: 60ch; }
 .sec-head > div { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; justify-items: start; }
 .stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; justify-items: start; }
 @media (max-width: 900px) {
-  .sec-head { grid-template-columns: 1fr; margin-bottom: 40px; }
+  .sec-head { margin-bottom: 40px; }
 }
 
 /* Buttons (§6.4) */

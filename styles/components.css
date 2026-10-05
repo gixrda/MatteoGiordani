@@ -52,7 +52,7 @@
 .theme-toggle[aria-checked="true"] .theme-knob { transform: translateX(18px); }
 
 /* Footer (§6.27) */
-.footer { padding: 72px 0 40px; border-top: 1px solid var(--ln); }
+.footer { margin-top: var(--section); padding: 72px 0 40px; border-top: 1px solid var(--ln); }
 .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; padding-bottom: 48px; }
 .footer-cols .cap { color: var(--mu2); margin-bottom: 14px; }
 .footer-cols ul { display: grid; gap: 8px; font-size: 14.5px; }
@@ -73,13 +73,8 @@
 
 .btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
 
-/* CTA band (home) */
-.cta-band { background: var(--brand-ink); color: var(--brand-paper); margin-top: var(--section); padding-block: 104px; }
-.cta-band-in { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; }
-.cta-band h2 { max-width: 14ch; }
-.cta-band .acc, .cta-panel .acc, .cta-band .ph, .cta-panel .ph { color: var(--brand-paper); }
-
 /* CTA panel (service, project) */
+.cta-panel .acc, .cta-panel .ph { color: var(--brand-paper); }
 .cta-panel {
   position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 32px;
   min-height: 440px; padding: clamp(32px, 5vw, 56px); border-radius: 26px;

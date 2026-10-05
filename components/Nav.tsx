@@ -62,8 +62,8 @@ export function Nav({ locale, ui }: { locale: Locale; ui: Dict['ui'] }) {
         </ul>
         <div className="nav-right">
           <Link href={bookHref(locale)} className="btn btn-primary btn-sm">
-            <Icon name="calendar" />
-            {ui.book}
+            <Icon name="chat" />
+            {ui.navCta}
           </Link>
           <button className="nav-menu" aria-expanded={open} aria-controls="nav-sheet" onClick={() => setOpen((o) => !o)}>
             <Icon name={open ? 'x' : 'menu'} size={20} />

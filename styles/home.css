@@ -289,8 +289,6 @@
 .cform-foot { display: flex; }
 .form-done { display: flex; gap: 12px; align-items: flex-start; padding: 20px; border-radius: 14px; background: var(--sf); border: 1px solid var(--ln2); font-weight: 500; }
 .form-done svg { color: var(--act); flex: none; margin-top: 2px; }
-.contact-direct a { color: var(--act); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-.contact-direct a:hover { text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 900px) {
   .contact { grid-template-columns: 1fr; gap: 32px; }
   .contact-photo { max-width: 420px; aspect-ratio: 5 / 4; width: 100%; }
@@ -312,3 +310,21 @@
 @media (max-width: 900px) {
   .sticky-bar { display: flex; }
 }
+
+/* Home FAQ: category pills + one card per question + "other questions" card */
+.faq-tabs { margin-bottom: 32px; }
+.faq-list { display: grid; gap: 12px; }
+.faq-item { border-radius: 14px; background: var(--sf); border: 1px solid var(--ln2); }
+.faq-item summary {
+  display: grid; grid-template-columns: 1fr 28px; gap: 16px; align-items: center;
+  min-height: 64px; padding: 16px 22px; cursor: pointer; list-style: none; font-size: 16px; font-weight: 600; line-height: 1.35;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-plus {
+  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--sf2); border: 1px solid var(--ln2); color: var(--tx); transition: transform var(--t-fast) var(--e);
+}
+.faq-item[open] .faq-plus { transform: rotate(45deg); }
+.faq-item p { padding: 0 22px 20px; max-width: 72ch; }
+.faq-more { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; margin-top: 40px; padding: 28px; }
+.faq-more > div { display: grid; gap: 6px; }
