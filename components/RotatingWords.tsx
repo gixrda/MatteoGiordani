@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Headline word slider: every 3 s the current word slides down out of its window while the next
- * one slides in from above. Runs even with reduced motion (Matteo's explicit choice for this element).
+ * Headline word slider: every 3 s the current word drifts down, fading and blurring out, while the
+ * next one comes in from above and sharpens. Runs even with reduced motion (Matteo's explicit choice for this element).
  * Decorative: the h1 carries the full sentence in visually hidden text.
  */
 export function RotatingWords({ words }: { words: string[] }) {

@@ -7,16 +7,18 @@
 .hero-copy h1 { max-width: 13.5ch; }
 .hero-copy .lead { max-width: 46ch; }
 
-/* Headline word slider: a one-line window; the next word slides in from above, the current one slides out below. */
-.rot {
-  display: inline-grid; vertical-align: bottom; justify-items: start;
-  overflow: clip; overflow-clip-margin: .14em; /* the window that makes it a slider; margin keeps italic overhangs and descenders */
+/* Headline word slider: the current word drifts down, fades and blurs out; the next one comes in from above, sharpening as it lands. */
+.rot { display: inline-grid; vertical-align: bottom; justify-items: start; }
+.rot em {
+  grid-area: 1 / 1; white-space: nowrap; will-change: transform, opacity, filter;
+  transition: transform 1100ms cubic-bezier(.22, 1, .36, 1) 150ms, opacity 900ms ease 150ms, filter 900ms ease 150ms;
 }
-/* ease-in-out over 1 s so the slide is actually visible (the site's ease-out curve finishes almost instantly) */
-.rot em { grid-area: 1 / 1; white-space: nowrap; transition: transform 1000ms cubic-bezier(.65, 0, .35, 1); will-change: transform; }
-.rot em[data-state="in"] { transform: none; }
-.rot em[data-state="out"] { transform: translateY(110%); }
-.rot em[data-state="next"] { transform: translateY(-110%); transition: none; }
+.rot em[data-state="in"] { transform: none; opacity: 1; filter: blur(0); }
+.rot em[data-state="out"] {
+  transform: translateY(35%); opacity: 0; filter: blur(10px);
+  transition: transform 700ms cubic-bezier(.55, 0, .45, 1), opacity 600ms ease, filter 600ms ease;
+}
+.rot em[data-state="next"] { transform: translateY(-35%); opacity: 0; filter: blur(10px); transition: none; }
 
 /* SuggestionChips (§6.6) */
 .asks { display: grid; gap: 10px; }
