@@ -87,8 +87,28 @@ em { font-style: italic; }
 .btn:hover svg.nudge { transform: translateX(3px); }
 .btn:hover svg.nudge-up { transform: translate(2px, -2px); }
 .btn:active { transform: scale(.98); }
-.btn-primary { background: var(--brand-ink); color: var(--brand-paper); }
-.btn-primary:hover { background: var(--ink-hover); box-shadow: var(--sh-btn); }
+.btn-primary {
+  position: relative; color: var(--brand-paper); border: 0;
+  background: radial-gradient(var(--gb-sx) var(--gb-sy) at var(--gb-x) var(--gb-y),
+    var(--gb-c1) var(--gb-s1), var(--gb-c2) var(--gb-s2), var(--gb-c3) var(--gb-s3), var(--gb-c4) 100%);
+  transition: --gb-x .5s, --gb-y .5s, --gb-sx .5s, --gb-sy .5s, --gb-c1 .5s, --gb-c2 .5s, --gb-c3 .5s, --gb-c4 .5s,
+    --gb-s1 .5s, --gb-s2 .5s, --gb-s3 .5s, --gb-angle .5s, --gb-b1 .5s, --gb-b2 .5s,
+    box-shadow var(--t-fast) var(--e), transform var(--t-fast) var(--e);
+}
+/* 1px gradient border, drawn with a mask so the fill stays untouched */
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: linear-gradient(var(--gb-angle), var(--gb-b1), var(--gb-b2));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+.btn-primary:hover {
+  --gb-x: 0%; --gb-y: 92%; --gb-sx: 120%; --gb-sy: 103%;
+  --gb-c1: var(--gb-hover-c1); --gb-c2: var(--gb-hover-c2); --gb-c3: var(--gb-hover-c3); --gb-c4: var(--gb-hover-c4);
+  --gb-s1: 0%; --gb-s2: 22%; --gb-s3: 62%;
+  --gb-angle: 190deg; --gb-b1: rgba(253, 254, 235, .1); --gb-b2: rgba(253, 254, 235, .6);
+  box-shadow: var(--sh-btn);
+}
 .btn-secondary { color: var(--tx); border-color: var(--ln2); }
 .btn-secondary:hover { border-color: var(--tx); }
 .btn-on-ink { background: var(--brand-paper); color: var(--brand-ink); }
@@ -163,6 +183,9 @@ select.input { appearance: none; background-image: none; padding-right: 40px; }
 .check { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; font-size: 14px; color: var(--mu); }
 .check input { width: 20px; height: 20px; margin: 1px 0 0; }
 .check a { color: var(--act); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Real photos: fill the box, never stretched */
+.photo { display: block; width: 100%; height: auto; object-fit: cover; object-position: 50% 30%; background: var(--sf2); }
 
 /* Media placeholder (§6.17) */
 .slot {

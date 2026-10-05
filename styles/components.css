@@ -139,3 +139,18 @@
 .xlist button[aria-pressed="true"] .xlist-d { grid-template-rows: 1fr; opacity: 1; }
 .xlist button[aria-pressed="true"] .xlist-d > span { padding-top: 8px; }
 
+
+/* Card light (cards site-wide): a soft gradient that follows the mouse inside the card under the pointer.
+   GlowTracker sets --mx/--my; the light sits above the card background and below its content. */
+.card, .glow { position: relative; isolation: isolate; --glow: var(--act); }
+.card::before, .glow::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--glow) 22%, transparent), transparent 70%);
+  opacity: 0; transition: opacity var(--t-mid) var(--e);
+}
+@media (hover: hover) {
+  .card:hover::before, .glow:hover::before { opacity: 1; }
+}
+.cmp-card { --glow: var(--neg); }
+.cmp-card.cmp-yes { --glow: var(--pos); }
+.bento-quote { --glow: var(--brand-paper); }

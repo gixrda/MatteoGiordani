@@ -1,17 +1,520 @@
-// Italian copy. Must be written by Matteo (or adapted), never machine-translated (spec §0.6).
-// Every key left out here falls back to the English string, and Italian pages show the
-// [IT COPY TO WRITE] notice until this file is complete. Same shape as content/en.ts.
+// Testi italiani. Stessa struttura di content/en.ts: il tipo Dict segnala ogni chiave mancante.
+// Sintassi titoli: *testo* = corsivo accento (--act), _testo_ = corsivo nel colore del testo.
+// I valori tra parentesi quadre sono segnaposto visibili finché Matteo non fornisce i contenuti reali.
 
 import type { Dict } from './en';
 
-type DeepPartial<T> = { [K in keyof T]?: T[K] extends (infer U)[] ? U[] : T[K] extends object ? DeepPartial<T[K]> : T[K] };
-
-const it: DeepPartial<Dict> = {
+const it: Dict = {
   ui: {
+    skip: 'Vai al contenuto',
     nav: { home: 'Home', services: 'Servizi', work: 'Lavori', about: 'Chi sono', insights: 'Insights', contact: 'Contatti' },
-    copyNotice: '[IT COPY TO WRITE] Italian copy not written yet: English text is shown as a fallback.',
+    navLabel: 'Principale',
+    menu: 'Menu',
+    close: 'Chiudi',
+    book: 'Prenota una call',
+    lightTheme: 'Tema chiaro',
+    language: 'Lingua',
+    exampleSite: 'Sito di esempio',
+    illustrative: 'Attività di esempio · illustrativa, non un cliente',
+    copyNotice: '',
+    breadcrumbHome: 'Home',
+    breadcrumbServices: 'Servizi',
+    breadcrumbWork: 'Lavori',
+    stickyBar: 'Domande sul tuo sito?',
+    emailMe: 'Scrivimi',
+    explore: 'Scopri',
+    allProjects: 'Tutti i progetti',
+    redesignConcept: 'Concept di redesign',
+  },
+
+  meta: {
+    homeTitle: 'Matteo Giordani — SEO Specialist & Front-End Developer',
+    homeDescription:
+      'Costruisco siti che si posizionano, vanno veloci e convertono. SEO e sviluppo front-end in un unico posto, per le attività che vogliono farsi trovare su Google.',
+  },
+
+  hero: {
+    h1: 'Costruisco siti che si posizionano, vanno veloci e convertono.',
+    h1Lead: 'Costruisco siti che',
+    h1Words: ['si posizionano.', 'vanno veloci.', 'convertono.'],
+    h1Static: 'si posizionano, vanno veloci e convertono.',
+    lead: 'Aiuto le attività a farsi trovare su Google. SEO e sviluppo front-end in un unico posto, dalla prima analisi al codice.',
+    askLabel: 'Le domande che sento più spesso',
+    asks: [
+      { text: 'Perché i clienti non mi trovano su Google?', service: 'seo' },
+      { text: 'Il mio sito è lento sul telefono?', service: 'performance' },
+      { text: 'Mi serve un sito nuovo?', service: 'front-end' },
+    ],
+    trust: ['Parli con chi fa il lavoro', 'Le correzioni finiscono nel codice', 'Prima call senza impegno'],
+    viewWork: 'oppure guarda i miei lavori',
+    photoAlt: 'Matteo Giordani alla sua scrivania',
+    chipHello: 'Ciao, sono Matteo Giordani',
+    chipFactTitle: 'ezdirect.it',
+    chipFactCap: 'Nuovo sito live · sett. 2026',
+    toolsLabel: 'I tool che uso ogni giorno',
+    tools: ['SEOzen', 'Google Search Console', 'Lighthouse', 'HTML', 'CSS', 'JavaScript', '[aggiungi strumento]'],
+  },
+
+  layers: {
+    h2: 'Un sito, *tre livelli.*',
+    text: 'Ottimizzazione del sito e SEO sono un unico lavoro. Quello che le persone trovano su Google, la velocità della pagina e il codice sotto dipendono l’uno dall’altro: per questo lavoro su tutti e tre insieme.',
+    items: [
+      { title: 'Trovato', cap: 'SEO & Technical SEO', text: 'Cosa vedono le persone su Google e cosa Google riesce a leggere delle tue pagine: titoli, descrizioni, struttura, indicizzazione.', service: 'seo' },
+      { title: 'Veloce', cap: 'Performance & Core Web Vitals', text: 'Quanto velocemente la pagina compare e risponde sul telefono, misurato con i segnali di Google.', service: 'performance' },
+      { title: 'Fatto bene', cap: 'Sviluppo front-end', text: 'Il codice sotto: il punto in cui si risolvono davvero i problemi dei primi due livelli.', service: 'front-end' },
+    ],
+    button: 'Come lavoro su ogni livello',
+    planeSearch: 'Ricerca',
+    planeSpeed: 'Velocità',
+    planeCode: 'Codice',
+  },
+
+  comparison: {
+    h2: 'Perché un report *non basta*',
+    text: 'Spesso un’attività riceve una lista di problemi e poi deve trovare qualcun altro che li risolva. Due fornitori, e nessuno risponde del risultato.',
+    left: {
+      title: 'Solo un report SEO',
+      rows: [
+        { b: 'Una lista di problemi', s: 'Qualcun altro deve risolverli' },
+        { b: 'SEO e sviluppatore sono due fornitori', s: 'La responsabilità si perde nel mezzo' },
+        { b: 'Checklist generiche', s: 'Gli stessi consigli per ogni attività' },
+        { b: 'Risultati valutati a occhio', s: 'Nessun prima, nessun dopo' },
+      ],
+    },
+    right: {
+      title: 'SEO + front-end, una persona',
+      rows: [
+        { b: 'Problemi risolti nel codice', s: 'Lavoro direttamente sul tuo sito' },
+        { b: 'Una persona, una responsabilità', s: 'Dalla prima analisi alla messa online' },
+        { b: 'Spiegato in parole semplici', s: 'Capisci il perché, non solo il cosa' },
+        { b: 'Misurato prima e dopo', s: 'Con Lighthouse e Search Console' },
+      ],
+    },
+  },
+
+  process: {
+    h2: 'Guarda un sito *migliorare*',
+    text: 'Un sito di esempio, sei passaggi. Il lavoro, dall’inizio alla fine.',
+    play: 'Avvia',
+    pause: 'Pausa',
+    stepsLabel: 'Passaggi',
+    steps: [
+      { name: 'Scoperta', kicker: 'Dove sei oggi', text: 'I clienti cercano quello che offri. Il tuo sito c’è, ma nessuno lo sceglie.' },
+      { name: 'Analisi', kicker: 'Cosa non va', text: 'Trovo cosa lo frena: immagini lente, titoli mancanti, pagine che Google non riesce a leggere.' },
+      { name: 'Ottimizzazione', kicker: 'SEO', text: 'Titoli, descrizioni e intestazioni che spiegano a Google, e alle persone, cosa fai.' },
+      { name: 'Sviluppo', kicker: 'Front-end', text: 'Lavoro direttamente sul codice: layout, mobile, i dettagli.' },
+      { name: 'Performance', kicker: 'Core Web Vitals', text: 'Veloce dove conta, sul telefono. Misurato, non promesso.' },
+      { name: 'Conversione', kicker: 'Risultati', text: 'Trovato, aperto, prenotato. Poi di nuovo misurato in Search Console.' },
+    ],
+  },
+
+  build: {
+    pins: ['Foto non compressa, lenta da caricare', 'Nessun H1: Google non capisce di cosa si tratta', 'Title: “Home”', 'Non funziona su mobile'],
+    stageLabel: 'Sito di esempio, fase: {name}',
+    cwvTitle: 'Core Web Vitals',
+    cwvNote: 'illustrativo',
+  },
+
+  work: {
+    h2: 'Lavori *selezionati*',
+    text: 'Una selezione di cose che ho costruito, ottimizzato ed esplorato.',
+    filters: { all: 'Tutti', website: 'Siti web', mobile: 'App mobile', concept: 'Concept' },
+    filterLabel: 'Filtra i progetti',
+  },
+
+  cwv: {
+    caption: 'Core Web Vitals · prima → dopo',
+    metric: 'Metrica',
+    before: 'Prima',
+    after: 'Dopo',
+    perf: 'Performance Lighthouse',
+  },
+
+  proof: {
+    h2: 'Meno _parole_, più *misure*',
+    text: 'Prima e dopo, con gli stessi strumenti che usa Google. Anche su questo sito.',
+    launchCap: 'ezdirect.it',
+    launchDate: 'Sett. *2026*',
+    launchText: 'Il nuovo sito va live',
+    lighthouseCap: 'Questo sito · Lighthouse, mobile',
+    lighthouseNote: 'misurato al lancio',
+    rings: ['Performance', 'Accessibilità', 'Best practice', 'SEO'],
+    studyCap: 'Dove ho studiato',
+    study: [
+      { title: 'Informatica', text: 'Diploma tecnico' },
+      { title: 'Comunicazione & Marketing', text: 'Laurea triennale · Università di Pavia' },
+    ],
+    testimonialCap: 'Testimonianze',
+    testimonial: '[Testimonianza di un cliente da aggiungere, con nome e attività]',
+  },
+
+  about: {
+    h2: 'Prima la tecnologia. _Poi_ la comunicazione. Ora *entrambe.*',
+    p1: 'Sono partito dalla tecnologia, ho studiato Comunicazione & Marketing e alla fine ho trovato il punto d’incontro tra le due: i siti web e la ricerca.',
+    p2: 'Oggi lavoro tra SEO e sviluppo front-end, unendo il modo in cui le persone cercano al modo in cui i siti vengono costruiti.',
+    offLabel: 'Off-screen:',
+    off: ['Corsa', 'Sport', 'Design', 'Prodotti digitali'],
+    more: 'Di più su di me',
+    metaTitle: 'Chi sono — Matteo Giordani',
+    metaDescription: 'SEO Specialist e Front-End Developer: una formazione tra informatica e comunicazione, al lavoro dove ricerca e siti web si incontrano.',
+    pageH1: 'Prima la tecnologia. _Poi_ la comunicazione. Ora *entrambe.*',
+    equationLabel: 'In breve',
+    equation: [
+      { a: 'Informatica', b: 'Diploma tecnico' },
+      { a: 'Comunicazione & Marketing', b: 'Laurea triennale · Università di Pavia' },
+      { a: 'Ricerca + siti web', b: 'Il mio lavoro oggi' },
+    ],
+    howTitle: 'Come _lavoro_',
+    how: [
+      'Parli con la persona che fa il lavoro, dalla prima call alla messa online.',
+      'Le correzioni si fanno nel codice, non si consegnano come una lista.',
+      'Ogni modifica viene misurata prima e dopo, con Lighthouse e Search Console.',
+    ],
+    toolsTitle: 'Tool',
+    more2: '[Altro su Matteo da scrivere: come hai iniziato, cosa ti piace di questo lavoro]',
+  },
+
+  insights: {
+    h2: 'Insights, *in parole semplici*',
+    text: 'Note brevi su ricerca, velocità e siti web, per chi gestisce un’attività.',
+    button: 'Tutti gli insights',
+    draft: '[BOZZA]',
+    items: [
+      { tag: 'SEO', title: 'Il meta title è la tua insegna su Google' },
+      { tag: 'Performance', title: 'Core Web Vitals, spiegati a chi ha un ristorante' },
+      { tag: 'Ottimizzazione', title: 'Sito nuovo o sito migliore? Come capirlo' },
+    ],
+    metaTitle: 'Insights — Matteo Giordani',
+    metaDescription: 'Note brevi su ricerca, velocità e siti web, per chi gestisce un’attività.',
+    empty: 'Gli articoli sono in scrittura. [BOZZA — pubblica il primo articolo o nascondi questa pagina]',
+  },
+
+  contact: {
+    h2: 'Raccontami *il tuo sito*',
+    text: 'Qualche dettaglio e ti rispondo per fissare la call. [Tempi di risposta da confermare]',
+    need: 'Di cosa hai bisogno?',
+    needChoose: 'Scegli un’opzione',
+    needs: ['Farmi trovare su Google', 'Un sito più veloce', 'Sistemare o rifare il sito', 'Non lo so ancora'],
+    name: 'Nome',
+    email: 'Email',
+    website: 'Sito web',
+    message: 'Vuoi aggiungere altro?',
+    optional: '(facoltativo)',
+    messagePlaceholder: 'Il sito non porta prenotazioni, è lento sul telefono, non so da dove partire…',
+    privacy: 'Ho letto l’{link} e accetto di essere ricontattato per la mia richiesta.',
+    privacyLink: 'informativa sulla privacy',
+    submit: 'Prenota una call',
+    errors: {
+      need: 'Scegli di cosa hai bisogno, anche “Non lo so ancora”.',
+      name: 'Aggiungi il tuo nome, così so con chi sto parlando.',
+      email: 'Aggiungi un indirizzo email, ad esempio nome@attivita.it.',
+      privacy: 'Spunta la casella per accettare l’informativa, altrimenti non posso risponderti.',
+    },
+    success: 'Si è aperta la tua app di posta con la richiesta già compilata. Inviala e ti rispondo per fissare la call.',
+    direct: 'Oppure scrivimi direttamente:',
+    instagram: 'Instagram [da aggiungere]',
+    metaTitle: 'Contatti — Matteo Giordani',
+    metaDescription: 'Raccontami il tuo sito e prenota una prima call, senza impegno.',
+  },
+
+  ctaBand: { h2: 'Facciamo *lavorare di più* il tuo sito.' },
+
+  servicePage: {
+    switcherLabel: 'Servizi',
+    seeIncluded: 'Cosa è incluso',
+    note: 'Un primo sguardo al tuo sito, senza impegno.',
+    tryIt: 'Prova',
+    incH2: 'Ogni controllo, *nel punto della pagina che tocca.*',
+    viewVisitors: 'Cosa vedono i visitatori',
+    viewGoogle: 'Cosa legge Google',
+    viewLabel: 'Vista della pagina',
+    checksLabel: 'Controlli',
+    howH2: 'Quattro passaggi. *Nessuna sorpresa.*',
+    howText: 'Gli stessi per ogni progetto, così sai sempre cosa sta succedendo e perché.',
+    steps: [
+      { word: 'Call', mono: 'Conoscersi', text: 'Guardiamo insieme il tuo sito. Tu mi racconti l’attività, io faccio le domande che contano.' },
+      { word: 'Analisi', mono: 'Prima si misura', text: 'Misuro e trovo cosa frena il sito, in ordine di impatto.' },
+      { word: 'Lavoro', mono: 'Sul sito', text: 'Intervengo direttamente nel codice e ti spiego ogni modifica in parole semplici.' },
+      { word: 'Misura', mono: 'Prima e dopo', text: 'Stessi strumenti, stesse pagine, confronto onesto. Poi decidiamo i passi successivi.' },
+    ],
+    relatedH2: 'Parlano i lavori. *Guardali prendere forma.*',
+    relatedText: 'Progetti in cui questo servizio ha fatto la differenza, con il contesto dietro ogni scelta.',
+    scopeH2: 'Il prezzo dipende *dal tuo sito.*',
+    scopeText: 'Nessun listino a numero di pagine: conta quello che ogni pagina deve fare. Quattro fattori definiscono il lavoro. [Conferma il tuo approccio ai prezzi]',
+    scopeLink: 'Raccontami il tuo sito',
+    scope: [
+      { title: 'Quanto è grande il sito', text: 'Dieci pagine costruite sullo stesso modello non sono lo stesso lavoro di dieci pagine tutte diverse.' },
+      { title: 'Da dove parte', text: 'Un sito con pochi problemi risolvibili richiede meno lavoro di uno costruito su basi fragili.' },
+      { title: 'Cosa conta prima', text: 'Visibilità, velocità o entrambe: le priorità le scegliamo insieme.' },
+      { title: 'Una tantum o continuativo', text: 'Un intervento mirato, oppure un affiancamento mensile con controlli e correzioni in Search Console. [conferma se offri lavoro continuativo]' },
+    ],
+    faqH2: 'Cosa cercano *i titolari.*',
+    faqText: 'Le domande che sento più spesso, con la risposta che darei durante una call.',
+    faqAsk: 'Fai la tua domanda',
+    ctaH2: 'Il passo successivo *parte dal tuo sito.*',
+    ctaText: 'Mandami l’indirizzo del tuo sito, o raccontami cosa non funziona. Ti rispondo con cosa guarderei per primo. [Tempi di risposta da confermare]',
+    regions: {
+      tab: 'il titolo nella scheda del browser e su Google',
+      url: 'l’indirizzo della pagina',
+      nav: 'il menu',
+      h1: 'il titolo principale',
+      text: 'il testo di apertura',
+      cta: 'il pulsante di prenotazione',
+      img: 'la foto principale',
+      h2: 'i titoli delle sezioni',
+      local: 'indirizzo e contatti',
+      widget: 'un widget di chat esterno',
+      footer: 'il footer',
+      page: 'l’intera pagina',
+    },
+  },
+
+  tools: {
+    desktop: 'Desktop',
+    mobile: 'Mobile',
+    metaTitle: 'Meta title',
+    metaDescription: 'Meta description',
+    snippetTitle: 'Trattoria Esempio — Cucina pavese in centro a Pavia',
+    snippetDescription: 'Piatti della tradizione pavese, a pranzo e a cena, a due passi dal centro. Prenota un tavolo online in pochi secondi.',
+    snippetRule: 'Regola pratica: circa 60 caratteri per il titolo, 155 per la descrizione. Google taglia in base ai pixel, quindi è un’indicazione, non una legge.',
+    lcpLabel: 'Largest Contentful Paint',
+    zones: ['Buono', 'Da migliorare', 'Scarso'],
+    lcpFooter: [
+      { k: 'LCP', v: '≤ 2,5 s', t: 'Il contenuto principale appare' },
+      { k: 'INP', v: '≤ 200 ms', t: 'La pagina risponde al tocco' },
+      { k: 'CLS', v: '≤ 0,1', t: 'Niente salta' },
+    ],
+    lcpNote: 'Le soglie pubbliche di Google. Muovi il cursore: non sono misure di un sito reale.',
+    before: 'Prima',
+    after: 'Dopo',
+    notesAfter: [
+      { k: 'avif, 1200w', t: 'Una frazione del peso, stesso aspetto.' },
+      { k: 'width/height', t: 'Spazio riservato: la pagina non salta (CLS).' },
+      { k: 'h1 + alt', t: 'Google e gli screen reader capiscono cos’è.' },
+    ],
+    notesBefore: [
+      { k: '.jpg originale', t: 'La foto a piena risoluzione, presa dalla fotocamera.' },
+      { k: 'nessuna misura', t: 'Il testo salta quando arriva l’immagine.' },
+      { k: 'titolo in div', t: 'Nessun titolo: la pagina non ha un argomento chiaro.' },
+    ],
+  },
+
+  services: {
+    seo: {
+      switcher: 'SEO',
+      name: 'SEO & Technical SEO',
+      metaTitle: 'SEO & Technical SEO — Matteo Giordani',
+      metaDescription: 'Titoli chiari, pagine leggibili, una struttura che Google capisce. SEO per attività, verificata in Search Console e spiegata in parole semplici.',
+      h1a: 'Fatti trovare da chi',
+      h1b: 'ti sta già cercando.',
+      lead: 'Titoli chiari, pagine leggibili, una struttura che Google capisce.',
+      paragraph:
+        'Guardo come le persone cercano attività come la tua, poi faccio in modo che le tue pagine rispondano: cosa legge Google, cosa cliccano le persone e cosa impedisce l’una o l’altra cosa. Verificato in Search Console, spiegato in parole semplici.',
+      toolTitle: 'Il tuo risultato su Google',
+      toolSub: 'Scrivilo e vedilo come lo vedranno le persone.',
+      incPara:
+        'Parto dalla tua attività e dalle persone che vuoi raggiungere. Poi collego ricerca, contenuti e sito, così ogni pagina ha un compito e Google capisce qual è.',
+      checks: [
+        { title: 'Prima la tua attività', text: 'Cosa vendi, a chi e dove. Le ricerche che vale la pena vincere partono da qui.', region: 'text' },
+        { title: 'Analisi delle ricerche', text: 'Le parole che usano davvero i tuoi clienti e quale pagina deve rispondere a ognuna.', region: 'h2' },
+        { title: 'Meta title e description', text: 'Le due righe che le persone leggono prima di scegliere su chi cliccare. Scritte prima di tutto per loro.', region: 'tab' },
+        { title: 'Titoli e struttura dei contenuti', text: 'Un H1 chiaro per pagina e sezioni che rispondono a domande reali.', region: 'h1' },
+        { title: 'Indicizzazione', text: 'Pagine che Google può raggiungere e indicizzare. Quelle che non deve vedere, tenute fuori.', region: 'url' },
+        { title: 'Link interni e architettura', text: 'Una struttura che porta le persone, e Google, alle pagine che contano.', region: 'nav' },
+        { title: 'Ricerca locale', text: 'Pagine che hanno senso per chi cerca vicino a te.', region: 'local' },
+        { title: 'Search Console, spiegata', text: 'Configurata, letta e tradotta: cosa migliora, cosa no e perché.', region: 'page' },
+      ],
+      related: [
+        { slug: 'ezdirect', badge: 'Cliente', cap: 'Sito web · SEO', text: 'Metadati, technical SEO e Search Console sul nuovo sito.' },
+        { slug: 'the-butcher', badge: 'Concept', cap: 'SEO locale · Redesign', text: 'Una macelleria-ristorante locale, ripensata per la ricerca locale.' },
+      ],
+      faq: [
+        { q: 'Quanto ci vuole per vedere risultati su Google?', a: 'Dipende dal tuo sito e dai tuoi concorrenti. Le correzioni tecniche possono essere recepite in qualche settimana; i posizionamenti di solito si muovono nell’arco di mesi. Vedrai i progressi in Search Console strada facendo, non una promessa di posizioni.' },
+        { q: 'Puoi garantirmi il primo posto su Google?', a: 'No, e nessuno può farlo onestamente. Quello che posso fare è togliere ciò che frena il tuo sito e misurare cosa cambia.' },
+        { q: 'Modificare il sito farà calare i posizionamenti attuali?', a: 'Non se la modifica è pianificata: contenuti utili mantenuti, vecchi indirizzi reindirizzati, niente di importante perso. Fa parte del lavoro.' },
+        { q: 'I testi devo scriverli io?', a: 'Tu conosci la tua attività; io so come le persone la cercano. Lavoriamo sui testi insieme, e io mi occupo di titoli, descrizioni e struttura. [Conferma cosa includi nella scrittura dei testi]' },
+      ],
+    },
+    performance: {
+      switcher: 'Performance',
+      name: 'Performance & Core Web Vitals',
+      metaTitle: 'Performance & Core Web Vitals — Matteo Giordani',
+      metaDescription: 'Un sito che sul telefono va veloce. Core Web Vitals misurati con i segnali di Google, corretti nel codice, misurati di nuovo.',
+      h1a: 'Un sito che sembra',
+      h1b: 'veloce sul telefono.',
+      lead: 'Misurato con i segnali che usa Google, corretto nel codice, misurato di nuovo.',
+      paragraph:
+        'I Core Web Vitals sono le misure con cui Google valuta quanto velocemente una pagina mostra i contenuti, quanto rapidamente risponde e quanto resta stabile mentre si carica. Trovo cosa rallenta il tuo sito (immagini, script, font, layout) e lo correggo direttamente lì.',
+      toolTitle: 'Dove si colloca la tua pagina?',
+      toolSub: 'Le soglie di Google per la velocità di caricamento.',
+      incPara:
+        'La velocità non è un numero solo. Guardo cosa aspettano davvero i tuoi visitatori, sui telefoni che usano davvero, e correggo le cause, non il punteggio.',
+      checks: [
+        { title: 'Analisi Lighthouse', text: 'Test di laboratorio ripetuti sulle pagine chiave, prima su mobile, per trovare i veri colli di bottiglia.', region: 'page' },
+        { title: 'Core Web Vitals', text: 'LCP, INP e CLS: caricamento, reattività e stabilità visiva, misurati e spiegati.', region: 'h1' },
+        { title: 'Immagini', text: 'La dimensione giusta, formati moderni, caricate quando servono. Spesso il guadagno più grande.', region: 'img' },
+        { title: 'Script e servizi esterni', text: 'Chat, tracciamenti e plugin che rallentano tutto, ridimensionati o rimossi.', region: 'widget' },
+        { title: 'Font e stabilità del layout', text: 'Testo che appare subito e pagine che non saltano durante il caricamento.', region: 'text' },
+        { title: 'Test reali su mobile', text: 'Verificato su telefoni e connessioni più lenti, dove sono i tuoi clienti.', region: 'cta' },
+        { title: 'Prima e dopo', text: 'Stesse pagine, stessi strumenti, confronto onesto.', region: 'page' },
+        { title: 'Dati reali in Search Console', text: 'Cosa vivono i visitatori veri nel tempo, non un singolo test.', region: 'page' },
+      ],
+      related: [
+        { slug: 'ezdirect', badge: 'Cliente', cap: 'Performance · Core Web Vitals', text: 'Core Web Vitals e Lighthouse sul nuovo sito. Prima/dopo: [DATI REALI].' },
+        { slug: 'the-butcher', badge: 'Concept', cap: 'Performance · UX mobile', text: 'Un redesign pensato fin dall’inizio per la velocità su mobile.' },
+      ],
+      faq: [
+        { q: 'Perché la velocità conta per una piccola attività?', a: 'Spesso le persone cercano un’attività locale dal telefono, in movimento. Una pagina lenta le perde prima ancora che leggano cosa offri.' },
+        { q: 'Il punteggio Lighthouse cambia ogni volta. Perché?', a: 'I test di laboratorio variano con la rete e il dispositivo. Per questo confronto più misurazioni e guardo anche i dati dei visitatori reali in Search Console.' },
+        { q: 'Quando vedrò il miglioramento in Search Console?', a: 'I dati dei visitatori reali sono raccolti su una finestra mobile di 28 giorni, quindi i miglioramenti compaiono gradualmente nell’arco di circa un mese.' },
+        { q: 'Mi serve un sito nuovo per essere veloce?', a: 'Di solito no. Molti siti diventano molto più veloci con interventi mirati. Se il problema sono le fondamenta, te lo dico.' },
+      ],
+    },
+    'front-end': {
+      switcher: 'Front-end',
+      name: 'Sviluppo front-end',
+      metaTitle: 'Sviluppo front-end — Matteo Giordani',
+      metaDescription: 'Non una lista di problemi: modifiche fatte direttamente sul tuo sito. Layout, mobile, form e dettagli, costruiti pensando a ricerca e velocità.',
+      h1a: 'Le correzioni finiscono',
+      h1b: 'nel codice.',
+      lead: 'Non una lista di problemi: modifiche fatte direttamente sul tuo sito.',
+      paragraph:
+        'Costruisco e sistemo la parte del sito che le persone vedono e usano davvero: layout, mobile, form, i dettagli. Ogni modifica tiene conto di ricerca e velocità, perché è nel codice che SEO e performance succedono davvero.',
+      toolTitle: 'Stessa immagine, codice migliore',
+      toolSub: 'Com’è fatta una correzione front-end.',
+      incPara:
+        'Da un singolo form che non funziona a intere sezioni nuove: lavoro sul sito che hai, con gli strumenti che già usa, e te lo lascio più facile da gestire di come l’ho trovato.',
+      checks: [
+        { title: 'Nuove pagine e sezioni', text: 'Costruite per integrarsi con il tuo sito, strutturate per la ricerca fin dalla prima riga.', region: 'h2' },
+        { title: 'Layout responsive', text: 'Telefono, tablet e desktop, testati su dispositivi veri, non solo ridimensionando la finestra.', region: 'nav' },
+        { title: 'Implementazione del design', text: 'Da un file di design a pagine funzionanti, fedelmente.', region: 'text' },
+        { title: 'Debugging', text: 'Layout rotti, form che non vanno, problemi che compaiono solo su un telefono.', region: 'cta' },
+        { title: 'Modifiche a CMS e CRM', text: 'Interventi sui sistemi dietro il sito, come il lavoro sul CRM di ezdirect.it.', region: 'footer' },
+        { title: 'Accessibilità di base', text: 'Uso da tastiera, contrasto, etichette e testi alternativi, perché tutti possano usare il sito.', region: 'img' },
+        { title: 'HTML semantico', text: 'Una struttura che capiscono sia Google sia gli screen reader.', region: 'h1' },
+        { title: 'Handover chiaro', text: 'Modifiche spiegate, così sai cosa è stato fatto e perché.', region: 'page' },
+      ],
+      related: [
+        { slug: 'ezdirect', badge: 'Cliente', cap: 'Front-end · CRM', text: 'Sviluppo del nuovo sito, implementazione del design e modifiche al CRM.' },
+        { slug: 'trainly', badge: 'Personale', cap: 'Prodotto · UX · Front-end', text: 'Un prodotto per chi corre, progettato e sviluppato mobile-first.' },
+      ],
+      faq: [
+        { q: 'Puoi lavorare sul mio sito attuale?', a: 'Sì, è la maggior parte del lavoro. Parto da quello che hai e cambio quello che serve. [Conferma le piattaforme: WordPress, Shopify, custom…]' },
+        { q: 'Potrò ancora aggiornare il sito da solo?', a: 'È proprio l’obiettivo: dove possibile mantengo il tuo modo di modificare il sito e ti spiego tutto ciò che cambia.' },
+        { q: 'Ti occupi anche di design?', a: 'Sì, per siti e interfacce: Trainly e il concept di The Butcher ne sono un esempio. [Conferma cosa includi nel design]' },
+        { q: 'Realizzi siti nuovi da zero?', a: 'Ho contribuito a costruire il nuovo ezdirect.it. [Conferma le dimensioni dei progetti che accetti]' },
+      ],
+    },
+  },
+
+  projects: {
+    ezdirect: {
+      name: 'ezdirect.it',
+      badge: 'Cliente',
+      cap: 'Progetto cliente · Sito web · SEO',
+      filter: 'website',
+      cardText: 'Front-End Developer & SEO Specialist sul nuovo sito, online da settembre 2026: sviluppo, modifiche al CRM, metadati, Core Web Vitals.',
+      tags: ['SEOzen', 'Search Console', 'Lighthouse'],
+      metaTitle: 'ezdirect.it — Front-end & SEO — Matteo Giordani',
+      metaDescription: 'Sviluppo front-end e SEO sul nuovo ezdirect.it, online da settembre 2026: sviluppo, modifiche al CRM, metadati e Core Web Vitals.',
+      h1: 'ezdirect.it, _un nuovo sito_ *online da settembre 2026.*',
+      lead: 'Front-End Developer & SEO Specialist sul nuovo sito: sviluppo, implementazione del design, modifiche al CRM, metadati e Core Web Vitals.',
+      facts: [
+        { label: 'Ruolo', value: 'Front-End Developer & SEO Specialist' },
+        { label: 'Lancio', value: 'Settembre 2026' },
+        { label: 'Tool', value: 'SEOzen · Search Console · Lighthouse' },
+      ],
+      sections: [
+        { title: 'Overview', body: 'Un nuovo sito per ezdirect.it, online da settembre 2026. Ho lavorato su entrambi i lati: il front-end che usano le persone e le parti che legge Google.' },
+        { title: 'Challenge', body: '[DA SCRIVERE: cosa mancava al vecchio sito, di cosa aveva bisogno l’azienda]' },
+        { title: 'Approach', body: '[DA SCRIVERE: come è stato organizzato il lavoro e perché]' },
+        {
+          title: 'Technical work',
+          list: [
+            'Sviluppo front-end e implementazione del design',
+            'Lavoro sull’interfaccia e debugging',
+            'Modifiche al CRM',
+            'Meta title e description',
+            'Technical SEO',
+            'Core Web Vitals e Lighthouse',
+            'Search Console, con SEOzen',
+          ],
+        },
+        { title: 'Key learnings', body: '[DA SCRIVERE]' },
+      ],
+    },
+    trainly: {
+      name: 'Trainly',
+      badge: 'Personale',
+      cap: 'Progetto personale · App mobile',
+      filter: 'mobile',
+      cardText: 'Un prodotto per chi corre, progettato e sviluppato mobile-first.',
+      tags: ['Prodotto', 'UX', 'Front-end'],
+      metaTitle: 'Trainly — un prodotto per chi corre — Matteo Giordani',
+      metaDescription: 'Trainly, un progetto personale: un prodotto per chi corre, progettato e sviluppato mobile-first.',
+      h1: 'Trainly, _un prodotto per chi corre,_ *nato mobile-first.*',
+      lead: 'Un progetto personale: prodotto, UX e front-end, pensati per il telefono fin dalla prima schermata.',
+      facts: [
+        { label: 'Tipo', value: 'Progetto personale' },
+        { label: 'Ruolo', value: 'Prodotto · UX · Front-end · Mobile' },
+      ],
+      sections: [
+        { title: 'Il prodotto', body: '[DA SCRIVERE: cosa fa Trainly e per chi è]' },
+        { title: 'Scelte di UX', body: '[DA SCRIVERE: le scelte di design principali e il perché]' },
+        { title: 'Note sul front-end', body: '[DA SCRIVERE: come è costruito]' },
+        { title: 'Cosa ho imparato', body: '[DA SCRIVERE]' },
+      ],
+    },
+    'the-butcher': {
+      name: 'The Butcher Ristomacelleria',
+      badge: 'Concept di redesign',
+      cap: 'Concept · Attività locale',
+      filter: 'concept',
+      cardText: 'Come una ristomacelleria locale potrebbe trasformare le ricerche in tavoli prenotati.',
+      tags: ['Web design', 'SEO locale', 'UX'],
+      metaTitle: 'The Butcher Ristomacelleria — concept di redesign — Matteo Giordani',
+      metaDescription: 'Un concept di redesign, non un progetto commissionato: come una ristomacelleria locale potrebbe trasformare le ricerche in tavoli prenotati.',
+      h1: 'The Butcher, _un concept di redesign_ *per la ricerca locale.*',
+      lead: 'Un concept di mia iniziativa, non un progetto commissionato: come una ristomacelleria locale potrebbe trasformare le ricerche in tavoli prenotati.',
+      facts: [
+        { label: 'Tipo', value: 'Concept di redesign (non commissionato)' },
+        { label: 'Focus', value: 'Web design · SEO locale · UX' },
+      ],
+      sections: [
+        { title: 'L’esperienza attuale', body: '[DA SCRIVERE: cosa trova oggi un visitatore]' },
+        { title: 'L’esperienza proposta', body: '[DA SCRIVERE: cosa cambia e perché]' },
+        { title: 'SEO locale e struttura delle pagine', body: '[DA SCRIVERE: il ragionamento dietro la struttura]' },
+      ],
+    },
+  },
+
+  projectPage: {
+    visuals: 'Immagini',
+    evidence: 'Evidence',
+    next: 'Progetto successivo',
+    prev: 'Progetto precedente',
+    current: 'Attuale',
+    proposed: 'Proposto',
+    desktop: 'desktop',
+    mobile: 'mobile',
+    screenshot: 'screenshot da aggiungere',
+  },
+
+  footer: {
+    services: 'Servizi',
+    work: 'Lavori',
+    resources: 'Risorse',
+    contact: 'Contatti',
+    privacy: 'Privacy',
+    vat: '[P.IVA se applicabile]',
+    location: 'Italia',
+  },
+
+  privacy: {
+    metaTitle: 'Informativa sulla privacy — Matteo Giordani',
+    h1: 'Informativa sulla *privacy*',
+    body: '[INFORMATIVA PRIVACY DA AGGIUNGERE — testo GDPR, titolare del trattamento, finalità, conservazione, diritti]',
   },
 };
 
 export default it;
-export type { DeepPartial };

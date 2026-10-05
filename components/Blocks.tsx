@@ -120,3 +120,17 @@ export function PhoneFrame({ children, className = '' }: { children: React.React
 }
 
 export const homeWorkHref = (l: Locale) => `${href.home(l)}#work`;
+
+/** Matteo's photo (400×400 source), cropped by its container with object-fit. */
+export function Photo({ alt, className = '', priority }: { alt: string; className?: string; priority?: boolean }) {
+  return (
+    <img
+      src="/img/matteopfp.jpg"
+      alt={alt}
+      width={400}
+      height={400}
+      className={`photo ${className}`}
+      {...(priority ? { fetchPriority: 'high' as const } : { loading: 'lazy' as const, decoding: 'async' as const })}
+    />
+  );
+}

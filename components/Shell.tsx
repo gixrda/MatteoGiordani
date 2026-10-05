@@ -4,6 +4,7 @@ import { getDict } from '@/lib/i18n';
 import { Nav } from './Nav';
 import { Footer } from './Footer';
 import { RevealObserver } from './RevealObserver';
+import { GlowTracker } from './GlowTracker';
 import '@/styles/tokens.css';
 import '@/styles/base.css';
 import '@/styles/components.css';
@@ -30,6 +31,7 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
         <main id="main">{children}</main>
         <Footer locale={locale} />
         <RevealObserver />
+        <GlowTracker />
       </body>
     </html>
   );

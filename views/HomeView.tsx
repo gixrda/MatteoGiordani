@@ -2,17 +2,18 @@ import Link from 'next/link';
 import { getDict } from '@/lib/i18n';
 import { href, PROJECT_SLUGS, type Locale } from '@/lib/routes';
 import { PERSON, SITE_URL, bookHref } from '@/lib/site';
-import { CtaBand, SecHead, Slot } from '@/components/Blocks';
+import { BookButton, CtaBand, Photo, SecHead } from '@/components/Blocks';
 import { ContactForm } from '@/components/ContactForm';
-import { HeroSearchBar } from '@/components/HeroSearchBar';
 import { Icon } from '@/components/Icon';
 import { JsonLd } from '@/components/JsonLd';
 import { LayersSection } from '@/components/LayersSection';
 import { PortraitCard } from '@/components/PortraitCard';
+import { RotatingWords } from '@/components/RotatingWords';
 import { ProcessScene } from '@/components/ProcessScene';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Rich } from '@/components/Rich';
 import { StickyBar } from '@/components/StickyBar';
+import { ToolMarquee } from '@/components/ToolMarquee';
 import { WorkGrid } from '@/components/WorkGrid';
 import '@/styles/home.css';
 import '@/styles/build.css';
@@ -52,9 +53,13 @@ export function HomeView({ locale }: { locale: Locale }) {
       <section id="hero" className="hero wrap" aria-labelledby="hero-title">
         <div className="hero-grid">
           <div className="hero-copy">
-            <h1 id="hero-title" className="d-l"><Rich text={h.h1} /></h1>
+            <h1 id="hero-title" className="d-l">
+              <span className="vh">{h.h1}</span>
+              <span aria-hidden="true">{h.h1Lead} </span>
+              <RotatingWords words={h.h1Words} fallback={h.h1Static} />
+            </h1>
             <p className="lead">{h.lead}</p>
-            <HeroSearchBar contactHref={href.contact(locale)} label={h.searchLabel} placeholders={h.searchPlaceholders} done={h.searchDone} pickTime={h.pickTime} book={t.ui.book} />
+            <BookButton locale={locale} />
             <div className="asks">
               <p className="cap">{h.askLabel}</p>
               <ul>
@@ -71,7 +76,7 @@ export function HomeView({ locale }: { locale: Locale }) {
             </ul>
           </div>
           <PortraitCard>
-            <Slot label="Portrait of Matteo" note={h.portrait} className="portrait-slot" />
+            <Photo alt={h.photoAlt} className="portrait-slot" priority />
             <div className="fchip fchip-id">
               <span className="mono-mark sm" aria-hidden="true">MG</span>
               <span><b>{h.chipHello}</b><span className="caption">{PERSON.title}</span></span>
@@ -82,18 +87,7 @@ export function HomeView({ locale }: { locale: Locale }) {
             </div>
           </PortraitCard>
         </div>
-        <div className="marquee">
-          <p className="cap">{h.toolsLabel}</p>
-          <div className="marquee-track">
-            {[0, 1].map((n) => (
-              <ul key={n} aria-hidden={n === 1 || undefined}>
-                {h.tools.map((tool) => (
-                  <li key={tool}><Rich text={tool} /><Icon name="mark" size={16} /></li>
-                ))}
-              </ul>
-            ))}
-          </div>
-        </div>
+        <ToolMarquee label={h.toolsLabel} tools={h.tools} />
       </section>
 
       {/* Services (§7.3) */}
@@ -121,7 +115,7 @@ export function HomeView({ locale }: { locale: Locale }) {
         <SecHead id="cmp-title" title={t.comparison.h2} text={t.comparison.text} />
         <div className="cmp">
           {[t.comparison.left, t.comparison.right].map((side, i) => (
-            <div key={side.title} className={`cmp-card${i ? ' cmp-yes' : ''}`}>
+            <div key={side.title} className={`cmp-card glow${i ? ' cmp-yes' : ''}`}>
               <h3 className="cmp-title s-m">
                 <span className="cmp-ic"><Icon name={i ? 'check' : 'x'} size={14} /></span>
                 {side.title}
@@ -198,7 +192,7 @@ export function HomeView({ locale }: { locale: Locale }) {
             </ul>
           </div>
           {t.proof.testimonial && (
-            <div className="bento-quote">
+            <div className="bento-quote glow">
               <p className="cap">{t.proof.testimonialCap}</p>
               <p className="s-m"><Rich text={t.proof.testimonial} /></p>
             </div>
@@ -219,7 +213,7 @@ export function HomeView({ locale }: { locale: Locale }) {
             </div>
             <Link href={href.about(locale)} className="tlink">{t.about.more}<Icon name="arrow-right" className="nudge" /></Link>
           </div>
-          <Slot label="Matteo" note={t.about.photo} className="about-photo" />
+          <Photo alt={h.photoAlt} className="about-photo" />
         </div>
       </section>
 
@@ -264,7 +258,7 @@ export function ContactBlock({ locale, as: H = 'h2' }: { locale: Locale; as?: 'h
   const c = t.contact;
   return (
     <div className="contact">
-      <Slot label="Matteo" note={c.photo} className="contact-photo" />
+      <Photo alt={t.hero.photoAlt} className="contact-photo" />
       <div className="stack">
         <H id="contact-title" className={`${H === 'h1' ? 'd-l' : 'd-m'} reveal`}><Rich text={c.h2} /></H>
         <p className="body"><Rich text={c.text} /></p>

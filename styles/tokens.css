@@ -55,6 +55,8 @@
   --act: #9aa0ff;
   --sh: 0 30px 60px -30px rgba(0, 0, 0, .6);
   --err: #ff9a9a;
+  --neg: #ff6b6b; /* card light: problem */
+  --pos: #4ade80; /* card light: solution */
   color-scheme: dark;
 }
 
@@ -71,9 +73,34 @@
   --act: #323bc2;
   --sh: 0 30px 60px -34px rgba(26, 29, 74, .35);
   --err: #b3261e;
+  --neg: #e5484d;
+  --pos: #22a55a;
   color-scheme: light;
 }
 
 @media (max-width: 900px) {
   :root { --section: 72px; }
+}
+
+/* Primary button gradient (brand ink → periwinkle light on hover). Registered so the gradient itself can transition. */
+@property --gb-x { syntax: '<percentage>'; initial-value: 11%; inherits: false; }
+@property --gb-y { syntax: '<percentage>'; initial-value: 140%; inherits: false; }
+@property --gb-sx { syntax: '<percentage>'; initial-value: 150%; inherits: false; }
+@property --gb-sy { syntax: '<percentage>'; initial-value: 180%; inherits: false; }
+@property --gb-c1 { syntax: '<color>'; initial-value: #3c46d6; inherits: false; }
+@property --gb-c2 { syntax: '<color>'; initial-value: #323bc2; inherits: false; }
+@property --gb-c3 { syntax: '<color>'; initial-value: #2b33ad; inherits: false; }
+@property --gb-c4 { syntax: '<color>'; initial-value: #262d9c; inherits: false; }
+@property --gb-s1 { syntax: '<percentage>'; initial-value: 37%; inherits: false; }
+@property --gb-s2 { syntax: '<percentage>'; initial-value: 61%; inherits: false; }
+@property --gb-s3 { syntax: '<percentage>'; initial-value: 82%; inherits: false; }
+@property --gb-angle { syntax: '<angle>'; initial-value: 20deg; inherits: false; }
+@property --gb-b1 { syntax: '<color>'; initial-value: rgba(253, 254, 235, .12); inherits: false; }
+@property --gb-b2 { syntax: '<color>'; initial-value: rgba(154, 160, 255, .55); inherits: false; }
+
+:root {
+  --gb-hover-c1: #9aa0ff;
+  --gb-hover-c2: #6a72f0;
+  --gb-hover-c3: #3c46d6;
+  --gb-hover-c4: #1f2580;
 }

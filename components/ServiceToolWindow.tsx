@@ -11,7 +11,7 @@ type T = Dict['tools'];
 export function ServiceToolWindow({ slug, title, sub, tryIt, t }: { slug: ServiceSlug; title: string; sub: string; tryIt: string; t: T }) {
   const icon = slug === 'seo' ? 'search' : slug === 'performance' ? 'gauge' : 'code';
   return (
-    <div className="toolwin">
+    <div className="toolwin glow">
       <div className="toolwin-head">
         <span className="toolwin-ic"><Icon name={icon} size={18} /></span>
         <div>

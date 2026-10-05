@@ -2,7 +2,7 @@
 import { getDict } from '@/lib/i18n';
 import { href, type Locale } from '@/lib/routes';
 import { PERSON, SITE_URL } from '@/lib/site';
-import { Breadcrumb, CtaBand, Slot } from '@/components/Blocks';
+import { Breadcrumb, CtaBand, Photo } from '@/components/Blocks';
 import { JsonLd } from '@/components/JsonLd';
 import { Rich } from '@/components/Rich';
 import { ContactBlock, InsightCards } from './HomeView';
@@ -31,7 +31,7 @@ export function AboutView({ locale }: { locale: Locale }) {
           <p className="body">{a.p2}</p>
           <p className="body"><Rich text={a.more2} /></p>
         </div>
-        <Slot label="Matteo" note={a.photo} className="about-photo" />
+        <Photo alt={t.hero.photoAlt} className="about-photo" priority />
       </section>
 
       <section className="wrap sec" aria-labelledby="eq-title">

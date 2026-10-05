@@ -71,12 +71,11 @@ const en = {
   },
 
   hero: {
-    h1: 'I build websites that _rank, perform_ and *convert.*',
+    h1: 'I build websites that rank, perform and convert.',
+    h1Lead: 'I build websites that',
+    h1Words: ['rank.', 'perform.', 'convert.'],
+    h1Static: 'rank, perform and convert.',
     lead: 'I help businesses get found on Google. SEO and front-end development in one place, from the first check to the code.',
-    searchLabel: 'Your website address',
-    searchPlaceholders: ['yourbusiness.it', 'trattoria-esempio.it', 'palestra-esempio.it', 'studio-esempio.it'],
-    searchDone: "I'll look at {site} before we talk.",
-    pickTime: 'Pick a time',
     askLabel: 'Owners usually ask me',
     asks: [
       { text: "Why can't customers find me on Google?", service: 'seo' as ServiceSlug },
@@ -85,7 +84,7 @@ const en = {
     ],
     trust: ['You talk to the person doing the work', 'Fixes made in the code', 'First call, no commitment'],
     viewWork: 'or view my work',
-    portrait: '[PORTRAIT OF MATTEO — 4:5, warm light]',
+    photoAlt: 'Matteo Giordani at his desk',
     chipHello: "Ciao, I'm Matteo Giordani",
     chipFactTitle: 'ezdirect.it',
     chipFactCap: 'New site live · Sept 2026',
@@ -193,7 +192,6 @@ const en = {
     p2: 'Today, I work across SEO and Front-End development, combining the way people search with the way websites are built.',
     offLabel: 'Off-screen:',
     off: ['Running', 'Sport', 'Design', 'Digital products'],
-    photo: '[Matteo, running or at the desk — 5:4]',
     more: 'More about me',
     // About page
     metaTitle: 'About — Matteo Giordani',
@@ -233,7 +231,6 @@ const en = {
   contact: {
     h2: 'Tell me about *your website*',
     text: "A few details and I'll reply to set up the call. [Reply time to confirm]",
-    photo: '[Matteo on a call — 4:5]',
     need: 'What do you need?',
     needChoose: 'Choose one',
     needs: ['Get found on Google', 'A faster website', 'Fix or rebuild my website', 'Not sure yet'],

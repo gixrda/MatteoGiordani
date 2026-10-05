@@ -25,10 +25,7 @@ const P: Record<string, React.ReactNode> = {
   layers: <path d="m12 4 8.5 4.5L12 13 3.5 8.5 12 4Zm-8.5 8L12 16.5 20.5 12M3.5 15.5 12 20l8.5-4.5" />,
 };
 
-// Asterisk mark used as a separator in the tool marquee (an SVG, not a glyph).
-const MARK = <path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9" />;
-
-export function Icon({ name, size, className }: { name: keyof typeof P | 'mark'; size?: number; className?: string }) {
+export function Icon({ name, size, className }: { name: keyof typeof P; size?: number; className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -43,7 +40,7 @@ export function Icon({ name, size, className }: { name: keyof typeof P | 'mark';
       focusable="false"
       className={className}
     >
-      {name === 'mark' ? MARK : P[name]}
+      {P[name]}
     </svg>
   );
 }

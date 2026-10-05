@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import type { Dict } from '@/content/en';
 import { PERSON } from '@/lib/site';
 import { Icon } from './Icon';
-import { SITE_EVENT, normaliseSite } from './HeroSearchBar';
 
 type Field = 'need' | 'name' | 'email' | 'privacy';
+
+/** Strips protocol, "www." and trailing slashes. */
+const normaliseSite = (v: string) => v.trim().replace(/^[a-z]+:\/\//i, '').replace(/^www\./i, '').replace(/\/+$/, '');
 
 /**
  * Contact form (spec §6.26, §7.10).
@@ -22,9 +24,6 @@ export function ContactForm({ c, privacyHref }: { c: Dict['contact']; privacyHre
   useEffect(() => {
     const q = new URLSearchParams(location.search).get('site');
     if (q) setSite(normaliseSite(q));
-    const on = (e: Event) => setSite((e as CustomEvent<string>).detail);
-    addEventListener(SITE_EVENT, on);
-    return () => removeEventListener(SITE_EVENT, on);
   }, []);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {

@@ -155,7 +155,7 @@ export function ServiceView({ locale, slug }: { locale: Locale; slug: ServiceSlu
           <p className="body">{sp.faqText}</p>
           <a href={`mailto:${PERSON.email}`} className="tlink"><Icon name="mail" />{sp.faqAsk}</a>
         </div>
-        <div className="faq">
+        <div className="faq glow">
           {s.faq.map((f) => (
             <details key={f.q}>
               <summary>
