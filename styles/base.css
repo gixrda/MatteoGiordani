@@ -190,18 +190,14 @@ select.input { appearance: none; background-image: none; padding-right: 40px; }
 .photo-frame { position: relative; isolation: isolate; display: block; }
 .photo-clip {
   display: block; height: 100%; border-radius: inherit; background: var(--sf2);
-  overflow: clip; /* keeps the hover zoom inside the rounded frame */
+  overflow: clip; /* rounds the photo's corners */
 }
-.photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform var(--t-slow) var(--e); }
-/* Soft brand glow under the photo: faint at rest, brighter on hover */
+.photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+/* Fixed brand-coloured halo all around the photo */
 .photo-frame::before {
-  content: ''; position: absolute; z-index: -1; left: 8%; right: 8%; bottom: -40px; height: 50%; pointer-events: none;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--act) 85%, transparent), transparent);
-  filter: blur(30px); opacity: .5; transition: opacity var(--t-slow) var(--e), transform var(--t-slow) var(--e);
-}
-@media (hover: hover) {
-  .photo-frame:hover .photo { transform: scale(1.04); }
-  .photo-frame:hover::before { opacity: 1; transform: translateY(8px) scaleX(1.12); }
+  content: ''; position: absolute; z-index: -1; inset: -6px; border-radius: inherit; pointer-events: none;
+  background: color-mix(in srgb, var(--act) 70%, transparent);
+  filter: blur(32px); opacity: .55;
 }
 
 /* Media placeholder (§6.17) */
