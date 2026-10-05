@@ -11,7 +11,7 @@ const SEG = {
   services: { it: 'servizi', en: 'services' },
   work: { it: 'lavori', en: 'work' },
   about: { it: 'chi-sono', en: 'about' },
-  insights: { it: 'insights', en: 'insights' },
+  insights: { it: 'blog', en: 'blog' },
   contact: { it: 'contatti', en: 'contact' },
   privacy: { it: 'privacy', en: 'privacy' },
 } as const;

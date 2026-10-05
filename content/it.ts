@@ -7,7 +7,7 @@ import type { Dict } from './en';
 const it: Dict = {
   ui: {
     skip: 'Vai al contenuto',
-    nav: { home: 'Home', services: 'Servizi', work: 'Lavori', about: 'Chi sono', insights: 'Insights', contact: 'Contatti' },
+    nav: { home: 'Home', services: 'Servizi', work: 'Lavori', about: 'Chi sono', insights: 'Blog', contact: 'Contatti' },
     navLabel: 'Principale',
     menu: 'Menu',
     close: 'Chiudi',
@@ -50,8 +50,8 @@ const it: Dict = {
     photoAlt: 'Matteo Giordani alla sua scrivania',
     cafePhotoAlt: 'Matteo Giordani prende appunti al tavolino di un caffè',
     chipHello: 'Ciao, sono Matteo Giordani',
-    chipFactTitle: 'ezdirect.it',
-    chipFactCap: 'Nuovo sito live · sett. 2026',
+    chipFactTitle: 'SEO + Front-end',
+    chipFactCap: 'Un solo referente, dall’analisi al codice',
     toolsLabel: 'I tool che uso ogni giorno',
     tools: ['SEOzen', 'Google Search Console', 'Lighthouse', 'Claude', 'ChatGPT', 'Figma', 'n8n', 'Adobe', 'Photoshop', 'HTML', 'CSS', 'JavaScript'],
   },
@@ -184,16 +184,16 @@ const it: Dict = {
   },
 
   insights: {
-    h2: 'Insights, *in parole semplici*',
+    h2: 'Il blog, *in parole semplici*',
     text: 'Note brevi su ricerca, velocità e siti web, per chi gestisce un’attività.',
-    button: 'Tutti gli insights',
+    button: 'Tutti gli articoli',
     draft: '[BOZZA]',
     items: [
       { tag: 'SEO', title: 'Il meta title è la tua insegna su Google' },
       { tag: 'Performance', title: 'Core Web Vitals, spiegati a chi ha un ristorante' },
       { tag: 'Ottimizzazione', title: 'Sito nuovo o sito migliore? Come capirlo' },
     ],
-    metaTitle: 'Insights — Matteo Giordani',
+    metaTitle: 'Blog — Matteo Giordani',
     metaDescription: 'Note brevi su ricerca, velocità e siti web, per chi gestisce un’attività.',
     empty: 'Gli articoli sono in scrittura. [BOZZA — pubblica il primo articolo o nascondi questa pagina]',
   },

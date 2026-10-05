@@ -114,17 +114,21 @@ export const PHOTOS = {
   cafe: { src: '/img/matteocaffe.webp', w: 1200, h: 998 },
 };
 
-/** One of Matteo's photos, cropped by its container with object-fit. */
+/** One of Matteo's photos: the frame carries size/shape (className), the clip holds the hover zoom, the glow sits underneath. */
 export function Photo({ photo = 'portrait', alt, className = '', priority }: { photo?: keyof typeof PHOTOS; alt: string; className?: string; priority?: boolean }) {
   const p = PHOTOS[photo];
   return (
-    <img
-      src={p.src}
-      alt={alt}
-      width={p.w}
-      height={p.h}
-      className={`photo ${className}`}
-      {...(priority ? { fetchPriority: 'high' as const } : { loading: 'lazy' as const, decoding: 'async' as const })}
-    />
+    <span className={`photo-frame ${className}`}>
+      <span className="photo-clip">
+        <img
+          src={p.src}
+          alt={alt}
+          width={p.w}
+          height={p.h}
+          className="photo"
+          {...(priority ? { fetchPriority: 'high' as const } : { loading: 'lazy' as const, decoding: 'async' as const })}
+        />
+      </span>
+    </span>
   );
 }

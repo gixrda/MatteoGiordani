@@ -44,7 +44,7 @@ export type ProjectContent = {
 const en = {
   ui: {
     skip: 'Skip to content',
-    nav: { home: 'Home', services: 'Services', work: 'Work', about: 'About', insights: 'Insights', contact: 'Contact' },
+    nav: { home: 'Home', services: 'Services', work: 'Work', about: 'About', insights: 'Blog', contact: 'Contact' },
     navLabel: 'Main',
     menu: 'Menu',
     close: 'Close menu',
@@ -87,8 +87,8 @@ const en = {
     photoAlt: 'Matteo Giordani at his desk',
     cafePhotoAlt: 'Matteo Giordani taking notes at a café table',
     chipHello: "Ciao, I'm Matteo Giordani",
-    chipFactTitle: 'ezdirect.it',
-    chipFactCap: 'New site live · Sept 2026',
+    chipFactTitle: 'SEO + Front-end',
+    chipFactCap: 'One person, from analysis to code',
     toolsLabel: 'Tools I use every day',
     tools: ['SEOzen', 'Google Search Console', 'Lighthouse', 'Claude', 'ChatGPT', 'Figma', 'n8n', 'Adobe', 'Photoshop', 'HTML', 'CSS', 'JavaScript'],
   },
@@ -223,16 +223,16 @@ const en = {
   },
 
   insights: {
-    h2: 'Insights, *in plain words*',
+    h2: 'The blog, *in plain words*',
     text: 'Short notes on search, speed and websites, for people who run a business.',
-    button: 'All insights',
+    button: 'All articles',
     draft: '[DRAFT]',
     items: [
       { tag: 'SEO', title: 'Your meta title is your shop sign on Google' },
       { tag: 'Performance', title: 'Core Web Vitals, explained for restaurant owners' },
       { tag: 'Optimization', title: 'New website or better website? How to tell' },
     ],
-    metaTitle: 'Insights — Matteo Giordani',
+    metaTitle: 'Blog — Matteo Giordani',
     metaDescription: 'Short notes on search, speed and websites, for people who run a business.',
     empty: 'Articles are being written. [DRAFT — publish the first article or hide this page]',
   },
