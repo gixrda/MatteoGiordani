@@ -12,7 +12,8 @@
   display: inline-grid; vertical-align: bottom; justify-items: start;
   overflow: clip; overflow-clip-margin: .14em; /* the window that makes it a slider; margin keeps italic overhangs and descenders */
 }
-.rot em { grid-area: 1 / 1; white-space: nowrap; transition: transform 800ms var(--e); will-change: transform; }
+/* ease-in-out over 1 s so the slide is actually visible (the site's ease-out curve finishes almost instantly) */
+.rot em { grid-area: 1 / 1; white-space: nowrap; transition: transform 1000ms cubic-bezier(.65, 0, .35, 1); will-change: transform; }
 .rot em[data-state="in"] { transform: none; }
 .rot em[data-state="out"] { transform: translateY(110%); }
 .rot em[data-state="next"] { transform: translateY(-110%); transition: none; }

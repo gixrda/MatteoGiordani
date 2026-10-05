@@ -34,9 +34,9 @@ const it: Dict = {
   },
 
   hero: {
-    h1: 'Costruisco siti posizionati, veloci e che convertono.',
+    h1: 'Costruisco siti che si posizionano, veloci e che convertono.',
     h1Lead: 'Costruisco siti',
-    h1Words: ['posizionati.', 'veloci.', 'che convertono.'],
+    h1Words: ['che si posizionano.', 'veloci.', 'che convertono.'],
     lead: 'Aiuto le attività a farsi trovare su Google. SEO e sviluppo front-end in un unico posto, dalla prima analisi al codice.',
     askLabel: 'Le domande che sento più spesso',
     asks: [

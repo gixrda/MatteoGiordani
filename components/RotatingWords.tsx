@@ -3,14 +3,14 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Headline word slider: every 2.4 s the current word slides down out of its window while the next
+ * Headline word slider: every 3 s the current word slides down out of its window while the next
  * one slides in from above. Runs even with reduced motion (Matteo's explicit choice for this element).
  * Decorative: the h1 carries the full sentence in visually hidden text.
  */
 export function RotatingWords({ words }: { words: string[] }) {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setI((n) => (n + 1) % words.length), 2400);
+    const id = setInterval(() => setI((n) => (n + 1) % words.length), 3000);
     return () => clearInterval(id);
   }, [words.length]);
 
