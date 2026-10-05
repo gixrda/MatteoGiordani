@@ -50,8 +50,8 @@ const it: Dict = {
     photoAlt: 'Matteo Giordani alla sua scrivania',
     cafePhotoAlt: 'Matteo Giordani prende appunti al tavolino di un caffè',
     chipHello: 'Ciao, sono Matteo Giordani',
-    chipFactTitle: 'SEO + Front-end',
-    chipFactCap: 'Un solo referente, dall’analisi al codice',
+    chipFactTitle: 'Pisa',
+    chipFactCap: 'Lavoro con attività in tutta Italia',
     toolsLabel: 'I tool che uso ogni giorno',
     tools: ['SEOzen', 'Google Search Console', 'Lighthouse', 'Claude', 'ChatGPT', 'Figma', 'n8n', 'Adobe', 'Photoshop', 'HTML', 'CSS', 'JavaScript'],
   },
@@ -549,7 +549,7 @@ const it: Dict = {
     contact: 'Contatti',
     privacy: 'Privacy',
     vat: '[P.IVA se applicabile]',
-    location: 'Italia',
+    location: 'Pisa, Italia',
   },
 
   privacy: {

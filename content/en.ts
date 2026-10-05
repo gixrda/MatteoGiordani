@@ -87,8 +87,8 @@ const en = {
     photoAlt: 'Matteo Giordani at his desk',
     cafePhotoAlt: 'Matteo Giordani taking notes at a café table',
     chipHello: "Ciao, I'm Matteo Giordani",
-    chipFactTitle: 'SEO + Front-end',
-    chipFactCap: 'One person, from analysis to code',
+    chipFactTitle: 'Pisa',
+    chipFactCap: 'Working with businesses across Italy',
     toolsLabel: 'Tools I use every day',
     tools: ['SEOzen', 'Google Search Console', 'Lighthouse', 'Claude', 'ChatGPT', 'Figma', 'n8n', 'Adobe', 'Photoshop', 'HTML', 'CSS', 'JavaScript'],
   },
@@ -588,7 +588,7 @@ const en = {
     contact: 'Contact',
     privacy: 'Privacy',
     vat: '[P.IVA if applicable]',
-    location: 'Italy',
+    location: 'Pisa, Italy',
   },
 
   privacy: {
