@@ -31,7 +31,6 @@
 .snip {
   display: grid; gap: 6px; width: 100%; padding: 16px; border-radius: 12px;
   background: var(--brand-paper); color: var(--brand-ink);
-  transition: max-width var(--t-mid) var(--e);
   max-width: 100%;
 }
 .snip[data-mobile] { max-width: 300px; }
