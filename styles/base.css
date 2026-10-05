@@ -201,6 +201,9 @@ select.input { appearance: none; background-image: none; padding-right: 40px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; animation-iteration-count: 1 !important; }
+  /* Exempt by Matteo's choice: tools slider, headline word slider, process example site (all can be paused or are brief). */
+  *:not(.marquee-track ul, .rot em, .bo, .bo *, .timeline-line i), *::before, *::after {
+    transition-duration: 0ms !important; animation-duration: 0ms !important; animation-iteration-count: 1 !important;
+  }
   .reveal.pending { opacity: 1; transform: none; }
 }

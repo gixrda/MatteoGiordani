@@ -7,20 +7,15 @@
 .hero-copy h1 { max-width: 13.5ch; }
 .hero-copy .lead { max-width: 46ch; }
 
-/* Rotating headline word: next word enters from above, current one leaves downward. */
-.rot { display: inline-grid; vertical-align: top; justify-items: start; }
-.rot em {
-  grid-area: 1 / 1; white-space: nowrap;
-  transition: transform 700ms var(--e), opacity 700ms var(--e);
+/* Headline word slider: a one-line window; the next word slides in from above, the current one slides out below. */
+.rot {
+  display: inline-grid; vertical-align: bottom; justify-items: start;
+  overflow: clip; overflow-clip-margin: .14em; /* the window that makes it a slider; margin keeps italic overhangs and descenders */
 }
-.rot em[data-state="in"] { transform: none; opacity: 1; }
-.rot em[data-state="out"] { transform: translateY(.45em); opacity: 0; }
-.rot em[data-state="next"] { transform: translateY(-.45em); opacity: 0; transition: none; }
-.rot-static { display: none; }
-@media (prefers-reduced-motion: reduce) {
-  .rot { display: none; }
-  .rot-static { display: inline; }
-}
+.rot em { grid-area: 1 / 1; white-space: nowrap; transition: transform 800ms var(--e); will-change: transform; }
+.rot em[data-state="in"] { transform: none; }
+.rot em[data-state="out"] { transform: translateY(110%); }
+.rot em[data-state="next"] { transform: translateY(-110%); transition: none; }
 
 /* SuggestionChips (§6.6) */
 .asks { display: grid; gap: 10px; }
@@ -63,7 +58,7 @@
   padding-block: 12px; /* room for the tile shadow */
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
-.marquee-track ul { display: flex; flex: none; gap: 24px; padding-right: 24px; animation: marquee 34s linear infinite; }
+.marquee-track ul { display: flex; flex: none; gap: 24px; padding-right: 24px; animation: marquee 40s linear infinite; will-change: transform; }
 .marquee-track:hover ul { animation-play-state: paused; }
 .tool-tile {
   display: grid; place-items: center; width: 80px; height: 80px; flex: none; border-radius: 22px;
@@ -71,12 +66,7 @@
 }
 .tool-tile svg { width: 36px; height: 36px; }
 .tool-tile b { font-size: 13px; font-weight: 700; letter-spacing: -.01em; }
-@keyframes marquee { to { transform: translateX(-100%); } }
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { mask-image: none; }
-  .marquee-track ul { flex-wrap: wrap; flex: 1; animation: none; row-gap: 16px; }
-  .marquee-track ul[aria-hidden] { display: none; }
-}
+@keyframes marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-100%, 0, 0); } }
 
 @media (max-width: 900px) {
   .hero { padding-top: 48px; }

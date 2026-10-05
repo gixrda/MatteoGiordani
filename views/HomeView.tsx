@@ -56,7 +56,7 @@ export function HomeView({ locale }: { locale: Locale }) {
             <h1 id="hero-title" className="d-l">
               <span className="vh">{h.h1}</span>
               <span aria-hidden="true">{h.h1Lead} </span>
-              <RotatingWords words={h.h1Words} fallback={h.h1Static} />
+              <RotatingWords words={h.h1Words} />
             </h1>
             <p className="lead">{h.lead}</p>
             <BookButton locale={locale} />

@@ -34,10 +34,9 @@ const it: Dict = {
   },
 
   hero: {
-    h1: 'Costruisco siti che si posizionano, vanno veloci e convertono.',
-    h1Lead: 'Costruisco siti che',
-    h1Words: ['si posizionano.', 'vanno veloci.', 'convertono.'],
-    h1Static: 'si posizionano, vanno veloci e convertono.',
+    h1: 'Costruisco siti posizionati, veloci e che convertono.',
+    h1Lead: 'Costruisco siti',
+    h1Words: ['posizionati.', 'veloci.', 'che convertono.'],
     lead: 'Aiuto le attività a farsi trovare su Google. SEO e sviluppo front-end in un unico posto, dalla prima analisi al codice.',
     askLabel: 'Le domande che sento più spesso',
     asks: [
@@ -52,7 +51,7 @@ const it: Dict = {
     chipFactTitle: 'ezdirect.it',
     chipFactCap: 'Nuovo sito live · sett. 2026',
     toolsLabel: 'I tool che uso ogni giorno',
-    tools: ['SEOzen', 'Google Search Console', 'Lighthouse', 'HTML', 'CSS', 'JavaScript', '[aggiungi strumento]'],
+    tools: ['SEOzen', 'Google Search Console', 'Lighthouse', 'Claude', 'ChatGPT', 'Figma', 'n8n', 'Adobe', 'Photoshop', 'HTML', 'CSS', 'JavaScript'],
   },
 
   layers: {

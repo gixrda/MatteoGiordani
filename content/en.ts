@@ -74,7 +74,6 @@ const en = {
     h1: 'I build websites that rank, perform and convert.',
     h1Lead: 'I build websites that',
     h1Words: ['rank.', 'perform.', 'convert.'],
-    h1Static: 'rank, perform and convert.',
     lead: 'I help businesses get found on Google. SEO and front-end development in one place, from the first check to the code.',
     askLabel: 'Owners usually ask me',
     asks: [
@@ -89,7 +88,7 @@ const en = {
     chipFactTitle: 'ezdirect.it',
     chipFactCap: 'New site live · Sept 2026',
     toolsLabel: 'Tools I use every day',
-    tools: ['SEOzen', 'Google Search Console', 'Lighthouse', 'HTML', 'CSS', 'JavaScript', '[add tool]'],
+    tools: ['SEOzen', 'Google Search Console', 'Lighthouse', 'Claude', 'ChatGPT', 'Figma', 'n8n', 'Adobe', 'Photoshop', 'HTML', 'CSS', 'JavaScript'],
   },
 
   layers: {

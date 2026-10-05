@@ -11,7 +11,7 @@ type Props = { steps: Step[]; labels: BuildLabels; play: string; pause: string; 
 /**
  * Home process (spec §6.13, §6.14). Plays by itself (3.4 s per step) once the scene scrolls into view,
  * pauses while it is off-screen. Picking a step or pressing pause stops it; play resumes it.
- * Reduced motion: no autoplay, every step reachable with the buttons.
+ * Autoplays even with reduced motion (Matteo's explicit choice); pause and step buttons always work.
  */
 export function ProcessScene({ steps, labels, play, pause, stepsLabel, illustrative }: Props) {
   const [stage, setStage] = useState(0);
@@ -20,7 +20,6 @@ export function ProcessScene({ steps, labels, play, pause, stepsLabel, illustrat
   const wrap = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { threshold: 0.45 });
     io.observe(wrap.current!);
     setPlaying(true);

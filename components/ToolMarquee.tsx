@@ -1,6 +1,6 @@
 import { TOOL_LOGOS } from '@/content/toolLogos';
 
-/** "Tools I use every day": label + a band of logo tiles scrolling sideways (34 s loop, pauses on hover, static with reduced motion). */
+/** "Tools I use every day": label + a band of logo tiles sliding right → left in a seamless loop (pauses on hover). */
 export function ToolMarquee({ label, tools }: { label: string; tools: string[] }) {
   const shown = tools.filter((t) => !t.startsWith('['));
   const tiles = (hidden?: boolean) => (
@@ -10,7 +10,8 @@ export function ToolMarquee({ label, tools }: { label: string; tools: string[] }
         return (
           <li key={t} className="tool-tile" title={t}>
             {logo ? (
-              <svg viewBox="0 0 24 24" fill={logo.hex} role="img" aria-label={t}><path d={logo.path} /></svg>
+              // Trusted static SVG markup from content/toolLogos.ts. Paths without their own fill use the text colour.
+              <svg viewBox={`0 0 ${logo.w} ${logo.h}`} fill="currentColor" role="img" aria-label={t} dangerouslySetInnerHTML={{ __html: logo.body }} />
             ) : (
               <b>{t}</b>
             )}
