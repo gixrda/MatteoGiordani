@@ -498,11 +498,11 @@ const it: Dict = {
         { label: 'Ruolo', value: 'Prodotto · UX · Front-end · Mobile' },
       ],
       shots: [
-        { src: '/img/trainly/cover.webp', w: 1920, h: 1080, alt: 'Trainly: tre schermate dell’app (Piano, Oggi, Nutrizione) accanto al titolo “L’allenamento per la mezza maratona, deciso da regole e spiegato in chiaro.”' },
-        { src: '/img/trainly/oggi.webp', w: 1600, h: 1200, alt: 'Schermata Oggi di Trainly: prontezza 51/100 con sonno, recupero e sforzo, e i segnali che compongono il punteggio.' },
-        { src: '/img/trainly/piano.webp', w: 1600, h: 1200, alt: 'Schermate Piano e Progressi di Trainly: la settimana come elenco di sedute con intensità, record verificati separati dalle stime.' },
-        { src: '/img/trainly/nutrizione.webp', w: 1600, h: 1200, alt: 'Schermata Nutrizione di Trainly: circa 3100 kcal consigliate con carboidrati, proteine e grassi, accanto alla schermata Oggi.' },
-        { src: '/img/trainly/sistema.webp', w: 1600, h: 1200, alt: 'Design system di Trainly: un accento e tre colori di stato, Instrument Serif e Inter, superfici in vetro.' },
+        { src: '/img/trainly/piano.webp', w: 378, h: 798, alt: 'Schermata Piano di Trainly: la settimana dal 5 all’11 ottobre con sedute, intensità e calorie.' },
+        { src: '/img/trainly/segnali.webp', w: 378, h: 798, alt: 'Dettaglio prontezza di Trainly: l’avviso “Allenati con prudenza” e i segnali che compongono il punteggio, come sonno e HRV.' },
+        { src: '/img/trainly/oggi.webp', w: 378, h: 798, alt: 'Schermata Oggi di Trainly: prontezza 51/100 con sonno, recupero e sforzo.' },
+        { src: '/img/trainly/progressi.webp', w: 378, h: 798, alt: 'Schermata Progressi di Trainly: equivalente mezza maratona 1:26:20, record verificati e tempi stimati.' },
+        { src: '/img/trainly/nutrizione.webp', w: 378, h: 798, alt: 'Schermata Nutrizione di Trainly: circa 3100 kcal consigliate, divise tra carboidrati, proteine e grassi.' },
       ],
       sections: [
         { title: 'Il prodotto', body: '[DA SCRIVERE: cosa fa Trainly e per chi è]' },

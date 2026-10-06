@@ -19,7 +19,7 @@
   --sh-btn: 0 14px 30px -14px rgba(0, 0, 0, .55);
   --sh-media: 0 30px 50px -20px rgba(0, 0, 0, .6);
 
-  /* The only gradients */
+  /* The only gradients (plus the page aura in base.css) */
   --grad-band: linear-gradient(135deg, var(--brand-ink) 0%, var(--sf2) 72%);
   --grad-portrait: linear-gradient(160deg, var(--brand-ink), #14162e 75%);
   --hatch: repeating-linear-gradient(135deg, rgba(50, 59, 194, .05) 0 1px, transparent 1px 10px);
@@ -57,6 +57,12 @@
   --err: #ff9a9a;
   --neg: #ff6b6b; /* card light: problem */
   --pos: #4ade80; /* card light: solution */
+  /* Page aura and liquid glass (nav) */
+  --aura-1: rgba(50, 59, 194, .30);
+  --aura-2: rgba(154, 160, 255, .10);
+  --glass: rgba(20, 22, 46, .62);
+  --glass-edge: rgba(253, 254, 235, .16);
+  --glass-hi: rgba(255, 255, 255, .14);
   color-scheme: dark;
 }
 
@@ -75,6 +81,11 @@
   --err: #b3261e;
   --neg: #e5484d;
   --pos: #22a55a;
+  --aura-1: rgba(178, 183, 255, .55);
+  --aura-2: rgba(196, 200, 255, .45);
+  --glass: rgba(253, 254, 235, .58);
+  --glass-edge: rgba(255, 255, 255, .7);
+  --glass-hi: rgba(255, 255, 255, .85);
   color-scheme: light;
 }
 

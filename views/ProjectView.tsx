@@ -60,11 +60,9 @@ export function ProjectView({ locale, slug }: { locale: Locale; slug: ProjectSlu
             </div>
           )}
           {p.shots && (
-            <div className="proj-shots">
-              {p.shots.map((sh, k) => (
-                <a key={sh.src} href={sh.src} target="_blank" rel="noopener" className="proj-shot">
-                  <img src={sh.src} alt={sh.alt} width={sh.w} height={sh.h} decoding="async" className="shot" {...(k ? { loading: 'lazy' as const } : {})} />
-                </a>
+            <div className="proj-phones">
+              {p.shots.map((sh) => (
+                <img key={sh.src} src={sh.src} alt={sh.alt} width={sh.w} height={sh.h} decoding="async" className="phone-shot" />
               ))}
             </div>
           )}

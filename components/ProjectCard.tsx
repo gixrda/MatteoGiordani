@@ -5,11 +5,17 @@ import { BrowserFrame, Slot } from './Blocks';
 import { Icon } from './Icon';
 import { Rich } from './Rich';
 
-/** Card media for each project: the real cover where one exists, a placeholder until then (spec §6.17). Never stretched. */
+/** Card media for each project: real app screens where they exist, a placeholder until then (spec §6.17). Never stretched. */
 export function ProjectMedia({ slug, t }: { slug: ProjectSlug; t: Dict }) {
-  const cover = t.projects[slug].shots?.[0];
-  if (cover)
-    return <img src={cover.src} alt={cover.alt} width={cover.w} height={cover.h} loading="lazy" decoding="async" className="shot" />;
+  const shots = t.projects[slug].shots;
+  if (shots)
+    return (
+      <div className="pm-phones">
+        {[shots[0], shots[2], shots[4]].map((sh) => (
+          <img key={sh.src} src={sh.src} alt={sh.alt} width={sh.w} height={sh.h} loading="lazy" decoding="async" className="phone-shot" />
+        ))}
+      </div>
+    );
   return (
     <BrowserFrame url="ezdirect.it">
       <Slot label="ezdirect.it homepage" note="screenshot to add · desktop 1440" />

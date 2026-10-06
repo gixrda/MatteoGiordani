@@ -212,10 +212,10 @@
 .proj-facts dd { margin: 0; font-weight: 600; }
 .proj-band { padding: clamp(24px, 5vw, 56px); border-radius: 26px; background: var(--grad-band); }
 .proj-ez { display: grid; grid-template-columns: 1fr 22%; gap: clamp(16px, 3vw, 32px); align-items: end; }
-/* Cover full width, the other slides two per row; each opens at full size. */
-.proj-shots { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 3vw, 32px); }
-.proj-shot { display: block; border-radius: 10px; }
-.proj-shot:first-child { grid-column: 1 / -1; }
+/* App screens in one row; the centre one (Today) sits higher. Wraps to 3 + 2, then 2 + 2 + 1. */
+.proj-phones { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: clamp(16px, 2.5vw, 28px); }
+.proj-phones .phone-shot { width: calc((100% - 4 * clamp(16px, 2.5vw, 28px)) / 5); max-width: 240px; }
+.proj-phones .phone-shot:nth-child(3) { margin-bottom: 32px; }
 .proj-story { display: grid; gap: 0; }
 .proj-row { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; padding: 32px 0; border-top: 1px solid var(--ln); }
 .proj-list { display: grid; gap: 10px; }
@@ -227,8 +227,13 @@
 .proj-nav-link .cap { color: var(--mu2); display: inline-flex; gap: 6px; align-items: center; }
 .proj-nav-link.next { text-align: right; justify-items: end; }
 .proj-nav-link:hover .s-m { color: var(--act); }
-@media (max-width: 640px) {
-  .proj-shots { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .proj-phones { align-items: flex-start; }
+  .proj-phones .phone-shot { width: calc((100% - 2 * clamp(16px, 2.5vw, 28px)) / 3); }
+  .proj-phones .phone-shot:nth-child(3) { margin-bottom: 0; }
+}
+@media (max-width: 560px) {
+  .proj-phones .phone-shot { width: calc((100% - clamp(16px, 2.5vw, 28px)) / 2); }
 }
 @media (max-width: 900px) {
   .proj-row { grid-template-columns: 1fr; gap: 16px; }

@@ -39,7 +39,7 @@ export type ProjectContent = {
   lead: string;
   facts: { label: string; value: string }[];
   sections: ProjectSection[];
-  /** Real project images; the first one is the cover used on cards. */
+  /** Real app screens in page order; cards show the 1st, 3rd and 5th (centre one in front). */
   shots?: { src: string; w: number; h: number; alt: string }[];
 };
 
@@ -539,11 +539,11 @@ const en = {
         { label: 'Role', value: 'Product · UX · Front-End · Mobile' },
       ],
       shots: [
-        { src: '/img/trainly/cover.webp', w: 1920, h: 1080, alt: 'Trainly: three app screens (Plan, Today, Nutrition) beside the headline “Half-marathon training, decided by rules and explained clearly.”' },
-        { src: '/img/trainly/oggi.webp', w: 1600, h: 1200, alt: 'Trainly Today screen: readiness score 51/100 with sleep, recovery and effort, plus the signals behind the score.' },
-        { src: '/img/trainly/piano.webp', w: 1600, h: 1200, alt: 'Trainly Plan and Progress screens: the week as a list of sessions with intensity, and verified records kept apart from estimates.' },
-        { src: '/img/trainly/nutrizione.webp', w: 1600, h: 1200, alt: 'Trainly Nutrition screen: about 3100 kcal recommended with carbohydrates, protein and fat, next to the Today screen.' },
-        { src: '/img/trainly/sistema.webp', w: 1600, h: 1200, alt: 'Trainly design system: one accent and three status colours, Instrument Serif and Inter, glass surfaces.' },
+        { src: '/img/trainly/piano.webp', w: 378, h: 798, alt: 'Trainly Plan screen: the week of 5 to 11 October with sessions, intensity and calories.' },
+        { src: '/img/trainly/segnali.webp', w: 378, h: 798, alt: 'Trainly readiness detail: a train-with-caution note and the signals behind the score, such as sleep and HRV.' },
+        { src: '/img/trainly/oggi.webp', w: 378, h: 798, alt: 'Trainly Today screen: readiness 51/100 with sleep, recovery and effort.' },
+        { src: '/img/trainly/progressi.webp', w: 378, h: 798, alt: 'Trainly Progress screen: half-marathon equivalent 1:26:20, verified records and estimated times.' },
+        { src: '/img/trainly/nutrizione.webp', w: 378, h: 798, alt: 'Trainly Nutrition screen: about 3100 kcal recommended, split into carbohydrates, protein and fat.' },
       ],
       sections: [
         { title: 'The product', body: '[TO WRITE: what Trainly does and who it is for]' },

@@ -5,8 +5,17 @@
 .nav {
   display: flex; align-items: center; gap: 12px;
   max-width: 760px; height: 56px; margin-inline: auto; padding: 0 8px 0 10px; border-radius: 28px;
-  background: color-mix(in srgb, var(--sf) 92%, transparent); border: 1px solid var(--ln2); box-shadow: var(--sh);
-  backdrop-filter: saturate(1.2);
+  position: relative; isolation: isolate;
+  /* Liquid glass: thin tint, strong blur + saturation, a lit top edge and a faint lower rim. */
+  background: var(--glass); border: 1px solid var(--glass-edge);
+  box-shadow: inset 0 1px 0 var(--glass-hi), inset 0 -1px 1px rgba(255, 255, 255, .06), 0 10px 30px -12px rgba(10, 12, 40, .28);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  backdrop-filter: blur(20px) saturate(1.8);
+}
+/* Specular sheen across the upper half, as light catching curved glass. */
+.nav::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(180deg, var(--glass-hi), transparent 55%); opacity: .35;
 }
 .nav-left, .nav-right { display: flex; align-items: center; gap: 10px; }
 .nav-right { margin-left: auto; }
@@ -26,13 +35,19 @@
 .nav-menu { display: none; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--tx); }
 .nav-sheet {
   max-width: 760px; margin: 8px auto 0; padding: 12px; border-radius: 22px;
-  background: var(--sf); border: 1px solid var(--ln2); box-shadow: var(--sh);
+  background: color-mix(in srgb, var(--sf) 85%, transparent); border: 1px solid var(--glass-edge);
+  box-shadow: inset 0 1px 0 var(--glass-hi), 0 10px 30px -12px rgba(10, 12, 40, .28);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  backdrop-filter: blur(20px) saturate(1.8);
 }
 .nav-sheet[hidden] { display: none; }
 .nav-sheet ul { display: grid; }
 .nav-sheet a:not(.lang a) { display: flex; align-items: center; min-height: 48px; padding: 0 12px; border-radius: 12px; font: 400 26px/1 var(--f-serif); }
 .nav-sheet a[aria-current="page"] { color: var(--act); }
 .nav-sheet .lang { height: 48px; padding: 0 12px; font-size: 13px; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav, .nav-sheet { background: var(--sf); }
+}
 @media (min-width: 901px) { .nav-sheet { display: none; } }
 @media (max-width: 900px) {
   .nav-links { display: none; }
@@ -97,8 +112,8 @@
 .bframe-bar i { width: 7px; height: 7px; border-radius: 50%; border: 1.2px solid currentColor; }
 .bframe-bar .mono { position: absolute; left: 50%; translate: -50% 0; font-size: 10.5px; white-space: nowrap; }
 .bframe .slot { aspect-ratio: 16 / 9; border-radius: 0 0 4px 4px; }
-/* A real project image: same corner and elevation as the browser frame. */
-.shot { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: var(--sh-media); }
+/* A real app screen, cut out with its own bezel: the shadow follows the phone shape, not a box. */
+.phone-shot { display: block; width: 100%; height: auto; filter: drop-shadow(0 18px 28px rgb(10 20 40 / .28)); }
 .phone { padding: 7px; border-radius: 34px; background: var(--phone-bezel); box-shadow: var(--sh-media); }
 .phone-screen { border-radius: 27px; aspect-ratio: 1179 / 2556; overflow: clip; background: var(--brand-paper); }
 .phone-screen > * { width: 100%; height: 100%; object-fit: cover; }

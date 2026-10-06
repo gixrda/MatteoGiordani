@@ -193,6 +193,10 @@
 .pcard-media { position: absolute; left: 50%; top: 40px; width: 70%; translate: -50% 0; transition: transform var(--t-slow) var(--e); }
 .pcard-wide .pcard-media { width: 62%; top: 44px; }
 .pcard:hover .pcard-media, .pcard:focus-within .pcard-media { transform: translateY(-10px) scale(1.02); }
+/* Three screens, the centre one in front and raised. */
+.pm-phones { display: flex; justify-content: center; align-items: flex-start; }
+.pm-phones .phone-shot { width: 30%; margin-top: 28px; }
+.pm-phones .phone-shot:nth-child(2) { position: relative; z-index: 1; width: 34%; margin: 0 -3%; }
 .pcard-body { display: grid; gap: 24px; padding: 22px 24px 26px; flex: 1; }
 .pcard-wide .pcard-body { grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
 .pcard-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; align-content: start; justify-items: start; }
