@@ -24,6 +24,7 @@ export const href = {
   work: (l: Locale, s: ProjectSlug) => `${base(l)}${SEG.work[l]}/${s}/`,
   about: (l: Locale) => `${base(l)}${SEG.about[l]}/`,
   insights: (l: Locale) => `${base(l)}${SEG.insights[l]}/`,
+  post: (l: Locale, slug: string) => `${base(l)}${SEG.insights[l]}/${slug}/`,
   contact: (l: Locale) => `${base(l)}${SEG.contact[l]}/`,
   privacy: (l: Locale) => `${base(l)}${SEG.privacy[l]}/`,
 };

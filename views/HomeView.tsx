@@ -16,6 +16,7 @@ import { Rich } from '@/components/Rich';
 import { StickyBar } from '@/components/StickyBar';
 import { ToolMarquee } from '@/components/ToolMarquee';
 import { WorkGrid } from '@/components/WorkGrid';
+import { getPosts } from '@/lib/posts';
 import '@/styles/home.css';
 import '@/styles/build.css';
 
@@ -232,7 +233,7 @@ export function HomeView({ locale }: { locale: Locale }) {
         <SecHead id="ins-title" title={t.insights.h2} text={t.insights.text}>
           <Link href={href.insights(locale)} className="btn btn-secondary btn-sm">{t.insights.button}<Icon name="arrow-right" className="nudge" /></Link>
         </SecHead>
-        <InsightCards locale={locale} />
+        <InsightCards locale={locale} limit={3} />
       </section>
 
       {/* FAQ */}
@@ -272,11 +273,24 @@ export function HomeView({ locale }: { locale: Locale }) {
   );
 }
 
-export function InsightCards({ locale }: { locale: Locale }) {
+/** Published posts first (newest), then the planned titles as "coming soon" to fill the row. `limit` caps the total (home). */
+export async function InsightCards({ locale, limit }: { locale: Locale; limit?: number }) {
   const t = getDict(locale);
+  const posts = (await getPosts(locale)).slice(0, limit);
+  const planned = t.insights.items.slice(0, Math.max(0, (limit ?? 3) - posts.length));
   return (
     <ul className="insights">
-      {t.insights.items.map((it) => (
+      {posts.map((p) => (
+        <li key={p.slug} className="card insight insight-live">
+          <div className="bento-row">
+            <span className="cap acc">{p.tag}</span>
+            <time className="caption" dateTime={p.date}>{new Date(p.date).toLocaleDateString(locale === 'it' ? 'it-IT' : 'en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' })}</time>
+          </div>
+          <h3 className="s-m"><Link href={href.post(locale, p.slug)} className="insight-link">{p.title}</Link></h3>
+          <span className="tlink" aria-hidden="true">{t.insights.read}<Icon name="arrow-right" className="nudge" /></span>
+        </li>
+      ))}
+      {planned.map((it) => (
         <li key={it.title} className="card insight">
           <div className="bento-row">
             <span className="cap acc">{it.tag}</span>

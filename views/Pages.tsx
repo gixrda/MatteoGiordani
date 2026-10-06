@@ -6,6 +6,7 @@ import { Breadcrumb, Photo } from '@/components/Blocks';
 import { JsonLd } from '@/components/JsonLd';
 import { Rich } from '@/components/Rich';
 import { ContactBlock, InsightCards } from './HomeView';
+import { getPosts } from '@/lib/posts';
 import '@/styles/home.css';
 
 const crumbs = (locale: Locale, name: string) => [{ name: getDict(locale).ui.breadcrumbHome, href: href.home(locale) }, { name }];
@@ -75,8 +76,9 @@ export function AboutView({ locale }: { locale: Locale }) {
   );
 }
 
-export function InsightsView({ locale }: { locale: Locale }) {
+export async function InsightsView({ locale }: { locale: Locale }) {
   const t = getDict(locale);
+  const hasPosts = (await getPosts(locale)).length > 0;
   return (
     <>
       <div className="wrap"><Breadcrumb items={crumbs(locale, t.ui.nav.insights)} /></div>
@@ -85,7 +87,7 @@ export function InsightsView({ locale }: { locale: Locale }) {
           <h1 id="ins-h1" className="d-l"><Rich text={t.insights.h2} /></h1>
           <div><p className="body">{t.insights.text}</p></div>
         </div>
-        <p className="caption ins-empty"><Rich text={t.insights.empty} /></p>
+        {!hasPosts && <p className="caption ins-empty"><Rich text={t.insights.empty} /></p>}
         <InsightCards locale={locale} />
       </section>
     </>

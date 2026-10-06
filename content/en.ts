@@ -237,6 +237,9 @@ const en = {
     text: 'Short notes on search, speed and websites, for people who run a business.',
     button: 'All articles',
     draft: 'Coming soon',
+    read: 'Read the article',
+    updated: 'updated',
+    back: 'All articles',
     items: [
       { tag: 'SEO', title: 'Your meta title is your shop sign on Google' },
       { tag: 'Performance', title: 'Core Web Vitals, explained for restaurant owners' },

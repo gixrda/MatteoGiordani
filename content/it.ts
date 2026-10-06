@@ -194,6 +194,9 @@ const it: Dict = {
     text: 'Note brevi su ricerca, velocità e siti web, per chi gestisce un’attività.',
     button: 'Tutti gli articoli',
     draft: 'In arrivo',
+    read: 'Leggi l’articolo',
+    updated: 'aggiornato il',
+    back: 'Tutti gli articoli',
     items: [
       { tag: 'SEO', title: 'Il meta title è la tua insegna su Google' },
       { tag: 'Performance', title: 'Core Web Vitals per ristoratori: tre numeri da guardare, senza gergo' },

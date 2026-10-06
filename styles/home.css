@@ -280,6 +280,12 @@
 .insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .insight { display: grid; align-content: space-between; gap: 48px; min-height: 220px; padding: 22px; }
 .ins-empty { margin-bottom: 24px; }
+/* Published post: the title link covers the card. */
+.insight-live { position: relative; transition: border-color var(--t-fast) var(--e); }
+.insight-live:hover { border-color: var(--act); }
+.insight-link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+.insight-link:focus-visible { outline: none; }
+.insight-link:focus-visible::after { outline: 2px solid var(--act); outline-offset: 3px; }
 @media (max-width: 900px) {
   .insights { grid-template-columns: 1fr; }
   .insight { min-height: 0; gap: 32px; }
