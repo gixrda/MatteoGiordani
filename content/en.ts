@@ -29,6 +29,8 @@ export type ProjectSection = { title: string; body?: string; list?: string[] };
 export type ProjectContent = {
   name: string;
   badge: string;
+  /** Live status pill on cards and the project hero. */
+  status?: string;
   cap: string;
   filter: 'website' | 'mobile';
   cardText: string;
@@ -39,7 +41,7 @@ export type ProjectContent = {
   lead: string;
   facts: { label: string; value: string }[];
   sections: ProjectSection[];
-  /** Real app screens in page order; cards show the 1st, 3rd and 5th (centre one in front). */
+  /** Real screenshots. Trainly: app screens in page order, cards show the 1st, 3rd and 5th. ezdirect: desktop, then mobile. */
   shots?: { src: string; w: number; h: number; alt: string }[];
 };
 
@@ -162,11 +164,17 @@ const en = {
   },
 
   cwv: {
-    caption: 'Core Web Vitals · before → after',
-    metric: 'Metric',
+    caption: 'Lighthouse · www.ezdirect.it, before and after',
+    metric: 'Category',
     before: 'Before',
     after: 'After',
-    perf: 'Lighthouse performance',
+    rows: [
+      { m: 'Performance', before: '43', after: '99' },
+      { m: 'Accessibility', before: '58', after: '97' },
+      { m: 'Best practices', before: '36', after: '100' },
+      { m: 'SEO', before: '41', after: '100' },
+      { m: 'Agentic Browsing', before: '1/3', after: '3/3' },
+    ],
   },
 
   proof: {
@@ -183,9 +191,10 @@ const en = {
       { title: 'Computer Science', text: 'Technical Diploma' },
       { title: 'Communication & Marketing', text: "Bachelor's Degree · University of Pavia" },
     ],
-    testimonialCap: 'Testimonials',
-    // Remove the card entirely if no real testimonial exists at launch (spec §7.7).
-    testimonial: '[Client quote to add, with name and business]' as string | null,
+    // No client testimonial yet: the card shows a real before/after instead (spec §7.7).
+    nextCap: 'Lighthouse performance · ezdirect.it',
+    nextText: 'The next before and after could be your website.',
+    nextCta: 'Tell me about your site',
   },
 
   about: {
@@ -227,7 +236,7 @@ const en = {
     h2: 'The blog, *in plain words*',
     text: 'Short notes on search, speed and websites, for people who run a business.',
     button: 'All articles',
-    draft: '[DRAFT]',
+    draft: 'Coming soon',
     items: [
       { tag: 'SEO', title: 'Your meta title is your shop sign on Google' },
       { tag: 'Performance', title: 'Core Web Vitals, explained for restaurant owners' },
@@ -235,12 +244,12 @@ const en = {
     ],
     metaTitle: 'Blog — Matteo Giordani',
     metaDescription: 'Short notes on search, speed and websites, for people who run a business.',
-    empty: 'Articles are being written. [DRAFT — publish the first article or hide this page]',
+    empty: 'Articles are being written: the first ones are listed below.',
   },
 
   contact: {
     h2: 'Tell me about *your website*',
-    text: "A few details and I'll reply to set up the call. [Reply time to confirm]",
+    text: "A few details and I'll reply within 24 to 48 hours to set up the call.",
     need: 'What do you need?',
     needChoose: 'Choose one',
     needs: ['SEO and visibility on Google', 'Site speed and Core Web Vitals', 'Development, redesign or front-end fixes', 'An initial review of my website'],
@@ -260,7 +269,7 @@ const en = {
       privacy: 'Tick the box to accept the privacy policy, otherwise I can’t reply.',
     },
     success: 'Your email app has opened with your request. Send it and I’ll reply to set up the call.',
-    instagram: 'Instagram [to add]',
+    instagram: 'Instagram',
     metaTitle: 'Contact — Matteo Giordani',
     metaDescription: 'Tell me about your website and book a first call, no commitment.',
   },
@@ -277,16 +286,16 @@ const en = {
         items: [
           { q: 'Who do I talk to during the project?', a: 'With me. The person who analyses your site is the same person who changes the code, from the first call to the launch.' },
           { q: 'How does the process work?', a: 'Four steps: a call to understand your business, an analysis that measures what holds the site back, the work done directly on the site, then a before-and-after measurement with the same tools.' },
-          { q: 'Can you work on my existing website?', a: 'Yes, that’s most of the work. I start from what you have and change what’s needed. [Confirm platforms: WordPress, Shopify, custom…]' },
+          { q: 'Can you work on my existing website?', a: 'Yes, that’s most of the work. I start from what you have and change what’s needed, on any platform: WordPress, Shopify, custom builds and more.' },
           { q: 'Can you guarantee first place on Google?', a: 'No, and nobody honestly can. What I can do is remove what’s holding your site back and measure what changes.' },
         ],
       },
       {
         name: 'Costs and timing',
         items: [
-          { q: 'How much does it cost?', a: 'There is no price list by page count: the scope depends on how big the site is, where it starts from, what matters first and whether the work is one-off or ongoing. [Confirm your pricing approach]' },
-          { q: 'How long does a project take?', a: 'It depends on the size of the site and its starting point; after the analysis you get a clear plan. [Typical timeframes to confirm]' },
-          { q: 'Do you offer ongoing support?', a: 'A focused intervention, or a monthly follow-up with Search Console checks and fixes. [confirm Matteo offers ongoing work]' },
+          { q: 'How much does it cost?', a: 'There is no price list by page count: the scope depends on how big the site is, where it starts from, what matters first and whether the work is one-off or ongoing.' },
+          { q: 'How long does a project take?', a: 'It depends on the size of the site and its starting point; after the analysis you get a clear plan.' },
+          { q: 'Do you offer ongoing support?', a: 'Yes. You can choose a focused intervention or a monthly follow-up, with Search Console checks and fixes.' },
           { q: 'When will I see results on Google?', a: 'Technical fixes can be picked up within weeks; rankings usually move over months. You’ll see progress in Search Console along the way, not a promise of positions.' },
         ],
       },
@@ -322,19 +331,19 @@ const en = {
     relatedH2: 'The work speaks. *See it take shape.*',
     relatedText: 'Projects where this service did the heavy lifting, with the context behind each choice.',
     scopeH2: 'The price follows *your website.*',
-    scopeText: 'No price list by page count: what matters is what each page has to do. Four things shape the scope. [Confirm your pricing approach]',
+    scopeText: 'No price list by page count: what matters is what each page has to do. Four things shape the scope.',
     scopeLink: 'Tell me about your site',
     scope: [
       { title: 'How big the site is', text: 'Ten pages built on one template are not the same job as ten pages that are all different.' },
       { title: 'Where it starts from', text: 'A site with a few fixable issues needs less work than one built on a shaky foundation.' },
       { title: 'What matters first', text: 'Visibility, speed or both: we choose the priorities together.' },
-      { title: 'One-off or ongoing', text: 'A focused intervention, or a monthly follow-up with Search Console checks and fixes. [confirm Matteo offers ongoing work]' },
+      { title: 'One-off or ongoing', text: 'A focused intervention, or a monthly follow-up with Search Console checks and fixes.' },
     ],
     faqH2: 'What business owners *search for.*',
     faqText: 'The questions I hear most, answered the way I’d answer them on a call.',
     faqAsk: 'Ask your own question',
     ctaH2: 'The next step *starts with your website.*',
-    ctaText: 'Send me your site’s address, or tell me what isn’t working. I’ll reply with what I’d look at first. [Reply time to confirm]',
+    ctaText: 'Send me your site’s address, or tell me what isn’t working. Within 24 to 48 hours I’ll reply with what I’d look at first.',
     regions: {
       tab: 'the title in the browser tab and on Google',
       url: 'the page address',
@@ -413,7 +422,7 @@ const en = {
         { q: 'How long before I see results on Google?', a: 'It depends on your site and your competitors. Technical fixes can be picked up within weeks; rankings usually move over months. You’ll see progress in Search Console along the way, not a promise of positions.' },
         { q: 'Can you guarantee first place on Google?', a: 'No, and nobody honestly can. What I can do is remove what’s holding your site back and measure what changes.' },
         { q: 'Will changing my site hurt my current rankings?', a: 'Not if the change is planned: useful content kept, old addresses redirected, nothing important lost. That’s part of the job.' },
-        { q: 'Do I have to write the texts myself?', a: 'You know your business; I know how people search for it. We work on the texts together, and I take care of titles, descriptions and structure. [Confirm copywriting scope]' },
+        { q: 'Do I have to write the texts myself?', a: 'You know your business; I know how people search for it. We work on the texts together, and I take care of titles, descriptions and structure.' },
       ],
     },
     performance: {
@@ -441,7 +450,7 @@ const en = {
         { title: 'Field data in Search Console', text: 'What real visitors experience over time, not just one test.', region: 'page' },
       ],
       related: [
-        { slug: 'ezdirect', badge: 'Client', cap: 'Performance · Core Web Vitals', text: 'Core Web Vitals and Lighthouse on the new site. Before/after: [REAL DATA].' },
+        { slug: 'ezdirect', badge: 'Client', cap: 'Performance · Core Web Vitals', text: 'Core Web Vitals and Lighthouse on the new site: Performance from 43 to 99.' },
       ],
       faq: [
         { q: 'Why does speed matter for a small business?', a: 'People often look up a local business on their phone, on the move. A slow page loses them before they read what you offer.' },
@@ -479,10 +488,10 @@ const en = {
         { slug: 'trainly', badge: 'Personal', cap: 'Product · UX · Front-End', text: 'A product for runners, designed and built mobile-first.' },
       ],
       faq: [
-        { q: 'Can you work on my existing website?', a: 'Yes, that’s most of the work. I start from what you have and change what’s needed. [Confirm platforms: WordPress, Shopify, custom…]' },
+        { q: 'Can you work on my existing website?', a: 'Yes, that’s most of the work. I start from what you have and change what’s needed, on any platform: WordPress, Shopify, custom builds and more.' },
         { q: 'Will I still be able to update the site myself?', a: 'That is the goal: I keep your editing workflow where possible and explain anything that changes.' },
-        { q: 'Do you also design?', a: 'Yes, for websites and interfaces: Trainly is an example. [Confirm design scope]' },
-        { q: 'Do you build new websites from scratch?', a: 'I contributed to building the new ezdirect.it. [Confirm the project sizes you take on]' },
+        { q: 'Do you also design?', a: 'Yes, for websites and interfaces: Trainly is an example.' },
+        { q: 'Do you build new websites from scratch?', a: 'I contributed to building the new ezdirect.it, from front-end to SEO.' },
       ],
     },
   } as Record<ServiceSlug, ServiceContent>,
@@ -491,6 +500,7 @@ const en = {
     ezdirect: {
       name: 'ezdirect.it',
       badge: 'Client',
+      status: 'Ongoing work',
       cap: 'Client project · Website · SEO',
       filter: 'website',
       cardText: 'Front-End Developer & SEO Specialist on the new website, live since September 2026: development, CRM changes, metadata, Core Web Vitals.',
@@ -504,10 +514,14 @@ const en = {
         { label: 'Launch', value: 'September 2026' },
         { label: 'Tools', value: 'SEOzen · Search Console · Lighthouse' },
       ],
+      shots: [
+        { src: '/img/ezdirect-desktop.webp', w: 1200, h: 750, alt: 'ezdirect.it homepage on desktop: catalogue search, category menu and service banners.' },
+        { src: '/img/ezdirect-centralini.webp', w: 600, h: 1298, alt: 'ezdirect.it Phone systems category page on mobile: catalogue search, breadcrumb and subcategories.' },
+      ],
       sections: [
         { title: 'Overview', body: 'A new website for ezdirect.it, launched in September 2026. I worked on both sides of it: the front-end people use, and the parts Google reads.' },
-        { title: 'Challenge', body: '[TO WRITE: what the old site was missing, what the business needed]' },
-        { title: 'Approach', body: '[TO WRITE: how the work was organised and why]' },
+        { title: 'Challenge', body: 'The old site started behind on every front Lighthouse measures: 43 for Performance, 58 for Accessibility, 36 for Best practices and 41 for SEO. Pages were slow to load, Google struggled to read the metadata and structure, and the CRM had to be adapted to the new site without stopping the company’s daily work.' },
+        { title: 'Approach', body: 'I worked on both fronts in parallel, instead of fixing SEO once the site was finished. On the front-end I implemented the design, refined the interface and handled debugging, changing the CRM where needed. On the search side I wrote meta titles and descriptions, took care of technical SEO and measured Core Web Vitals and Lighthouse at every step. After launch, Search Console and SEOzen to follow indexing and rankings.' },
         {
           title: 'Technical work',
           list: [
@@ -520,12 +534,13 @@ const en = {
             'Search Console, with SEOzen',
           ],
         },
-        { title: 'Key learnings', body: '[TO WRITE]' },
+        { title: 'Key learnings', body: 'Speed, accessibility and SEO are not added at the end: they are decided while the code is written. Measuring before and after with the same tools made every choice verifiable, and the site went live scoring between 97 and 100 in all four Lighthouse categories.' },
       ],
     },
     trainly: {
       name: 'Trainly',
       badge: 'Personal',
+      status: 'In development',
       cap: 'Personal project · Mobile app',
       filter: 'mobile',
       cardText: 'A product for runners, designed and built mobile-first.',
@@ -546,10 +561,10 @@ const en = {
         { src: '/img/trainly/nutrizione.webp', w: 378, h: 798, alt: 'Trainly Nutrition screen: about 3100 kcal recommended, split into carbohydrates, protein and fat.' },
       ],
       sections: [
-        { title: 'The product', body: '[TO WRITE: what Trainly does and who it is for]' },
-        { title: 'UX decisions', body: '[TO WRITE: the key design decisions and why]' },
-        { title: 'Front-end notes', body: '[TO WRITE: how it is built]' },
-        { title: 'What I learned', body: '[TO WRITE]' },
+        { title: 'The product', body: 'Trainly is a training app for runners preparing a half marathon. The plan is not a fixed calendar: clear rules decide it, starting from how you are today, and every choice is explained in plain words. I handled the whole project, from the training engine to the interface, on mobile and web.' },
+        { title: 'UX decisions', body: 'One dominant idea per screen. On Today, readiness leads: a number, its band in words and a sentence that says why, with the three signals that move it underneath. The Plan shows the week as a path, one card per session, with only today highlighted. Status never relies on colour alone, verified records stay apart from estimates, and nutrition always states how reliable its figure is.' },
+        { title: 'Front-end notes', body: 'A lean design system: one accent and three status colours, Instrument Serif for headings and key sentences, Inter for text and numbers. Light glass cards over a fixed slate aura and a floating navigation with five sections. Motion only signals a change of state and stops completely with Reduce Motion. Activities come straight from Garmin.' },
+        { title: 'What I learned', body: 'A data app works when it explains, not when it shows everything: every number needs a sentence that translates it, every estimate needs to say how reliable it is. Designing the engine and the interface together forced me to write rules simple enough to explain in one line.' },
       ],
     },
   } as Record<ProjectSlug, ProjectContent>,
@@ -570,7 +585,6 @@ const en = {
     resources: 'Resources',
     contact: 'Contact',
     privacy: 'Privacy',
-    vat: '[P.IVA if applicable]',
     location: 'Pisa, Italy',
   },
 

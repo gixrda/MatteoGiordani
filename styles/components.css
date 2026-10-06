@@ -112,10 +112,12 @@
 .bframe-bar i { width: 7px; height: 7px; border-radius: 50%; border: 1.2px solid currentColor; }
 .bframe-bar .mono { position: absolute; left: 50%; translate: -50% 0; font-size: 10.5px; white-space: nowrap; }
 .bframe .slot { aspect-ratio: 16 / 9; border-radius: 0 0 4px 4px; }
+.bframe-img { display: block; width: 100%; height: auto; border-radius: 0 0 4px 4px; }
 /* A real app screen, cut out with its own bezel: the shadow follows the phone shape, not a box. */
 .phone-shot { display: block; width: 100%; height: auto; filter: drop-shadow(0 18px 28px rgb(10 20 40 / .28)); }
 .phone { padding: 7px; border-radius: 34px; background: var(--phone-bezel); box-shadow: var(--sh-media); }
 .phone-screen { border-radius: 27px; aspect-ratio: 1179 / 2556; overflow: clip; background: var(--brand-paper); }
+.phone-img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .phone-screen > * { width: 100%; height: 100%; object-fit: cover; }
 .phone .slot { padding: 8px; }
 .phone .slot b { font-size: 12px; }
@@ -166,3 +168,28 @@
 .cmp-card { --glow: var(--neg); }
 .cmp-card.cmp-yes { --glow: var(--pos); }
 .bento-quote { --glow: var(--brand-paper); }
+
+/* Status pill: dark glass with a pulsing green dot, so "in progress" reads at a glance on any surface. */
+.status {
+  display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 14px 0 11px; border-radius: 999px;
+  font: 600 12.5px/1 var(--f-sans); letter-spacing: .01em; color: var(--brand-paper); white-space: nowrap;
+  background: color-mix(in srgb, var(--phone-bezel) 72%, transparent); border: 1px solid rgba(255, 255, 255, .2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 0 22px -2px rgba(74, 222, 128, .45);
+  -webkit-backdrop-filter: blur(10px) saturate(1.6); backdrop-filter: blur(10px) saturate(1.6);
+}
+.status i { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; flex: none; animation: status-pulse 2.2s ease-out infinite; }
+@keyframes status-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, .6); }
+  70%, 100% { box-shadow: 0 0 0 9px rgba(74, 222, 128, 0); }
+}
+
+/* Shared by the home card and the project page. */
+/* CWVTable (§6.18) */
+.cwv { width: 100%; font-variant-numeric: tabular-nums; }
+.cwv caption { text-align: left; color: var(--mu2); padding-bottom: 12px; }
+.cwv th, .cwv td { padding: 10px 8px 10px 0; text-align: left; border-bottom: 1px solid var(--ln); vertical-align: middle; }
+.cwv thead th { color: var(--mu2); }
+.cwv tbody th { font-size: 14px; font-weight: 600; }
+.cwv td { color: var(--act); font-weight: 600; }
+.cwv td.cwv-before { color: var(--mu); font-weight: 500; }
+.cwv td:last-child, .cwv th:last-child { text-align: right; padding-right: 0; }

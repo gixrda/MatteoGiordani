@@ -123,11 +123,17 @@ const it: Dict = {
   },
 
   cwv: {
-    caption: 'Core Web Vitals · prima → dopo',
-    metric: 'Metrica',
+    caption: 'Lighthouse · www.ezdirect.it, prima e dopo',
+    metric: 'Categoria',
     before: 'Prima',
     after: 'Dopo',
-    perf: 'Performance Lighthouse',
+    rows: [
+      { m: 'Performance', before: '43', after: '99' },
+      { m: 'Accessibilità', before: '58', after: '97' },
+      { m: 'Best practice', before: '36', after: '100' },
+      { m: 'SEO', before: '41', after: '100' },
+      { m: 'Agentic Browsing', before: '1/3', after: '3/3' },
+    ],
   },
 
   proof: {
@@ -144,8 +150,9 @@ const it: Dict = {
       { title: 'Informatica', text: 'Diploma tecnico' },
       { title: 'Comunicazione & Marketing', text: 'Laurea triennale · Università di Pavia' },
     ],
-    testimonialCap: 'Testimonianze',
-    testimonial: '[Testimonianza di un cliente da aggiungere, con nome e attività]',
+    nextCap: 'Performance Lighthouse · ezdirect.it',
+    nextText: 'Il prossimo prima e dopo può essere il tuo sito.',
+    nextCta: 'Raccontami il tuo sito',
   },
 
   about: {
@@ -186,7 +193,7 @@ const it: Dict = {
     h2: 'Il blog, *in parole semplici*',
     text: 'Note brevi su ricerca, velocità e siti web, per chi gestisce un’attività.',
     button: 'Tutti gli articoli',
-    draft: '[BOZZA]',
+    draft: 'In arrivo',
     items: [
       { tag: 'SEO', title: 'Il meta title è la tua insegna su Google' },
       { tag: 'Performance', title: 'Core Web Vitals, spiegati a chi ha un ristorante' },
@@ -194,12 +201,12 @@ const it: Dict = {
     ],
     metaTitle: 'Blog — Matteo Giordani',
     metaDescription: 'Note brevi su ricerca, velocità e siti web, per chi gestisce un’attività.',
-    empty: 'Gli articoli sono in scrittura. [BOZZA — pubblica il primo articolo o nascondi questa pagina]',
+    empty: 'Gli articoli sono in scrittura: qui sotto i primi in arrivo.',
   },
 
   contact: {
     h2: 'Raccontami *il tuo sito*',
-    text: 'Qualche dettaglio e ti rispondo per fissare la call. [Tempi di risposta da confermare]',
+    text: 'Qualche dettaglio e ti rispondo entro 24/48 ore per fissare la call.',
     need: 'Di cosa hai bisogno?',
     needChoose: 'Scegli un’opzione',
     needs: ['SEO e visibilità su Google', 'Velocità del sito e Core Web Vitals', 'Sviluppo, restyling o interventi front-end', 'Un’analisi iniziale del sito'],
@@ -219,7 +226,7 @@ const it: Dict = {
       privacy: 'Spunta la casella per accettare l’informativa, altrimenti non posso risponderti.',
     },
     success: 'Si è aperta la tua app di posta con la richiesta già compilata. Inviala e ti rispondo per fissare la call.',
-    instagram: 'Instagram [da aggiungere]',
+    instagram: 'Instagram',
     metaTitle: 'Contatti — Matteo Giordani',
     metaDescription: 'Raccontami il tuo sito e prenota una prima call, senza impegno.',
   },
@@ -236,16 +243,16 @@ const it: Dict = {
         items: [
           { q: 'Con chi parlo durante il progetto?', a: 'Con me. Chi analizza il tuo sito è la stessa persona che interviene sul codice, dalla prima call alla messa online.' },
           { q: 'Come funziona il processo di lavoro?', a: 'Quattro passaggi: una call per capire la tua attività, un’analisi che misura cosa frena il sito, il lavoro direttamente sul sito e infine una misura prima e dopo con gli stessi strumenti.' },
-          { q: 'Puoi lavorare sul mio sito attuale?', a: 'Sì, è la maggior parte del lavoro. Parto da quello che hai e cambio quello che serve. [Conferma le piattaforme: WordPress, Shopify, custom…]' },
+          { q: 'Puoi lavorare sul mio sito attuale?', a: 'Sì, è la maggior parte del lavoro. Parto da quello che hai e cambio quello che serve, su qualsiasi piattaforma: WordPress, Shopify, siti custom e non solo.' },
           { q: 'Puoi garantirmi il primo posto su Google?', a: 'No, e nessuno può farlo onestamente. Quello che posso fare è togliere ciò che frena il tuo sito e misurare cosa cambia.' },
         ],
       },
       {
         name: 'Costi e tempi',
         items: [
-          { q: 'Quanto costa un intervento?', a: 'Non c’è un listino a numero di pagine: il lavoro dipende da quanto è grande il sito, da dove parte, da cosa conta prima e se l’intervento è una tantum o continuativo. [Conferma il tuo approccio ai prezzi]' },
-          { q: 'Quanto dura un progetto?', a: 'Dipende dalle dimensioni del sito e dal punto di partenza; dopo l’analisi ricevi un piano chiaro. [Tempi medi da confermare]' },
-          { q: 'Offri un affiancamento continuativo?', a: 'Un intervento mirato, oppure un affiancamento mensile con controlli e correzioni in Search Console. [conferma se offri lavoro continuativo]' },
+          { q: 'Quanto costa un intervento?', a: 'Non c’è un listino a numero di pagine: il lavoro dipende da quanto è grande il sito, da dove parte, da cosa conta prima e se l’intervento è una tantum o continuativo.' },
+          { q: 'Quanto dura un progetto?', a: 'Dipende dalle dimensioni del sito e dal punto di partenza; dopo l’analisi ricevi un piano chiaro.' },
+          { q: 'Offri un affiancamento continuativo?', a: 'Sì. Puoi scegliere un intervento mirato oppure un affiancamento mensile, con controlli e correzioni in Search Console.' },
           { q: 'Quando vedo i risultati su Google?', a: 'Le correzioni tecniche possono essere recepite in qualche settimana; i posizionamenti di solito si muovono nell’arco di mesi. Vedi i progressi in Search Console strada facendo, non una promessa di posizioni.' },
         ],
       },
@@ -281,19 +288,19 @@ const it: Dict = {
     relatedH2: 'Parlano i lavori. *Guardali prendere forma.*',
     relatedText: 'Progetti in cui questo servizio ha fatto la differenza, con il contesto dietro ogni scelta.',
     scopeH2: 'Il prezzo dipende *dal tuo sito.*',
-    scopeText: 'Nessun listino a numero di pagine: conta quello che ogni pagina deve fare. Quattro fattori definiscono il lavoro. [Conferma il tuo approccio ai prezzi]',
+    scopeText: 'Nessun listino a numero di pagine: conta quello che ogni pagina deve fare. Quattro fattori definiscono il lavoro.',
     scopeLink: 'Raccontami il tuo sito',
     scope: [
       { title: 'Quanto è grande il sito', text: 'Dieci pagine costruite sullo stesso modello non sono lo stesso lavoro di dieci pagine tutte diverse.' },
       { title: 'Da dove parte', text: 'Un sito con pochi problemi risolvibili richiede meno lavoro di uno costruito su basi fragili.' },
       { title: 'Cosa conta prima', text: 'Visibilità, velocità o entrambe: le priorità le scegliamo insieme.' },
-      { title: 'Una tantum o continuativo', text: 'Un intervento mirato, oppure un affiancamento mensile con controlli e correzioni in Search Console. [conferma se offri lavoro continuativo]' },
+      { title: 'Una tantum o continuativo', text: 'Un intervento mirato, oppure un affiancamento mensile con controlli e correzioni in Search Console.' },
     ],
     faqH2: 'Cosa cercano *i titolari.*',
     faqText: 'Le domande che sento più spesso, con la risposta che darei durante una call.',
     faqAsk: 'Fai la tua domanda',
     ctaH2: 'Il passo successivo *parte dal tuo sito.*',
-    ctaText: 'Mandami l’indirizzo del tuo sito, o raccontami cosa non funziona. Ti rispondo con cosa guarderei per primo. [Tempi di risposta da confermare]',
+    ctaText: 'Mandami l’indirizzo del tuo sito, o raccontami cosa non funziona. Entro 24/48 ore ti rispondo con cosa guarderei per primo.',
     regions: {
       tab: 'il titolo nella scheda del browser e su Google',
       url: 'l’indirizzo della pagina',
@@ -372,7 +379,7 @@ const it: Dict = {
         { q: 'Quanto ci vuole per vedere risultati su Google?', a: 'Dipende dal tuo sito e dai tuoi concorrenti. Le correzioni tecniche possono essere recepite in qualche settimana; i posizionamenti di solito si muovono nell’arco di mesi. Vedrai i progressi in Search Console strada facendo, non una promessa di posizioni.' },
         { q: 'Puoi garantirmi il primo posto su Google?', a: 'No, e nessuno può farlo onestamente. Quello che posso fare è togliere ciò che frena il tuo sito e misurare cosa cambia.' },
         { q: 'Modificare il sito farà calare i posizionamenti attuali?', a: 'Non se la modifica è pianificata: contenuti utili mantenuti, vecchi indirizzi reindirizzati, niente di importante perso. Fa parte del lavoro.' },
-        { q: 'I testi devo scriverli io?', a: 'Tu conosci la tua attività; io so come le persone la cercano. Lavoriamo sui testi insieme, e io mi occupo di titoli, descrizioni e struttura. [Conferma cosa includi nella scrittura dei testi]' },
+        { q: 'I testi devo scriverli io?', a: 'Tu conosci la tua attività; io so come le persone la cercano. Lavoriamo sui testi insieme, e io mi occupo di titoli, descrizioni e struttura.' },
       ],
     },
     performance: {
@@ -400,7 +407,7 @@ const it: Dict = {
         { title: 'Dati reali in Search Console', text: 'Cosa vivono i visitatori veri nel tempo, non un singolo test.', region: 'page' },
       ],
       related: [
-        { slug: 'ezdirect', badge: 'Cliente', cap: 'Performance · Core Web Vitals', text: 'Core Web Vitals e Lighthouse sul nuovo sito. Prima/dopo: [DATI REALI].' },
+        { slug: 'ezdirect', badge: 'Cliente', cap: 'Performance · Core Web Vitals', text: 'Core Web Vitals e Lighthouse sul nuovo sito: Performance da 43 a 99.' },
       ],
       faq: [
         { q: 'Perché la velocità conta per una piccola attività?', a: 'Spesso le persone cercano un’attività locale dal telefono, in movimento. Una pagina lenta le perde prima ancora che leggano cosa offri.' },
@@ -438,10 +445,10 @@ const it: Dict = {
         { slug: 'trainly', badge: 'Personale', cap: 'Prodotto · UX · Front-end', text: 'Un prodotto per chi corre, progettato e sviluppato mobile-first.' },
       ],
       faq: [
-        { q: 'Puoi lavorare sul mio sito attuale?', a: 'Sì, è la maggior parte del lavoro. Parto da quello che hai e cambio quello che serve. [Conferma le piattaforme: WordPress, Shopify, custom…]' },
+        { q: 'Puoi lavorare sul mio sito attuale?', a: 'Sì, è la maggior parte del lavoro. Parto da quello che hai e cambio quello che serve, su qualsiasi piattaforma: WordPress, Shopify, siti custom e non solo.' },
         { q: 'Potrò ancora aggiornare il sito da solo?', a: 'È proprio l’obiettivo: dove possibile mantengo il tuo modo di modificare il sito e ti spiego tutto ciò che cambia.' },
-        { q: 'Ti occupi anche di design?', a: 'Sì, per siti e interfacce: Trainly ne è un esempio. [Conferma cosa includi nel design]' },
-        { q: 'Realizzi siti nuovi da zero?', a: 'Ho contribuito a costruire il nuovo ezdirect.it. [Conferma le dimensioni dei progetti che accetti]' },
+        { q: 'Ti occupi anche di design?', a: 'Sì, per siti e interfacce: Trainly ne è un esempio.' },
+        { q: 'Realizzi siti nuovi da zero?', a: 'Ho contribuito a costruire il nuovo ezdirect.it, dal front-end alla SEO.' },
       ],
     },
   },
@@ -450,6 +457,7 @@ const it: Dict = {
     ezdirect: {
       name: 'ezdirect.it',
       badge: 'Cliente',
+      status: 'Lavori in corso',
       cap: 'Progetto cliente · Sito web · SEO',
       filter: 'website',
       cardText: 'Front-End Developer & SEO Specialist sul nuovo sito, online da settembre 2026: sviluppo, modifiche al CRM, metadati, Core Web Vitals.',
@@ -463,10 +471,14 @@ const it: Dict = {
         { label: 'Lancio', value: 'Settembre 2026' },
         { label: 'Tool', value: 'SEOzen · Search Console · Lighthouse' },
       ],
+      shots: [
+        { src: '/img/ezdirect-desktop.webp', w: 1200, h: 750, alt: 'Homepage di ezdirect.it su desktop: ricerca nel catalogo, menu delle categorie e banner sui servizi.' },
+        { src: '/img/ezdirect-centralini.webp', w: 600, h: 1298, alt: 'Pagina Centralini telefonici di ezdirect.it su mobile: ricerca nel catalogo, breadcrumb e sottocategorie.' },
+      ],
       sections: [
         { title: 'Overview', body: 'Un nuovo sito per ezdirect.it, online da settembre 2026. Ho lavorato su entrambi i lati: il front-end che usano le persone e le parti che legge Google.' },
-        { title: 'Challenge', body: '[DA SCRIVERE: cosa mancava al vecchio sito, di cosa aveva bisogno l’azienda]' },
-        { title: 'Approach', body: '[DA SCRIVERE: come è stato organizzato il lavoro e perché]' },
+        { title: 'Challenge', body: 'Il vecchio sito partiva in salita su tutti i fronti misurati da Lighthouse: 43 in Performance, 58 in Accessibilità, 36 in Best practice e 41 in SEO. Pagine lente da caricare, metadati e struttura che Google leggeva a fatica, e un CRM da adattare al nuovo sito senza fermare il lavoro quotidiano dell’azienda.' },
+        { title: 'Approach', body: 'Ho lavorato su due fronti in parallelo, invece di sistemare la SEO a sito finito. Sul front-end ho implementato il design, curato l’interfaccia e fatto il debugging, intervenendo sul CRM dove serviva. Sul lato ricerca ho scritto meta title e description, curato la technical SEO e misurato Core Web Vitals e Lighthouse a ogni passaggio. Dopo il lancio, Search Console e SEOzen per seguire indicizzazione e posizionamenti.' },
         {
           title: 'Technical work',
           list: [
@@ -479,12 +491,13 @@ const it: Dict = {
             'Search Console, con SEOzen',
           ],
         },
-        { title: 'Key learnings', body: '[DA SCRIVERE]' },
+        { title: 'Key learnings', body: 'Velocità, accessibilità e SEO non si aggiungono alla fine: si decidono mentre si scrive il codice. Misurare prima e dopo con gli stessi strumenti ha reso ogni scelta verificabile, e il sito è andato online con punteggi tra 97 e 100 in tutte e quattro le categorie Lighthouse.' },
       ],
     },
     trainly: {
       name: 'Trainly',
       badge: 'Personale',
+      status: 'In sviluppo',
       cap: 'Progetto personale · App mobile',
       filter: 'mobile',
       cardText: 'Un prodotto per chi corre, progettato e sviluppato mobile-first.',
@@ -505,10 +518,10 @@ const it: Dict = {
         { src: '/img/trainly/nutrizione.webp', w: 378, h: 798, alt: 'Schermata Nutrizione di Trainly: circa 3100 kcal consigliate, divise tra carboidrati, proteine e grassi.' },
       ],
       sections: [
-        { title: 'Il prodotto', body: '[DA SCRIVERE: cosa fa Trainly e per chi è]' },
-        { title: 'Scelte di UX', body: '[DA SCRIVERE: le scelte di design principali e il perché]' },
-        { title: 'Note sul front-end', body: '[DA SCRIVERE: come è costruito]' },
-        { title: 'Cosa ho imparato', body: '[DA SCRIVERE]' },
+        { title: 'Il prodotto', body: 'Trainly è un’app di allenamento per chi prepara la mezza maratona. Il piano non è un calendario fisso: lo decidono regole chiare, partendo da come stai oggi, e ogni scelta viene spiegata in parole semplici. Ho seguito il progetto per intero, dal motore di allenamento all’interfaccia, su mobile e web.' },
+        { title: 'Scelte di UX', body: 'Un’idea dominante per schermata. In Oggi la protagonista è la prontezza: un numero, la sua fascia in parole e una frase che dice perché, con sotto i tre segnali che la muovono. Il Piano mostra la settimana come un percorso, con una card per seduta e solo quella di oggi in evidenza. Lo stato non è mai affidato al solo colore, i record verificati restano separati dalle stime e la nutrizione dichiara sempre quanto è affidabile il suo calcolo.' },
+        { title: 'Note sul front-end', body: 'Un design system essenziale: un accento e tre colori di stato, Instrument Serif per titoli e frasi chiave, Inter per testi e numeri. Card in vetro chiaro su un’aura ardesia fissa e una navigazione flottante con cinque sezioni. Il movimento serve solo a segnalare un cambio di stato e si ferma del tutto con Riduci movimento. Le attività arrivano direttamente da Garmin.' },
+        { title: 'Cosa ho imparato', body: 'Un’app di dati funziona quando spiega, non quando mostra tutto: ogni numero ha bisogno di una frase che lo traduca, ogni stima di dire quanto è affidabile. Progettare insieme motore e interfaccia mi ha costretto a scrivere regole abbastanza semplici da poterle spiegare in una riga.' },
       ],
     },
   },
@@ -529,7 +542,6 @@ const it: Dict = {
     resources: 'Risorse',
     contact: 'Contatti',
     privacy: 'Privacy',
-    vat: '[P.IVA se applicabile]',
     location: 'Pisa, Italia',
   },
 

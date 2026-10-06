@@ -226,6 +226,7 @@
 .proj-nav-link { display: grid; gap: 10px; padding: 22px 24px; }
 .proj-nav-link .cap { color: var(--mu2); display: inline-flex; gap: 6px; align-items: center; }
 .proj-nav-link.next { text-align: right; justify-items: end; }
+.proj-nav-link.next:only-child { grid-column: 1 / -1; }
 .proj-nav-link:hover .s-m { color: var(--act); }
 @media (max-width: 900px) {
   .proj-phones { align-items: flex-start; }

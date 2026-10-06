@@ -194,12 +194,19 @@ export function HomeView({ locale }: { locale: Locale }) {
               ))}
             </ul>
           </div>
-          {t.proof.testimonial && (
-            <div className="bento-quote glow">
-              <p className="cap">{t.proof.testimonialCap}</p>
-              <p className="s-m"><Rich text={t.proof.testimonial} /></p>
+          {/* No client testimonial yet: a real before/after from ezdirect.it, pointing to the contact form. */}
+          <div className="bento-quote glow">
+            <p className="cap">{t.proof.nextCap}</p>
+            <p className="bq-score">
+              <span className="bq-old"><span className="vh">{t.cwv.before}: </span>{t.cwv.rows[0].before}</span>
+              <Icon name="arrow-right" size={28} className="bq-arrow" />
+              <span><span className="vh">{t.cwv.after}: </span>{t.cwv.rows[0].after}</span>
+            </p>
+            <div className="bq-foot">
+              <p className="small">{t.proof.nextText}</p>
+              <Link href={href.contact(locale)} className="bq-link">{t.proof.nextCta}<Icon name="arrow-right" className="nudge" /></Link>
             </div>
-          )}
+          </div>
         </div>
       </section>
 
@@ -273,7 +280,7 @@ export function InsightCards({ locale }: { locale: Locale }) {
         <li key={it.title} className="card insight">
           <div className="bento-row">
             <span className="cap acc">{it.tag}</span>
-            <span className="ph">{t.insights.draft}</span>
+            <span className="caption">{t.insights.draft}</span>
           </div>
           <h3 className="s-m">{it.title}</h3>
         </li>

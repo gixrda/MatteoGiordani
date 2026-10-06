@@ -2,15 +2,16 @@ import { href, type Locale } from './routes';
 
 // Facts on hand (spec §3). Values in brackets are placeholders that must stay visible until provided.
 
-// [ADD WHEN AVAILABLE] — set NEXT_PUBLIC_SITE_URL at build time once the domain exists.
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.example.com').replace(/\/$/, '');
+// Canonical origin: NEXT_PUBLIC_SITE_URL when set (custom domain), else Vercel's production domain, injected at build time.
+const VERCEL_PROD = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? (VERCEL_PROD ? `https://${VERCEL_PROD}` : 'https://www.example.com')).replace(/\/$/, '');
 
 export const PERSON = {
   name: 'Matteo Giordani',
   title: 'SEO Specialist & Front-End Developer',
   email: 'mattegiordani02@gmail.com',
   linkedin: 'https://www.linkedin.com/in/matteogiordani02/',
-  instagram: null as string | null, // [ADD INSTAGRAM URL]
+  instagram: 'https://www.instagram.com/matteogiordani_/' as string | null,
 };
 
 // [CALENDLY / CAL.COM URL OR FORM-ONLY — TO DECIDE]. While null, "Book a call" leads to the contact form.

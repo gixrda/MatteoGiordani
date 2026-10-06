@@ -190,6 +190,7 @@
   overflow: clip; /* media sits on the bottom edge of the band by design */
 }
 .pcard-wide .pcard-band { height: 380px; }
+.pcard-status { position: absolute; top: 18px; left: 18px; z-index: 1; }
 .pcard-media { position: absolute; left: 50%; top: 40px; width: 70%; translate: -50% 0; transition: transform var(--t-slow) var(--e); }
 .pcard-wide .pcard-media { width: 62%; top: 44px; }
 .pcard:hover .pcard-media, .pcard:focus-within .pcard-media { transform: translateY(-10px) scale(1.02); }
@@ -207,15 +208,6 @@
 .pcard-arrow { opacity: 0; transform: translate(-4px, 4px); transition: opacity var(--t-fast) var(--e), transform var(--t-fast) var(--e); color: var(--act); }
 .pcard:hover .pcard-arrow, .pcard:focus-within .pcard-arrow { opacity: 1; transform: none; }
 .pcard .tags { margin-top: 6px; }
-
-/* CWVTable (§6.18) */
-.cwv { width: 100%; font-variant-numeric: tabular-nums; }
-.cwv caption { text-align: left; color: var(--mu2); padding-bottom: 12px; }
-.cwv th, .cwv td { padding: 10px 8px 10px 0; text-align: left; border-bottom: 1px solid var(--ln); vertical-align: middle; }
-.cwv thead th { color: var(--mu2); }
-.cwv tbody th { font-size: 14px; font-weight: 600; }
-.cwv td { color: var(--act); }
-.cwv td:last-child, .cwv th:last-child { text-align: right; padding-right: 0; }
 
 @media (max-width: 900px) {
   .work-grid { grid-template-columns: 1fr; }
@@ -238,7 +230,14 @@
 .bento-study li { display: grid; gap: 6px; align-content: start; }
 .bento-quote { border-radius: 18px; background: var(--brand-ink); color: var(--brand-paper); }
 .bento-quote .cap { color: var(--on-ink-muted); }
-.bento-quote .ph { color: var(--brand-paper); }
+/* Before/after card: the old score struck through and muted, the new one at display size. */
+.bq-score { display: flex; align-items: center; gap: 14px; font: 400 clamp(56px, 5vw, 72px)/1 var(--f-serif); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.bq-old { color: var(--on-ink-muted); text-decoration: line-through; text-decoration-thickness: 2px; }
+.bq-arrow { color: var(--on-ink-muted); flex: none; }
+.bq-foot { display: grid; gap: 10px; justify-items: start; }
+.bq-foot .small { color: var(--brand-paper); }
+.bq-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 700; color: var(--brand-paper); text-decoration: underline; text-underline-offset: 4px; }
+.bento-quote :focus-visible { outline-color: var(--brand-paper); }
 @media (max-width: 900px) {
   .bento { grid-template-columns: 1fr; }
   .bento-lh, .bento-study { grid-column: auto; }

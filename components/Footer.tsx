@@ -47,7 +47,7 @@ export function Footer({ locale }: { locale: Locale }) {
         </div>
         <div className="footer-base">
           <p><span className="footer-name">{PERSON.name}</span> <span className="caption">{PERSON.title}, {f.location}</span></p>
-          <p className="caption">© 2026 · <Rich text={f.vat} /></p>
+          <p className="caption">© 2026</p>
         </div>
       </div>
     </footer>

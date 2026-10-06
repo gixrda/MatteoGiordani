@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getDict } from '@/lib/i18n';
 import { href, PROJECT_SLUGS, type Locale, type ProjectSlug } from '@/lib/routes';
 import { PERSON, SITE_URL } from '@/lib/site';
-import { BrowserFrame, Breadcrumb, CtaPanel, PhoneFrame, Slot, homeWorkHref } from '@/components/Blocks';
+import { BrowserFrame, Breadcrumb, CtaPanel, PhoneFrame, homeWorkHref } from '@/components/Blocks';
 import { Icon } from '@/components/Icon';
 import { JsonLd } from '@/components/JsonLd';
 import { CwvTable } from '@/components/ProjectCard';
@@ -40,6 +40,7 @@ export function ProjectView({ locale, slug }: { locale: Locale; slug: ProjectSlu
       </div>
 
       <section className="wrap proj-hero" aria-labelledby="proj-title">
+        {p.status && <span className="status"><i aria-hidden="true" />{p.status}</span>}
         <p className="cap acc">{p.cap}</p>
         <h1 id="proj-title" className="d-l"><Rich text={p.h1} /></h1>
         <p className="lead">{p.lead}</p>
@@ -53,13 +54,17 @@ export function ProjectView({ locale, slug }: { locale: Locale; slug: ProjectSlu
       {/* Visuals */}
       <section className="wrap sec" aria-label={pp.visuals}>
         <div className="proj-band">
-          {slug === 'ezdirect' && (
+          {slug === 'ezdirect' && p.shots && (
             <div className="proj-ez">
-              <BrowserFrame url="ezdirect.it"><Slot label="ezdirect.it homepage" note={`${pp.desktop} 1440 · ${pp.screenshot}`} style={{ aspectRatio: '16 / 10' }} /></BrowserFrame>
-              <PhoneFrame><Slot label="ezdirect.it" note={`${pp.mobile} · ${pp.screenshot}`} /></PhoneFrame>
+              <BrowserFrame url="ezdirect.it">
+                <img src={p.shots[0].src} alt={p.shots[0].alt} width={p.shots[0].w} height={p.shots[0].h} decoding="async" fetchPriority="high" className="bframe-img" />
+              </BrowserFrame>
+              <PhoneFrame>
+                <img src={p.shots[1].src} alt={p.shots[1].alt} width={p.shots[1].w} height={p.shots[1].h} decoding="async" className="phone-img" />
+              </PhoneFrame>
             </div>
           )}
-          {p.shots && (
+          {slug === 'trainly' && p.shots && (
             <div className="proj-phones">
               {p.shots.map((sh) => (
                 <img key={sh.src} src={sh.src} alt={sh.alt} width={sh.w} height={sh.h} decoding="async" className="phone-shot" />
@@ -93,10 +98,12 @@ export function ProjectView({ locale, slug }: { locale: Locale; slug: ProjectSlu
       </section>
 
       <nav className="wrap sec proj-nav" aria-label={`${pp.prev} / ${pp.next}`}>
-        <Link href={href.work(locale, prev)} className="card proj-nav-link">
-          <span className="cap"><Icon name="arrow-right" size={13} className="flip" /> {pp.prev}</span>
-          <span className="s-m">{t.projects[prev].name}</span>
-        </Link>
+        {prev !== next && (
+          <Link href={href.work(locale, prev)} className="card proj-nav-link">
+            <span className="cap"><Icon name="arrow-right" size={13} className="flip" /> {pp.prev}</span>
+            <span className="s-m">{t.projects[prev].name}</span>
+          </Link>
+        )}
         <Link href={href.work(locale, next)} className="card proj-nav-link next">
           <span className="cap">{pp.next} <Icon name="arrow-right" size={13} /></span>
           <span className="s-m">{t.projects[next].name}</span>
