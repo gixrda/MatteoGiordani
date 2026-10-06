@@ -25,7 +25,6 @@ const it: Dict = {
     emailMe: 'Scrivimi',
     explore: 'Scopri',
     allProjects: 'Tutti i progetti',
-    redesignConcept: 'Concept di redesign',
   },
 
   meta: {
@@ -119,7 +118,7 @@ const it: Dict = {
   work: {
     h2: 'Lavori *selezionati*',
     text: 'Una selezione di cose che ho costruito, ottimizzato ed esplorato.',
-    filters: { all: 'Tutti', website: 'Siti web', mobile: 'App mobile', concept: 'Concept' },
+    filters: { all: 'Tutti', website: 'Siti web', mobile: 'App mobile' },
     filterLabel: 'Filtra i progetti',
   },
 
@@ -368,7 +367,6 @@ const it: Dict = {
       ],
       related: [
         { slug: 'ezdirect', badge: 'Cliente', cap: 'Sito web · SEO', text: 'Metadati, technical SEO e Search Console sul nuovo sito.' },
-        { slug: 'the-butcher', badge: 'Concept', cap: 'SEO locale · Redesign', text: 'Una macelleria-ristorante locale, ripensata per la ricerca locale.' },
       ],
       faq: [
         { q: 'Quanto ci vuole per vedere risultati su Google?', a: 'Dipende dal tuo sito e dai tuoi concorrenti. Le correzioni tecniche possono essere recepite in qualche settimana; i posizionamenti di solito si muovono nell’arco di mesi. Vedrai i progressi in Search Console strada facendo, non una promessa di posizioni.' },
@@ -403,7 +401,6 @@ const it: Dict = {
       ],
       related: [
         { slug: 'ezdirect', badge: 'Cliente', cap: 'Performance · Core Web Vitals', text: 'Core Web Vitals e Lighthouse sul nuovo sito. Prima/dopo: [DATI REALI].' },
-        { slug: 'the-butcher', badge: 'Concept', cap: 'Performance · UX mobile', text: 'Un redesign pensato fin dall’inizio per la velocità su mobile.' },
       ],
       faq: [
         { q: 'Perché la velocità conta per una piccola attività?', a: 'Spesso le persone cercano un’attività locale dal telefono, in movimento. Una pagina lenta le perde prima ancora che leggano cosa offri.' },
@@ -443,7 +440,7 @@ const it: Dict = {
       faq: [
         { q: 'Puoi lavorare sul mio sito attuale?', a: 'Sì, è la maggior parte del lavoro. Parto da quello che hai e cambio quello che serve. [Conferma le piattaforme: WordPress, Shopify, custom…]' },
         { q: 'Potrò ancora aggiornare il sito da solo?', a: 'È proprio l’obiettivo: dove possibile mantengo il tuo modo di modificare il sito e ti spiego tutto ciò che cambia.' },
-        { q: 'Ti occupi anche di design?', a: 'Sì, per siti e interfacce: Trainly e il concept di The Butcher ne sono un esempio. [Conferma cosa includi nel design]' },
+        { q: 'Ti occupi anche di design?', a: 'Sì, per siti e interfacce: Trainly ne è un esempio. [Conferma cosa includi nel design]' },
         { q: 'Realizzi siti nuovi da zero?', a: 'Ho contribuito a costruire il nuovo ezdirect.it. [Conferma le dimensioni dei progetti che accetti]' },
       ],
     },
@@ -500,32 +497,18 @@ const it: Dict = {
         { label: 'Tipo', value: 'Progetto personale' },
         { label: 'Ruolo', value: 'Prodotto · UX · Front-end · Mobile' },
       ],
+      shots: [
+        { src: '/img/trainly/cover.webp', w: 1920, h: 1080, alt: 'Trainly: tre schermate dell’app (Piano, Oggi, Nutrizione) accanto al titolo “L’allenamento per la mezza maratona, deciso da regole e spiegato in chiaro.”' },
+        { src: '/img/trainly/oggi.webp', w: 1600, h: 1200, alt: 'Schermata Oggi di Trainly: prontezza 51/100 con sonno, recupero e sforzo, e i segnali che compongono il punteggio.' },
+        { src: '/img/trainly/piano.webp', w: 1600, h: 1200, alt: 'Schermate Piano e Progressi di Trainly: la settimana come elenco di sedute con intensità, record verificati separati dalle stime.' },
+        { src: '/img/trainly/nutrizione.webp', w: 1600, h: 1200, alt: 'Schermata Nutrizione di Trainly: circa 3100 kcal consigliate con carboidrati, proteine e grassi, accanto alla schermata Oggi.' },
+        { src: '/img/trainly/sistema.webp', w: 1600, h: 1200, alt: 'Design system di Trainly: un accento e tre colori di stato, Instrument Serif e Inter, superfici in vetro.' },
+      ],
       sections: [
         { title: 'Il prodotto', body: '[DA SCRIVERE: cosa fa Trainly e per chi è]' },
         { title: 'Scelte di UX', body: '[DA SCRIVERE: le scelte di design principali e il perché]' },
         { title: 'Note sul front-end', body: '[DA SCRIVERE: come è costruito]' },
         { title: 'Cosa ho imparato', body: '[DA SCRIVERE]' },
-      ],
-    },
-    'the-butcher': {
-      name: 'The Butcher Ristomacelleria',
-      badge: 'Concept di redesign',
-      cap: 'Concept · Attività locale',
-      filter: 'concept',
-      cardText: 'Come una ristomacelleria locale potrebbe trasformare le ricerche in tavoli prenotati.',
-      tags: ['Web design', 'SEO locale', 'UX'],
-      metaTitle: 'The Butcher Ristomacelleria — concept di redesign — Matteo Giordani',
-      metaDescription: 'Un concept di redesign, non un progetto commissionato: come una ristomacelleria locale potrebbe trasformare le ricerche in tavoli prenotati.',
-      h1: 'The Butcher, _un concept di redesign_ *per la ricerca locale.*',
-      lead: 'Un concept di mia iniziativa, non un progetto commissionato: come una ristomacelleria locale potrebbe trasformare le ricerche in tavoli prenotati.',
-      facts: [
-        { label: 'Tipo', value: 'Concept di redesign (non commissionato)' },
-        { label: 'Focus', value: 'Web design · SEO locale · UX' },
-      ],
-      sections: [
-        { title: 'L’esperienza attuale', body: '[DA SCRIVERE: cosa trova oggi un visitatore]' },
-        { title: 'L’esperienza proposta', body: '[DA SCRIVERE: cosa cambia e perché]' },
-        { title: 'SEO locale e struttura delle pagine', body: '[DA SCRIVERE: il ragionamento dietro la struttura]' },
       ],
     },
   },
@@ -535,8 +518,6 @@ const it: Dict = {
     evidence: 'Evidence',
     next: 'Progetto successivo',
     prev: 'Progetto precedente',
-    current: 'Attuale',
-    proposed: 'Proposto',
     desktop: 'desktop',
     mobile: 'mobile',
     screenshot: 'screenshot da aggiungere',

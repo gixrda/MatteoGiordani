@@ -2,9 +2,9 @@ export type Locale = 'it' | 'en';
 export const LOCALES: Locale[] = ['it', 'en'];
 
 export type ServiceSlug = 'seo' | 'performance' | 'front-end';
-export type ProjectSlug = 'ezdirect' | 'trainly' | 'the-butcher';
+export type ProjectSlug = 'ezdirect' | 'trainly';
 export const SERVICE_SLUGS: ServiceSlug[] = ['seo', 'performance', 'front-end'];
-export const PROJECT_SLUGS: ProjectSlug[] = ['ezdirect', 'trainly', 'the-butcher'];
+export const PROJECT_SLUGS: ProjectSlug[] = ['ezdirect', 'trainly'];
 
 // Localised path segments (spec §4.3). [confirm IT slugs]
 const SEG = {

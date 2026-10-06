@@ -190,7 +190,6 @@
   overflow: clip; /* media sits on the bottom edge of the band by design */
 }
 .pcard-wide .pcard-band { height: 380px; }
-.pcard-badge { position: absolute; top: 18px; left: 18px; z-index: 1; }
 .pcard-media { position: absolute; left: 50%; top: 40px; width: 70%; translate: -50% 0; transition: transform var(--t-slow) var(--e); }
 .pcard-wide .pcard-media { width: 62%; top: 44px; }
 .pcard:hover .pcard-media, .pcard:focus-within .pcard-media { transform: translateY(-10px) scale(1.02); }
@@ -204,13 +203,6 @@
 .pcard-arrow { opacity: 0; transform: translate(-4px, 4px); transition: opacity var(--t-fast) var(--e), transform var(--t-fast) var(--e); color: var(--act); }
 .pcard:hover .pcard-arrow, .pcard:focus-within .pcard-arrow { opacity: 1; transform: none; }
 .pcard .tags { margin-top: 6px; }
-
-.pm-phones { display: flex; justify-content: center; align-items: flex-end; gap: 18px; }
-.pm-phones .phone { width: 40%; }
-.tilt-l { rotate: -3deg; }
-.tilt-r { rotate: 3deg; margin-bottom: -18px; }
-.pm-pair { position: relative; }
-.pm-pair-phone { position: absolute; right: -10%; bottom: 0; width: 26%; }
 
 /* CWVTable (§6.18) */
 .cwv { width: 100%; font-variant-numeric: tabular-nums; }
@@ -227,7 +219,6 @@
   .pcard-band, .pcard-wide .pcard-band { height: 280px; }
   .pcard-wide .pcard-body { grid-template-columns: 1fr; gap: 24px; }
   .pcard-media, .pcard-wide .pcard-media { width: 78%; }
-  .pm-phones .phone { width: 36%; }
 }
 
 /* Proof bento (§7.7) + LighthouseRing (§6.19) */

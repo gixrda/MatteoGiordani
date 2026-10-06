@@ -40,7 +40,6 @@ export function ProjectView({ locale, slug }: { locale: Locale; slug: ProjectSlu
       </div>
 
       <section className="wrap proj-hero" aria-labelledby="proj-title">
-        {slug === 'the-butcher' && <span className="badge">{t.ui.redesignConcept}</span>}
         <p className="cap acc">{p.cap}</p>
         <h1 id="proj-title" className="d-l"><Rich text={p.h1} /></h1>
         <p className="lead">{p.lead}</p>
@@ -60,26 +59,13 @@ export function ProjectView({ locale, slug }: { locale: Locale; slug: ProjectSlu
               <PhoneFrame><Slot label="ezdirect.it" note={`${pp.mobile} · ${pp.screenshot}`} /></PhoneFrame>
             </div>
           )}
-          {slug === 'trainly' && (
-            <div className="proj-phones">
-              {['Trainly 1', 'Trainly 2', 'Trainly 3'].map((n, k) => (
-                <PhoneFrame key={n} className={k === 1 ? 'lift' : undefined}><Slot label={n} note="1179×2556" /></PhoneFrame>
+          {p.shots && (
+            <div className="proj-shots">
+              {p.shots.map((sh, k) => (
+                <a key={sh.src} href={sh.src} target="_blank" rel="noopener" className="proj-shot">
+                  <img src={sh.src} alt={sh.alt} width={sh.w} height={sh.h} decoding="async" className="shot" {...(k ? { loading: 'lazy' as const } : {})} />
+                </a>
               ))}
-            </div>
-          )}
-          {slug === 'the-butcher' && (
-            <div className="proj-compare">
-              <figure>
-                <figcaption className="cap">{pp.current}</figcaption>
-                <BrowserFrame url="current site"><Slot label="Current homepage" note={pp.screenshot} style={{ aspectRatio: '16 / 10' }} /></BrowserFrame>
-              </figure>
-              <figure>
-                <figcaption className="cap acc">{pp.proposed}</figcaption>
-                <div className="proj-ez">
-                  <BrowserFrame url="proposed"><Slot label="Proposed homepage" note={`${pp.desktop} · mockup to add`} style={{ aspectRatio: '16 / 10' }} /></BrowserFrame>
-                  <PhoneFrame><Slot label="Proposed" note={`${pp.mobile} · mockup to add`} /></PhoneFrame>
-                </div>
-              </figure>
             </div>
           )}
         </div>

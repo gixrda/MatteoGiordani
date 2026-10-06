@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-type Filter = 'all' | 'website' | 'mobile' | 'concept';
+type Filter = 'all' | 'website' | 'mobile';
 
 /** Filter pills above the project grid (spec §6.16). Cards are server-rendered and passed in. */
 export function WorkGrid({ labels, label, items }: { labels: Record<Filter, string>; label: string; items: { key: string; filter: Filter; wide?: boolean; node: React.ReactNode }[] }) {

@@ -212,13 +212,10 @@
 .proj-facts dd { margin: 0; font-weight: 600; }
 .proj-band { padding: clamp(24px, 5vw, 56px); border-radius: 26px; background: var(--grad-band); }
 .proj-ez { display: grid; grid-template-columns: 1fr 22%; gap: clamp(16px, 3vw, 32px); align-items: end; }
-.proj-phones { display: flex; justify-content: center; align-items: flex-end; gap: clamp(12px, 3vw, 32px); }
-.proj-phones .phone { width: min(30%, 260px); }
-.proj-phones .lift { margin-bottom: 32px; }
-.proj-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-.proj-compare figure { display: grid; gap: 12px; align-content: start; }
-.proj-compare .cap { color: var(--brand-paper); }
-.proj-compare .proj-ez { grid-template-columns: 1fr 26%; }
+/* Cover full width, the other slides two per row; each opens at full size. */
+.proj-shots { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 3vw, 32px); }
+.proj-shot { display: block; border-radius: 10px; }
+.proj-shot:first-child { grid-column: 1 / -1; }
 .proj-story { display: grid; gap: 0; }
 .proj-row { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; padding: 32px 0; border-top: 1px solid var(--ln); }
 .proj-list { display: grid; gap: 10px; }
@@ -230,8 +227,10 @@
 .proj-nav-link .cap { color: var(--mu2); display: inline-flex; gap: 6px; align-items: center; }
 .proj-nav-link.next { text-align: right; justify-items: end; }
 .proj-nav-link:hover .s-m { color: var(--act); }
+@media (max-width: 640px) {
+  .proj-shots { grid-template-columns: 1fr; }
+}
 @media (max-width: 900px) {
   .proj-row { grid-template-columns: 1fr; gap: 16px; }
-  .proj-compare { grid-template-columns: 1fr; }
   .proj-nav { grid-template-columns: 1fr; }
 }

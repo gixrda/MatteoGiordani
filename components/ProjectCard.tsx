@@ -1,26 +1,15 @@
 import Link from 'next/link';
 import type { Dict } from '@/content/en';
 import { href, type Locale, type ProjectSlug } from '@/lib/routes';
-import { BrowserFrame, PhoneFrame, Slot } from './Blocks';
+import { BrowserFrame, Slot } from './Blocks';
 import { Icon } from './Icon';
 import { Rich } from './Rich';
 
-/** Media for each project until real screenshots exist (spec §6.17). Never stretched. */
-export function ProjectMedia({ slug }: { slug: ProjectSlug }) {
-  if (slug === 'trainly')
-    return (
-      <div className="pm-phones">
-        <PhoneFrame className="tilt-l"><Slot label="Trainly 1" note="1179×2556" /></PhoneFrame>
-        <PhoneFrame className="tilt-r"><Slot label="Trainly 2" note="1179×2556" /></PhoneFrame>
-      </div>
-    );
-  if (slug === 'the-butcher')
-    return (
-      <div className="pm-pair">
-        <BrowserFrame url="the-butcher · proposed"><Slot label="Proposed homepage" note="desktop · mockup to add" /></BrowserFrame>
-        <PhoneFrame className="pm-pair-phone"><Slot label="Mobile" note="mockup to add" /></PhoneFrame>
-      </div>
-    );
+/** Card media for each project: the real cover where one exists, a placeholder until then (spec §6.17). Never stretched. */
+export function ProjectMedia({ slug, t }: { slug: ProjectSlug; t: Dict }) {
+  const cover = t.projects[slug].shots?.[0];
+  if (cover)
+    return <img src={cover.src} alt={cover.alt} width={cover.w} height={cover.h} loading="lazy" decoding="async" className="shot" />;
   return (
     <BrowserFrame url="ezdirect.it">
       <Slot label="ezdirect.it homepage" note="screenshot to add · desktop 1440" />
@@ -54,8 +43,7 @@ export function ProjectCard({ locale, slug, t, wide }: { locale: Locale; slug: P
   return (
     <article className={`pcard card${wide ? ' pcard-wide' : ''}`}>
       <div className="pcard-band">
-        {slug === 'the-butcher' && <span className="badge pcard-badge">{t.ui.redesignConcept}</span>}
-        <div className="pcard-media"><ProjectMedia slug={slug} /></div>
+        <div className="pcard-media"><ProjectMedia slug={slug} t={t} /></div>
       </div>
       <div className="pcard-body">
         <div className="pcard-main">
@@ -69,7 +57,7 @@ export function ProjectCard({ locale, slug, t, wide }: { locale: Locale; slug: P
           <p className="small"><Rich text={p.cardText} /></p>
           <ul className="tags">{p.tags.map((tag) => <li key={tag} className="tag">{tag}</li>)}</ul>
         </div>
-        {wide && <CwvTable c={t.cwv} />}
+        {wide && slug === 'ezdirect' && <CwvTable c={t.cwv} />}
       </div>
     </article>
   );

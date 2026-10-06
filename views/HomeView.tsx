@@ -157,11 +157,11 @@ export function HomeView({ locale }: { locale: Locale }) {
         <WorkGrid
           label={t.work.filterLabel}
           labels={t.work.filters}
-          items={PROJECT_SLUGS.map((slug, i) => ({
+          items={PROJECT_SLUGS.map((slug) => ({
             key: slug,
             filter: t.projects[slug].filter,
-            wide: i === 0,
-            node: <ProjectCard locale={locale} slug={slug} t={t} wide={i === 0} />,
+            wide: true,
+            node: <ProjectCard locale={locale} slug={slug} t={t} wide />,
           }))}
         />
       </section>

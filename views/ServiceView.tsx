@@ -116,7 +116,7 @@ export function ServiceView({ locale, slug }: { locale: Locale; slug: ServiceSlu
             <article key={r.slug} className="rel">
               <div className="rel-band">
                 <span className="badge">{r.badge}</span>
-                <div className="rel-media"><ProjectMedia slug={r.slug} /></div>
+                <div className="rel-media"><ProjectMedia slug={r.slug} t={t} /></div>
                 <span className="rel-round" aria-hidden="true"><Icon name="arrow-up-right" size={18} /></span>
               </div>
               <p className="cap acc">{r.cap}</p>

@@ -30,7 +30,7 @@ export type ProjectContent = {
   name: string;
   badge: string;
   cap: string;
-  filter: 'website' | 'mobile' | 'concept';
+  filter: 'website' | 'mobile';
   cardText: string;
   tags: string[];
   metaTitle: string;
@@ -39,6 +39,8 @@ export type ProjectContent = {
   lead: string;
   facts: { label: string; value: string }[];
   sections: ProjectSection[];
+  /** Real project images; the first one is the cover used on cards. */
+  shots?: { src: string; w: number; h: number; alt: string }[];
 };
 
 const en = {
@@ -62,7 +64,6 @@ const en = {
     emailMe: 'Email me',
     explore: 'Explore',
     allProjects: 'All projects',
-    redesignConcept: 'Redesign concept',
   },
 
   meta: {
@@ -156,7 +157,7 @@ const en = {
   work: {
     h2: 'Selected *work*',
     text: "A selection of things I've built, optimized and explored.",
-    filters: { all: 'All', website: 'Website', mobile: 'Mobile app', concept: 'Concept' },
+    filters: { all: 'All', website: 'Website', mobile: 'Mobile app' },
     filterLabel: 'Filter projects',
   },
 
@@ -407,7 +408,6 @@ const en = {
       ],
       related: [
         { slug: 'ezdirect', badge: 'Client', cap: 'Website · SEO', text: 'Metadata, technical SEO and Search Console on the new site.' },
-        { slug: 'the-butcher', badge: 'Concept', cap: 'Local SEO · Redesign', text: 'A local restaurant-butcher, rethought for local search.' },
       ],
       faq: [
         { q: 'How long before I see results on Google?', a: 'It depends on your site and your competitors. Technical fixes can be picked up within weeks; rankings usually move over months. You’ll see progress in Search Console along the way, not a promise of positions.' },
@@ -442,7 +442,6 @@ const en = {
       ],
       related: [
         { slug: 'ezdirect', badge: 'Client', cap: 'Performance · Core Web Vitals', text: 'Core Web Vitals and Lighthouse on the new site. Before/after: [REAL DATA].' },
-        { slug: 'the-butcher', badge: 'Concept', cap: 'Performance · Mobile UX', text: 'A redesign planned around mobile speed from the start.' },
       ],
       faq: [
         { q: 'Why does speed matter for a small business?', a: 'People often look up a local business on their phone, on the move. A slow page loses them before they read what you offer.' },
@@ -482,7 +481,7 @@ const en = {
       faq: [
         { q: 'Can you work on my existing website?', a: 'Yes, that’s most of the work. I start from what you have and change what’s needed. [Confirm platforms: WordPress, Shopify, custom…]' },
         { q: 'Will I still be able to update the site myself?', a: 'That is the goal: I keep your editing workflow where possible and explain anything that changes.' },
-        { q: 'Do you also design?', a: 'Yes, for websites and interfaces: Trainly and The Butcher concept are examples. [Confirm design scope]' },
+        { q: 'Do you also design?', a: 'Yes, for websites and interfaces: Trainly is an example. [Confirm design scope]' },
         { q: 'Do you build new websites from scratch?', a: 'I contributed to building the new ezdirect.it. [Confirm the project sizes you take on]' },
       ],
     },
@@ -539,32 +538,18 @@ const en = {
         { label: 'Type', value: 'Personal project' },
         { label: 'Role', value: 'Product · UX · Front-End · Mobile' },
       ],
+      shots: [
+        { src: '/img/trainly/cover.webp', w: 1920, h: 1080, alt: 'Trainly: three app screens (Plan, Today, Nutrition) beside the headline “Half-marathon training, decided by rules and explained clearly.”' },
+        { src: '/img/trainly/oggi.webp', w: 1600, h: 1200, alt: 'Trainly Today screen: readiness score 51/100 with sleep, recovery and effort, plus the signals behind the score.' },
+        { src: '/img/trainly/piano.webp', w: 1600, h: 1200, alt: 'Trainly Plan and Progress screens: the week as a list of sessions with intensity, and verified records kept apart from estimates.' },
+        { src: '/img/trainly/nutrizione.webp', w: 1600, h: 1200, alt: 'Trainly Nutrition screen: about 3100 kcal recommended with carbohydrates, protein and fat, next to the Today screen.' },
+        { src: '/img/trainly/sistema.webp', w: 1600, h: 1200, alt: 'Trainly design system: one accent and three status colours, Instrument Serif and Inter, glass surfaces.' },
+      ],
       sections: [
         { title: 'The product', body: '[TO WRITE: what Trainly does and who it is for]' },
         { title: 'UX decisions', body: '[TO WRITE: the key design decisions and why]' },
         { title: 'Front-end notes', body: '[TO WRITE: how it is built]' },
         { title: 'What I learned', body: '[TO WRITE]' },
-      ],
-    },
-    'the-butcher': {
-      name: 'The Butcher Ristomacelleria',
-      badge: 'Redesign concept',
-      cap: 'Concept · Local business',
-      filter: 'concept',
-      cardText: 'How a local restaurant-butcher could turn searches into tables.',
-      tags: ['Web design', 'Local SEO', 'UX'],
-      metaTitle: 'The Butcher Ristomacelleria — redesign concept — Matteo Giordani',
-      metaDescription: 'A redesign concept, not a commissioned project: how a local restaurant-butcher could turn searches into tables.',
-      h1: 'The Butcher, _a redesign concept_ *for local search.*',
-      lead: 'A self-initiated concept, not a commissioned project: how a local restaurant-butcher could turn searches into tables.',
-      facts: [
-        { label: 'Type', value: 'Redesign concept (not commissioned)' },
-        { label: 'Focus', value: 'Web design · Local SEO · UX' },
-      ],
-      sections: [
-        { title: 'Current experience', body: '[TO WRITE: what a visitor finds today]' },
-        { title: 'Proposed experience', body: '[TO WRITE: what changes and why]' },
-        { title: 'Local SEO & page structure', body: '[TO WRITE: the reasoning behind the structure]' },
       ],
     },
   } as Record<ProjectSlug, ProjectContent>,
@@ -574,8 +559,6 @@ const en = {
     evidence: 'Evidence',
     next: 'Next project',
     prev: 'Previous project',
-    current: 'Current',
-    proposed: 'Proposed',
     desktop: 'desktop',
     mobile: 'mobile',
     screenshot: 'screenshot to add',
