@@ -69,9 +69,9 @@ const en = {
   },
 
   meta: {
-    homeTitle: 'Matteo Giordani — SEO Specialist & Front-End Developer',
+    homeTitle: 'SEO and front-end development in Pisa · Matteo Giordani',
     homeDescription:
-      'I build websites that rank, perform and convert. SEO and front-end development in one place, for businesses that want to be found on Google.',
+      'SEO and front-end development for businesses in Pisa and across Italy: search, site speed and clean code, measured before and after.',
   },
 
   hero: {
@@ -81,15 +81,15 @@ const en = {
     lead: 'I help businesses get found on Google. SEO and front-end development in one place, from the first check to the code.',
     askLabel: 'Owners usually ask me',
     asks: [
-      { text: "Why can't customers find me on Google?", service: 'seo' as ServiceSlug },
+      { text: "Why can’t customers find me on Google?", service: 'seo' as ServiceSlug },
       { text: 'Is my site slow on phones?', service: 'performance' as ServiceSlug },
       { text: 'Do I need a new website?', service: 'front-end' as ServiceSlug },
     ],
-    trust: ['You talk to the person doing the work', 'Fixes made in the code', 'First call, no commitment'],
+    trust: ['You talk to the person doing the work', 'Fixes made in the code', 'First call, no commitment', 'ezdirect.it: Performance from 43 to 99'],
     viewWork: 'or view my work',
     photoAlt: 'Matteo Giordani at his desk',
     cafePhotoAlt: 'Matteo Giordani taking notes at a café table',
-    chipHello: "Ciao, I'm Matteo Giordani",
+    chipHello: "Ciao, I’m Matteo Giordani",
     chipFactTitle: 'Pisa',
     chipFactCap: 'Working with businesses across Italy',
     toolsLabel: 'Tools I use every day',
@@ -101,8 +101,8 @@ const en = {
     text: 'Website optimization and SEO are one job. What people find on Google, how fast the page feels and the code underneath depend on each other, so I work on all three at once.',
     items: [
       { title: 'Found', cap: 'SEO & Technical SEO', text: 'What people see on Google, and what Google can read on your pages: titles, descriptions, structure, indexing.', service: 'seo' as ServiceSlug },
-      { title: 'Fast', cap: 'Performance & Core Web Vitals', text: "How quickly the page shows up and responds on a phone, measured with Google's own signals.", service: 'performance' as ServiceSlug },
-      { title: 'Built right', cap: 'Front-End development', text: 'The code underneath: where the fixes for the first two layers actually happen.', service: 'front-end' as ServiceSlug },
+      { title: 'Fast', cap: 'Performance & Core Web Vitals', text: "How quickly the page shows up and responds on a phone, measured with Google’s own signals.", service: 'performance' as ServiceSlug },
+      { title: 'Built right', cap: 'Front-end development', text: 'The code underneath: where the fixes for the first two layers actually happen.', service: 'front-end' as ServiceSlug },
     ],
     button: 'How I work on each layer',
     planeSearch: 'Search',
@@ -123,7 +123,7 @@ const en = {
       ],
     },
     right: {
-      title: 'SEO + Front-End, one person',
+      title: 'SEO + front-end, one person',
       rows: [
         { b: 'Problems fixed in the code', s: 'I work directly on your website' },
         { b: 'One person, one responsibility', s: 'From the first check to the launch' },
@@ -141,16 +141,16 @@ const en = {
     stepsLabel: 'Steps',
     steps: [
       { name: 'Discover', kicker: 'Where you stand', text: 'Customers search for what you offer. Your site is there, but nobody picks it.' },
-      { name: 'Understand', kicker: 'Analysis', text: "I find what's holding it back: slow images, missing titles, pages Google can't read." },
+      { name: 'Understand', kicker: 'Analysis', text: "I find what’s holding it back: slow images, missing titles, pages Google can’t read." },
       { name: 'Optimize', kicker: 'SEO', text: 'Titles, descriptions and headings that tell Google, and people, what you do.' },
-      { name: 'Build', kicker: 'Front-End', text: 'I work directly on the code: layout, mobile, the details.' },
+      { name: 'Build', kicker: 'Front-end', text: 'I work directly on the code: layout, mobile, the details.' },
       { name: 'Perform', kicker: 'Core Web Vitals', text: 'Fast where it counts, on a phone. Measured, not promised.' },
       { name: 'Convert', kicker: 'Results', text: 'Found, opened, booked. Then measured again in Search Console.' },
     ],
   },
 
   build: {
-    pins: ['Uncompressed photo, slow to load', "No H1: Google can't tell what this is", 'Title tag: “Home”', 'Breaks on mobile'],
+    pins: ['Uncompressed photo, slow to load', "No H1: Google can’t tell what this is", 'Title tag: “Home”', 'Breaks on mobile'],
     stageLabel: 'Example website, stage: {name}',
     cwvTitle: 'Core Web Vitals',
     cwvNote: 'illustrative',
@@ -158,7 +158,7 @@ const en = {
 
   work: {
     h2: 'Selected *work*',
-    text: "A selection of things I've built, optimized and explored.",
+    text: "A selection of things I’ve built, optimized and explored.",
     filters: { all: 'All', website: 'Website', mobile: 'Mobile app' },
     filterLabel: 'Filter projects',
   },
@@ -184,12 +184,12 @@ const en = {
     launchDate: 'Sept *2026*',
     launchText: 'New website goes live',
     lighthouseCap: 'This website · Lighthouse, mobile',
-    lighthouseNote: 'measured at launch',
-    rings: ['Performance', 'Accessibility', 'Best practices', 'SEO'],
+    lighthouseNote: 'production build · Oct 2026',
+    rings: [{ l: 'Performance', s: 93 }, { l: 'Accessibility', s: 100 }, { l: 'Best practices', s: 100 }, { l: 'SEO', s: 100 }],
     studyCap: 'Where I studied',
     study: [
       { title: 'Computer Science', text: 'Technical Diploma' },
-      { title: 'Communication & Marketing', text: "Bachelor's Degree · University of Pavia" },
+      { title: 'Communication & Marketing', text: "Bachelor’s Degree · University of Pavia" },
     ],
     // No client testimonial yet: the card shows a real before/after instead (spec §7.7).
     nextCap: 'Lighthouse performance · ezdirect.it',
@@ -200,18 +200,18 @@ const en = {
   about: {
     h2: 'Technology first. _Then_ communication. Now *both.*',
     p1: 'I started with technology, studied Communication & Marketing, and eventually found the intersection between the two in websites and search.',
-    p2: 'Today, I work across SEO and Front-End development, combining the way people search with the way websites are built.',
+    p2: 'Today, I work across SEO and front-end development, combining the way people search with the way websites are built.',
     offLabel: 'Off-screen:',
     off: ['Endurance', 'Sport', 'Travel', 'Nature'],
     more: 'More about me',
     // About page
-    metaTitle: 'About — Matteo Giordani',
+    metaTitle: 'About · Matteo Giordani',
     metaDescription: 'SEO Specialist and Front-End Developer: a background in computer science and in communication, working where search and websites meet.',
     pageH1: 'Technology first. _Then_ communication. Now *both.*',
     equationLabel: 'The short version',
     equation: [
       { a: 'Computer Science', b: 'Technical Diploma' },
-      { a: 'Communication & Marketing', b: "Bachelor's Degree · University of Pavia" },
+      { a: 'Communication & Marketing', b: "Bachelor’s Degree · University of Pavia" },
       { a: 'Search + websites', b: 'What I work on today' },
     ],
     howTitle: 'How I _work_',
@@ -242,14 +242,14 @@ const en = {
       { tag: 'Performance', title: 'Core Web Vitals, explained for restaurant owners' },
       { tag: 'Optimization', title: 'New website or better website? How to tell' },
     ],
-    metaTitle: 'Blog — Matteo Giordani',
+    metaTitle: 'Blog · Matteo Giordani',
     metaDescription: 'Short notes on search, speed and websites, for people who run a business.',
     empty: 'Articles are being written: the first ones are listed below.',
   },
 
   contact: {
     h2: 'Tell me about *your website*',
-    text: "A few details and I'll reply within 24 to 48 hours to set up the call.",
+    text: "A few details and I’ll reply within 24 to 48 hours to set up the call.",
     need: 'What do you need?',
     needChoose: 'Choose one',
     needs: ['SEO and visibility on Google', 'Site speed and Core Web Vitals', 'Development, redesign or front-end fixes', 'An initial review of my website'],
@@ -258,19 +258,20 @@ const en = {
     website: 'Website',
     message: 'Anything else?',
     optional: '(optional)',
-    messagePlaceholder: "My site doesn't bring in bookings, it's slow on phones, I don't know where to start…",
+    messagePlaceholder: "My site doesn’t bring in bookings, it’s slow on phones, I don’t know where to start…",
     privacy: 'I have read the {link} and agree to be contacted about my request.',
     privacyLink: 'privacy policy',
-    submit: 'Book a call',
+    submit: 'Send request',
+    orEmail: 'Or email me directly at',
     errors: {
       need: 'Choose the option closest to your request.',
       name: 'Add your name so I know who I’m talking to.',
       email: 'Add an email address like name@business.it.',
       privacy: 'Tick the box to accept the privacy policy, otherwise I can’t reply.',
     },
-    success: 'Your email app has opened with your request. Send it and I’ll reply to set up the call.',
+    success: 'Your email app has opened with your request: send it and I’ll reply within 24 to 48 hours. If it didn’t open, email me at',
     instagram: 'Instagram',
-    metaTitle: 'Contact — Matteo Giordani',
+    metaTitle: 'Contact · Matteo Giordani',
     metaDescription: 'Tell me about your website and book a first call, no commitment.',
   },
 
@@ -313,7 +314,7 @@ const en = {
   servicePage: {
     switcherLabel: 'Services',
     seeIncluded: 'See what’s included',
-    note: 'A first look at your site, no commitment.',
+    note: 'A first look at your site, no commitment. I reply within 24 to 48 hours.',
     tryIt: 'Try it',
     incH2: 'Every check, *on the page it touches.*',
     viewVisitors: 'What visitors see',
@@ -342,8 +343,8 @@ const en = {
     faqH2: 'What business owners *search for.*',
     faqText: 'The questions I hear most, answered the way I’d answer them on a call.',
     faqAsk: 'Ask your own question',
-    ctaH2: 'The next step *starts with your website.*',
-    ctaText: 'Send me your site’s address, or tell me what isn’t working. Within 24 to 48 hours I’ll reply with what I’d look at first.',
+    ctaH2: 'You don’t need *another report.*',
+    ctaText: 'Send me your site’s address, or tell me what isn’t working. Within 24 to 48 hours, I’ll tell you what I’d look at first.',
     regions: {
       tab: 'the title in the browser tab and on Google',
       url: 'the page address',
@@ -394,7 +395,7 @@ const en = {
     seo: {
       switcher: 'SEO',
       name: 'SEO & Technical SEO',
-      metaTitle: 'SEO & Technical SEO — Matteo Giordani',
+      metaTitle: 'SEO and technical SEO in Pisa · Matteo Giordani',
       metaDescription: 'Clear titles, readable pages, a structure Google understands. SEO for businesses, checked in Search Console and explained in plain words.',
       h1a: 'Get found by the people',
       h1b: 'already searching for you.',
@@ -428,7 +429,7 @@ const en = {
     performance: {
       switcher: 'Performance',
       name: 'Performance & Core Web Vitals',
-      metaTitle: 'Performance & Core Web Vitals — Matteo Giordani',
+      metaTitle: 'Site speed and Core Web Vitals · Matteo Giordani',
       metaDescription: 'A website that feels fast on a phone. Core Web Vitals measured with the signals Google uses, fixed in the code, measured again.',
       h1a: 'A website that feels',
       h1b: 'fast on a phone.',
@@ -460,9 +461,9 @@ const en = {
       ],
     },
     'front-end': {
-      switcher: 'Front-End',
-      name: 'Front-End development',
-      metaTitle: 'Front-End development — Matteo Giordani',
+      switcher: 'Front-end',
+      name: 'Front-end development',
+      metaTitle: 'Front-end development in Pisa · Matteo Giordani',
       metaDescription: 'Not a list of problems: changes made directly on your website. Layout, mobile, forms and details, built with search and speed in mind.',
       h1a: 'The fixes land',
       h1b: 'in the code.',
@@ -484,8 +485,8 @@ const en = {
         { title: 'Clean handover', text: 'Changes explained, so you know what was done and why.', region: 'page' },
       ],
       related: [
-        { slug: 'ezdirect', badge: 'Client', cap: 'Front-End · CRM', text: 'Development of the new website, design implementation and CRM changes.' },
-        { slug: 'trainly', badge: 'Personal', cap: 'Product · UX · Front-End', text: 'A product for runners, designed and built mobile-first.' },
+        { slug: 'ezdirect', badge: 'Client', cap: 'Front-end · CRM', text: 'Development of the new website, design implementation and CRM changes.' },
+        { slug: 'trainly', badge: 'Personal', cap: 'Product · UX · Front-end', text: 'A product for runners, designed and built mobile-first.' },
       ],
       faq: [
         { q: 'Can you work on my existing website?', a: 'Yes, that’s most of the work. I start from what you have and change what’s needed, on any platform: WordPress, Shopify, custom builds and more.' },
@@ -505,8 +506,8 @@ const en = {
       filter: 'website',
       cardText: 'Front-End Developer & SEO Specialist on the new website, live since September 2026: development, CRM changes, metadata, Core Web Vitals.',
       tags: ['SEOzen', 'Search Console', 'Lighthouse'],
-      metaTitle: 'ezdirect.it — Front-End & SEO — Matteo Giordani',
-      metaDescription: 'Front-End development and SEO on the new ezdirect.it, live since September 2026: development, CRM changes, metadata and Core Web Vitals.',
+      metaTitle: 'ezdirect.it: new website, front-end and SEO · Matteo Giordani',
+      metaDescription: 'Front-end development and SEO on the new ezdirect.it, live since September 2026: development, CRM changes, metadata and Core Web Vitals.',
       h1: 'ezdirect.it, _a new website_ *live since September 2026.*',
       lead: 'Front-End Developer & SEO Specialist on the new website: development, design implementation, CRM changes, metadata and Core Web Vitals.',
       facts: [
@@ -521,13 +522,13 @@ const en = {
       sections: [
         { title: 'Overview', body: 'A new website for ezdirect.it, launched in September 2026. I worked on both sides of it: the front-end people use, and the parts Google reads.' },
         { title: 'Challenge', body: 'The old site started behind on every front Lighthouse measures: 43 for Performance, 58 for Accessibility, 36 for Best practices and 41 for SEO. Pages were slow to load, Google struggled to read the metadata and structure, and the CRM had to be adapted to the new site without stopping the company’s daily work.' },
-        { title: 'Approach', body: 'I worked on both fronts in parallel, instead of fixing SEO once the site was finished. On the front-end I implemented the design, refined the interface and handled debugging, changing the CRM where needed. On the search side I wrote meta titles and descriptions, took care of technical SEO and measured Core Web Vitals and Lighthouse at every step. After launch, Search Console and SEOzen to follow indexing and rankings.' },
+        { title: 'Approach', body: 'I worked on both fronts in parallel, instead of fixing SEO once the site was finished. On the front-end I implemented the design, refined the interface and handled debugging, changing the CRM where needed. On the search side I wrote meta titles and descriptions, took care of technical SEO and measured Core Web Vitals and Lighthouse at every step. After launch, I used Search Console and SEOzen to follow indexing and rankings.' },
         {
           title: 'Technical work',
           list: [
             'Front-end development and design implementation',
             'Interface work and debugging',
-            'CRM modifications',
+            'CRM changes',
             'Meta titles and descriptions',
             'Technical SEO',
             'Core Web Vitals and Lighthouse',
@@ -544,14 +545,14 @@ const en = {
       cap: 'Personal project · Mobile app',
       filter: 'mobile',
       cardText: 'A product for runners, designed and built mobile-first.',
-      tags: ['Product', 'UX', 'Front-End'],
-      metaTitle: 'Trainly — a product for runners — Matteo Giordani',
+      tags: ['Product', 'UX', 'Front-end'],
+      metaTitle: 'Trainly: a half-marathon training app · Matteo Giordani',
       metaDescription: 'Trainly, a personal project: a product for runners, designed and built mobile-first.',
       h1: 'Trainly, _a product for runners,_ *built mobile-first.*',
       lead: 'A personal project: product, UX and front-end, designed for the phone from the first screen.',
       facts: [
         { label: 'Type', value: 'Personal project' },
-        { label: 'Role', value: 'Product · UX · Front-End · Mobile' },
+        { label: 'Role', value: 'Product · UX · Front-end · Mobile' },
       ],
       shots: [
         { src: '/img/trainly/piano.webp', w: 378, h: 798, alt: 'Trainly Plan screen: the week of 5 to 11 October with sessions, intensity and calories.' },
@@ -563,7 +564,7 @@ const en = {
       sections: [
         { title: 'The product', body: 'Trainly is a training app for runners preparing a half marathon. The plan is not a fixed calendar: clear rules decide it, starting from how you are today, and every choice is explained in plain words. I handled the whole project, from the training engine to the interface, on mobile and web.' },
         { title: 'UX decisions', body: 'One dominant idea per screen. On Today, readiness leads: a number, its band in words and a sentence that says why, with the three signals that move it underneath. The Plan shows the week as a path, one card per session, with only today highlighted. Status never relies on colour alone, verified records stay apart from estimates, and nutrition always states how reliable its figure is.' },
-        { title: 'Front-end notes', body: 'A lean design system: one accent and three status colours, Instrument Serif for headings and key sentences, Inter for text and numbers. Light glass cards over a fixed slate aura and a floating navigation with five sections. Motion only signals a change of state and stops completely with Reduce Motion. Activities come straight from Garmin.' },
+        { title: 'Front-end notes', body: 'A lean design system: one accent and three status colours, Instrument Serif for headings and key sentences, Inter for text and numbers. Light glass cards over a fixed slate aura and floating navigation with five sections. Motion only signals a change of state and stops completely with Reduce Motion. Activities come straight from Garmin.' },
         { title: 'What I learned', body: 'A data app works when it explains, not when it shows everything: every number needs a sentence that translates it, every estimate needs to say how reliable it is. Designing the engine and the interface together forced me to write rules simple enough to explain in one line.' },
       ],
     },
@@ -571,7 +572,7 @@ const en = {
 
   projectPage: {
     visuals: 'Visuals',
-    evidence: 'Evidence',
+    evidence: 'The numbers',
     next: 'Next project',
     prev: 'Previous project',
     desktop: 'desktop',
@@ -589,7 +590,7 @@ const en = {
   },
 
   privacy: {
-    metaTitle: 'Privacy policy — Matteo Giordani',
+    metaTitle: 'Privacy policy · Matteo Giordani',
     h1: 'Privacy *policy*',
     body: '[PRIVACY POLICY TO ADD — Italian GDPR text, data controller, purposes, retention, rights]',
   },

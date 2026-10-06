@@ -28,9 +28,9 @@ const it: Dict = {
   },
 
   meta: {
-    homeTitle: 'Matteo Giordani — SEO Specialist & Front-End Developer',
+    homeTitle: 'SEO e sviluppo front-end a Pisa · Matteo Giordani',
     homeDescription:
-      'Costruisco siti che si posizionano, vanno veloci e convertono. SEO e sviluppo front-end in un unico posto, per le attività che vogliono farsi trovare su Google.',
+      'SEO e sviluppo front-end per attività di Pisa e di tutta Italia: ricerca, velocità del sito e codice pulito, misurati prima e dopo.',
   },
 
   hero: {
@@ -44,7 +44,7 @@ const it: Dict = {
       { text: 'Il mio sito è lento sul telefono?', service: 'performance' },
       { text: 'Mi serve un sito nuovo?', service: 'front-end' },
     ],
-    trust: ['Parli con chi fa il lavoro', 'Le correzioni finiscono nel codice', 'Prima call senza impegno'],
+    trust: ['Parli con chi fa il lavoro', 'Le correzioni finiscono nel codice', 'Prima call senza impegno', 'ezdirect.it: Performance da 43 a 99'],
     viewWork: 'oppure guarda i miei lavori',
     photoAlt: 'Matteo Giordani alla sua scrivania',
     cafePhotoAlt: 'Matteo Giordani prende appunti al tavolino di un caffè',
@@ -57,7 +57,7 @@ const it: Dict = {
 
   layers: {
     h2: 'Un sito, *tre livelli.*',
-    text: 'Ottimizzazione del sito e SEO sono un unico lavoro. Quello che le persone trovano su Google, la velocità della pagina e il codice sotto dipendono l’uno dall’altro: per questo lavoro su tutti e tre insieme.',
+    text: 'Ottimizzazione del sito e SEO sono un unico lavoro. Quello che le persone trovano su Google, la velocità della pagina e il codice sotto dipendono gli uni dagli altri: per questo lavoro su tutti e tre insieme.',
     items: [
       { title: 'Trovato', cap: 'SEO & Technical SEO', text: 'Cosa vedono le persone su Google e cosa Google riesce a leggere delle tue pagine: titoli, descrizioni, struttura, indicizzazione.', service: 'seo' },
       { title: 'Veloce', cap: 'Performance & Core Web Vitals', text: 'Quanto velocemente la pagina compare e risponde sul telefono, misurato con i segnali di Google.', service: 'performance' },
@@ -143,8 +143,8 @@ const it: Dict = {
     launchDate: 'Sett. *2026*',
     launchText: 'Il nuovo sito va live',
     lighthouseCap: 'Questo sito · Lighthouse, mobile',
-    lighthouseNote: 'misurato al lancio',
-    rings: ['Performance', 'Accessibilità', 'Best practice', 'SEO'],
+    lighthouseNote: 'build di produzione · ott 2026',
+    rings: [{ l: 'Performance', s: 93 }, { l: 'Accessibilità', s: 100 }, { l: 'Best practice', s: 100 }, { l: 'SEO', s: 100 }],
     studyCap: 'Dove ho studiato',
     study: [
       { title: 'Informatica', text: 'Diploma tecnico' },
@@ -159,10 +159,10 @@ const it: Dict = {
     h2: 'Prima la tecnologia. _Poi_ la comunicazione. Ora *entrambe.*',
     p1: 'Sono partito dalla tecnologia, ho studiato Comunicazione & Marketing e alla fine ho trovato il punto d’incontro tra le due: i siti web e la ricerca.',
     p2: 'Oggi lavoro tra SEO e sviluppo front-end, unendo il modo in cui le persone cercano al modo in cui i siti vengono costruiti.',
-    offLabel: 'Off-screen:',
+    offLabel: 'Fuori dallo schermo:',
     off: ['Endurance', 'Sport', 'Viaggi', 'Natura'],
     more: 'Di più su di me',
-    metaTitle: 'Chi sono — Matteo Giordani',
+    metaTitle: 'Chi sono · Matteo Giordani',
     metaDescription: 'SEO Specialist e Front-End Developer: una formazione tra informatica e comunicazione, al lavoro dove ricerca e siti web si incontrano.',
     pageH1: 'Prima la tecnologia. _Poi_ la comunicazione. Ora *entrambe.*',
     equationLabel: 'In breve',
@@ -196,10 +196,10 @@ const it: Dict = {
     draft: 'In arrivo',
     items: [
       { tag: 'SEO', title: 'Il meta title è la tua insegna su Google' },
-      { tag: 'Performance', title: 'Core Web Vitals, spiegati a chi ha un ristorante' },
-      { tag: 'Ottimizzazione', title: 'Sito nuovo o sito migliore? Come capirlo' },
+      { tag: 'Performance', title: 'Core Web Vitals per ristoratori: tre numeri da guardare, senza gergo' },
+      { tag: 'Ottimizzazione', title: 'Il sito non porta clienti: va rifatto o basta correggerlo?' },
     ],
-    metaTitle: 'Blog — Matteo Giordani',
+    metaTitle: 'Blog · Matteo Giordani',
     metaDescription: 'Note brevi su ricerca, velocità e siti web, per chi gestisce un’attività.',
     empty: 'Gli articoli sono in scrittura: qui sotto i primi in arrivo.',
   },
@@ -218,16 +218,17 @@ const it: Dict = {
     messagePlaceholder: 'Il sito non porta prenotazioni, è lento sul telefono, non so da dove partire…',
     privacy: 'Ho letto l’{link} e accetto di essere ricontattato per la mia richiesta.',
     privacyLink: 'informativa sulla privacy',
-    submit: 'Prenota una call',
+    submit: 'Invia la richiesta',
+    orEmail: 'Oppure scrivimi direttamente a',
     errors: {
       need: 'Scegli l’opzione più vicina alla tua richiesta.',
       name: 'Aggiungi il tuo nome, così so con chi sto parlando.',
       email: 'Aggiungi un indirizzo email, ad esempio nome@attivita.it.',
       privacy: 'Spunta la casella per accettare l’informativa, altrimenti non posso risponderti.',
     },
-    success: 'Si è aperta la tua app di posta con la richiesta già compilata. Inviala e ti rispondo per fissare la call.',
+    success: 'Si è aperta la tua app di posta con la richiesta già compilata: inviala e ti rispondo entro 24/48 ore. Se non si è aperta, scrivimi a',
     instagram: 'Instagram',
-    metaTitle: 'Contatti — Matteo Giordani',
+    metaTitle: 'Contatti · Matteo Giordani',
     metaDescription: 'Raccontami il tuo sito e prenota una prima call, senza impegno.',
   },
 
@@ -250,7 +251,7 @@ const it: Dict = {
       {
         name: 'Costi e tempi',
         items: [
-          { q: 'Quanto costa un intervento?', a: 'Non c’è un listino a numero di pagine: il lavoro dipende da quanto è grande il sito, da dove parte, da cosa conta prima e se l’intervento è una tantum o continuativo.' },
+          { q: 'Quanto costa un intervento?', a: 'Non c’è un listino a numero di pagine: il lavoro dipende da quanto è grande il sito, da dove parte, da cosa conta prima e dal fatto che l’intervento sia una tantum o continuativo.' },
           { q: 'Quanto dura un progetto?', a: 'Dipende dalle dimensioni del sito e dal punto di partenza; dopo l’analisi ricevi un piano chiaro.' },
           { q: 'Offri un affiancamento continuativo?', a: 'Sì. Puoi scegliere un intervento mirato oppure un affiancamento mensile, con controlli e correzioni in Search Console.' },
           { q: 'Quando vedo i risultati su Google?', a: 'Le correzioni tecniche possono essere recepite in qualche settimana; i posizionamenti di solito si muovono nell’arco di mesi. Vedi i progressi in Search Console strada facendo, non una promessa di posizioni.' },
@@ -270,7 +271,7 @@ const it: Dict = {
   servicePage: {
     switcherLabel: 'Servizi',
     seeIncluded: 'Cosa è incluso',
-    note: 'Un primo sguardo al tuo sito, senza impegno.',
+    note: 'Un primo sguardo al tuo sito, senza impegno. Rispondo entro 24/48 ore.',
     tryIt: 'Prova',
     incH2: 'Ogni controllo, *nel punto della pagina che tocca.*',
     viewVisitors: 'Cosa vedono i visitatori',
@@ -299,8 +300,8 @@ const it: Dict = {
     faqH2: 'Cosa cercano *i titolari.*',
     faqText: 'Le domande che sento più spesso, con la risposta che darei durante una call.',
     faqAsk: 'Fai la tua domanda',
-    ctaH2: 'Il passo successivo *parte dal tuo sito.*',
-    ctaText: 'Mandami l’indirizzo del tuo sito, o raccontami cosa non funziona. Entro 24/48 ore ti rispondo con cosa guarderei per primo.',
+    ctaH2: 'Non ti serve *un altro report.*',
+    ctaText: 'Mandami l’indirizzo del tuo sito, o dimmi cosa non funziona. Entro 24/48 ore ti scrivo cosa guarderei per primo.',
     regions: {
       tab: 'il titolo nella scheda del browser e su Google',
       url: 'l’indirizzo della pagina',
@@ -351,7 +352,7 @@ const it: Dict = {
     seo: {
       switcher: 'SEO',
       name: 'SEO & Technical SEO',
-      metaTitle: 'SEO & Technical SEO — Matteo Giordani',
+      metaTitle: 'SEO e technical SEO a Pisa · Matteo Giordani',
       metaDescription: 'Titoli chiari, pagine leggibili, una struttura che Google capisce. SEO per attività, verificata in Search Console e spiegata in parole semplici.',
       h1a: 'Fatti trovare da chi',
       h1b: 'ti sta già cercando.',
@@ -385,7 +386,7 @@ const it: Dict = {
     performance: {
       switcher: 'Performance',
       name: 'Performance & Core Web Vitals',
-      metaTitle: 'Performance & Core Web Vitals — Matteo Giordani',
+      metaTitle: 'Velocità del sito e Core Web Vitals · Matteo Giordani',
       metaDescription: 'Un sito che sul telefono va veloce. Core Web Vitals misurati con i segnali di Google, corretti nel codice, misurati di nuovo.',
       h1a: 'Un sito che sembra',
       h1b: 'veloce sul telefono.',
@@ -419,7 +420,7 @@ const it: Dict = {
     'front-end': {
       switcher: 'Front-end',
       name: 'Sviluppo front-end',
-      metaTitle: 'Sviluppo front-end — Matteo Giordani',
+      metaTitle: 'Sviluppo front-end a Pisa · Matteo Giordani',
       metaDescription: 'Non una lista di problemi: modifiche fatte direttamente sul tuo sito. Layout, mobile, form e dettagli, costruiti pensando a ricerca e velocità.',
       h1a: 'Le correzioni finiscono',
       h1b: 'nel codice.',
@@ -462,7 +463,7 @@ const it: Dict = {
       filter: 'website',
       cardText: 'Front-End Developer & SEO Specialist sul nuovo sito, online da settembre 2026: sviluppo, modifiche al CRM, metadati, Core Web Vitals.',
       tags: ['SEOzen', 'Search Console', 'Lighthouse'],
-      metaTitle: 'ezdirect.it — Front-end & SEO — Matteo Giordani',
+      metaTitle: 'ezdirect.it: nuovo sito, front-end e SEO · Matteo Giordani',
       metaDescription: 'Sviluppo front-end e SEO sul nuovo ezdirect.it, online da settembre 2026: sviluppo, modifiche al CRM, metadati e Core Web Vitals.',
       h1: 'ezdirect.it, _un nuovo sito_ *online da settembre 2026.*',
       lead: 'Front-End Developer & SEO Specialist sul nuovo sito: sviluppo, implementazione del design, modifiche al CRM, metadati e Core Web Vitals.',
@@ -476,11 +477,11 @@ const it: Dict = {
         { src: '/img/ezdirect-centralini.webp', w: 600, h: 1298, alt: 'Pagina Centralini telefonici di ezdirect.it su mobile: ricerca nel catalogo, breadcrumb e sottocategorie.' },
       ],
       sections: [
-        { title: 'Overview', body: 'Un nuovo sito per ezdirect.it, online da settembre 2026. Ho lavorato su entrambi i lati: il front-end che usano le persone e le parti che legge Google.' },
-        { title: 'Challenge', body: 'Il vecchio sito partiva in salita su tutti i fronti misurati da Lighthouse: 43 in Performance, 58 in Accessibilità, 36 in Best practice e 41 in SEO. Pagine lente da caricare, metadati e struttura che Google leggeva a fatica, e un CRM da adattare al nuovo sito senza fermare il lavoro quotidiano dell’azienda.' },
-        { title: 'Approach', body: 'Ho lavorato su due fronti in parallelo, invece di sistemare la SEO a sito finito. Sul front-end ho implementato il design, curato l’interfaccia e fatto il debugging, intervenendo sul CRM dove serviva. Sul lato ricerca ho scritto meta title e description, curato la technical SEO e misurato Core Web Vitals e Lighthouse a ogni passaggio. Dopo il lancio, Search Console e SEOzen per seguire indicizzazione e posizionamenti.' },
+        { title: 'Panoramica', body: 'Un nuovo sito per ezdirect.it, online da settembre 2026. Ho lavorato su entrambi i lati: il front-end che usano le persone e le parti che legge Google.' },
+        { title: 'La sfida', body: 'Il vecchio sito partiva in salita su tutti i fronti misurati da Lighthouse: 43 in Performance, 58 in Accessibilità, 36 in Best practice e 41 in SEO. Pagine lente da caricare, metadati e struttura che Google leggeva a fatica, e un CRM da adattare al nuovo sito senza fermare il lavoro quotidiano dell’azienda.' },
+        { title: 'Approccio', body: 'Ho lavorato su due fronti in parallelo, invece di sistemare la SEO a sito finito. Sul front-end ho implementato il design, curato l’interfaccia e fatto il debugging, intervenendo sul CRM dove serviva. Sul lato ricerca ho scritto meta title e description, seguito la technical SEO e misurato Core Web Vitals e Lighthouse a ogni passaggio. Dopo il lancio ho usato Search Console e SEOzen per seguire indicizzazione e posizionamenti.' },
         {
-          title: 'Technical work',
+          title: 'Lavoro tecnico',
           list: [
             'Sviluppo front-end e implementazione del design',
             'Lavoro sull’interfaccia e debugging',
@@ -491,7 +492,7 @@ const it: Dict = {
             'Search Console, con SEOzen',
           ],
         },
-        { title: 'Key learnings', body: 'Velocità, accessibilità e SEO non si aggiungono alla fine: si decidono mentre si scrive il codice. Misurare prima e dopo con gli stessi strumenti ha reso ogni scelta verificabile, e il sito è andato online con punteggi tra 97 e 100 in tutte e quattro le categorie Lighthouse.' },
+        { title: 'Cosa ho imparato', body: 'Velocità, accessibilità e SEO non si aggiungono alla fine: si decidono mentre si scrive il codice. Misurare prima e dopo con gli stessi strumenti ha reso ogni scelta verificabile, e il sito è andato online con punteggi tra 97 e 100 in tutte e quattro le categorie Lighthouse.' },
       ],
     },
     trainly: {
@@ -502,7 +503,7 @@ const it: Dict = {
       filter: 'mobile',
       cardText: 'Un prodotto per chi corre, progettato e sviluppato mobile-first.',
       tags: ['Prodotto', 'UX', 'Front-end'],
-      metaTitle: 'Trainly — un prodotto per chi corre — Matteo Giordani',
+      metaTitle: 'Trainly: app per la mezza maratona · Matteo Giordani',
       metaDescription: 'Trainly, un progetto personale: un prodotto per chi corre, progettato e sviluppato mobile-first.',
       h1: 'Trainly, _un prodotto per chi corre,_ *nato mobile-first.*',
       lead: 'Un progetto personale: prodotto, UX e front-end, pensati per il telefono fin dalla prima schermata.',
@@ -528,7 +529,7 @@ const it: Dict = {
 
   projectPage: {
     visuals: 'Immagini',
-    evidence: 'Evidence',
+    evidence: 'I numeri',
     next: 'Progetto successivo',
     prev: 'Progetto precedente',
     desktop: 'desktop',
@@ -546,7 +547,7 @@ const it: Dict = {
   },
 
   privacy: {
-    metaTitle: 'Informativa sulla privacy — Matteo Giordani',
+    metaTitle: 'Informativa sulla privacy · Matteo Giordani',
     h1: 'Informativa sulla *privacy*',
     body: '[INFORMATIVA PRIVACY DA AGGIUNGERE — testo GDPR, titolare del trattamento, finalità, conservazione, diritti]',
   },

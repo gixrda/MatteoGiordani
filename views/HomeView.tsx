@@ -182,7 +182,7 @@ export function HomeView({ locale }: { locale: Locale }) {
             </div>
             <ul className="rings">
               {t.proof.rings.map((r) => (
-                <li key={r}><span className="ring mono">[—]</span><span className="caption">{r}</span></li>
+                <li key={r.l}><span className="ring" style={{ '--s': r.s } as React.CSSProperties}>{r.s}</span><span className="caption">{r.l}</span></li>
               ))}
             </ul>
           </div>

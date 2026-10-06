@@ -92,7 +92,10 @@ export function ProjectView({ locale, slug }: { locale: Locale; slug: ProjectSlu
         {slug === 'ezdirect' && (
           <div className="proj-row reveal">
             <h2 className="s-l">{pp.evidence}</h2>
-            <div className="card proj-evidence"><CwvTable c={t.cwv} /></div>
+            <div className="proj-evidence-wrap">
+              <div className="card proj-evidence"><CwvTable c={t.cwv} /></div>
+              <p className="body">{t.proof.nextText} <Link href={href.contact(locale)} className="tlink">{t.proof.nextCta}<Icon name="arrow-right" className="nudge" /></Link></p>
+            </div>
           </div>
         )}
       </section>

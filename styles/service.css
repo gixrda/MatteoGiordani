@@ -222,6 +222,7 @@
 .proj-list li { display: flex; gap: 10px; align-items: baseline; }
 .proj-list svg { flex: none; translate: 0 2px; }
 .proj-evidence { padding: 20px 24px; }
+.proj-evidence-wrap { display: grid; gap: 16px; }
 .proj-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .proj-nav-link { display: grid; gap: 10px; padding: 22px 24px; }
 .proj-nav-link .cap { color: var(--mu2); display: inline-flex; gap: 6px; align-items: center; }

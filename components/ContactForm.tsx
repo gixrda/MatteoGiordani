@@ -49,11 +49,17 @@ export function ContactForm({ c, privacyHref }: { c: Dict['contact']; privacyHre
     ]
       .filter(Boolean)
       .join('\n');
-    location.href = `mailto:${PERSON.email}?subject=${encodeURIComponent(`${c.submit} — ${v('need')}`)}&body=${encodeURIComponent(body)}`;
+    location.href = `mailto:${PERSON.email}?subject=${encodeURIComponent(`${c.submit}: ${v('need')}`)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
 
-  if (sent) return <p className="form-done" role="status"><Icon name="check" size={18} />{c.success}</p>;
+  if (sent)
+    return (
+      <p className="form-done" role="status">
+        <Icon name="check" size={18} />
+        <span>{c.success} <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a>.</span>
+      </p>
+    );
 
   const err = (k: Field) =>
     errors[k] ? { 'aria-invalid': true as const, 'aria-describedby': `err-${k}` } : {};
@@ -100,9 +106,11 @@ export function ContactForm({ c, privacyHref }: { c: Dict['contact']; privacyHre
       </div>
       <div className="full cform-foot">
         <button type="submit" className="btn btn-primary">
-          <Icon name="calendar" />
           {c.submit}
+          <Icon name="arrow-right" className="nudge" />
         </button>
+        {/* mailto can fail silently (no mail app configured): the address stays visible as a fallback. */}
+        <p className="caption">{c.orEmail} <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a></p>
       </div>
     </form>
   );
