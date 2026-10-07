@@ -114,6 +114,12 @@ export function PrivacyView({ locale }: { locale: Locale }) {
       <section className="wrap page-hero read" aria-labelledby="priv-h1">
         <h1 id="priv-h1" className="d-l"><Rich text={t.privacy.h1} /></h1>
         <p className="body"><Rich text={t.privacy.body} /></p>
+        {t.privacy.sections.map((s) => (
+          <div key={s.h} className="stack">
+            <h2 className="s-m">{s.h}</h2>
+            <p className="body">{s.p}</p>
+          </div>
+        ))}
       </section>
     </>
   );

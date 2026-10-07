@@ -229,7 +229,9 @@ const it: Dict = {
       email: 'Aggiungi un indirizzo email, ad esempio nome@attivita.it.',
       privacy: 'Spunta la casella per accettare l’informativa, altrimenti non posso risponderti.',
     },
-    success: 'Si è aperta la tua app di posta con la richiesta già compilata: inviala e ti rispondo entro 24/48 ore. Se non si è aperta, scrivimi a',
+    sending: 'Invio in corso…',
+    failed: 'Invio non riuscito. Riprova tra poco o scrivimi direttamente all’indirizzo qui sotto.',
+    success: 'Richiesta inviata. Ti rispondo entro 24/48 ore.',
     instagram: 'Instagram',
     metaTitle: 'Contatti · Matteo Giordani',
     metaDescription: 'Raccontami il tuo sito e prenota una prima call, senza impegno.',
@@ -552,7 +554,17 @@ const it: Dict = {
   privacy: {
     metaTitle: 'Informativa sulla privacy · Matteo Giordani',
     h1: 'Informativa sulla *privacy*',
-    body: '[INFORMATIVA PRIVACY DA AGGIUNGERE — testo GDPR, titolare del trattamento, finalità, conservazione, diritti]',
+    body: 'Come tratto i dati che mi invii tramite il modulo di contatto o via email, ai sensi del Regolamento UE 2016/679 (GDPR). Ultimo aggiornamento: 7 ottobre 2026.',
+    sections: [
+      { h: 'Titolare del trattamento', p: 'Matteo Giordani, Pisa (Italia). Per qualsiasi richiesta sui tuoi dati scrivi a mattegiordani02@gmail.com.' },
+      { h: 'Quali dati raccolgo', p: 'Solo quelli che inserisci nel modulo: nome, email, il tipo di servizio che ti interessa e, se li aggiungi, l’indirizzo del tuo sito e il messaggio. Se mi scrivi via email, tratto l’indirizzo e il contenuto del messaggio.' },
+      { h: 'Perché li uso e su quale base', p: 'Per rispondere alla tua richiesta, fissare una call e, se lo chiedi, prepararti un preventivo. La base giuridica è l’esecuzione di misure precontrattuali su tua richiesta (art. 6.1.b GDPR). Non uso i dati per newsletter o marketing e non li vendo né li cedo a terzi.' },
+      { h: 'Chi li riceve', p: 'Il modulo è inviato tramite Web3Forms, che inoltra la richiesta alla mia casella email (Gmail, Google). Il sito è ospitato su Vercel. Questi fornitori trattano i dati per mio conto come responsabili del trattamento; alcuni hanno sede negli Stati Uniti, e il trasferimento avviene sulla base delle Clausole contrattuali standard della Commissione europea o del Data Privacy Framework UE-USA.' },
+      { h: 'Per quanto tempo', p: 'Conservo i dati per il tempo necessario a gestire la richiesta e comunque non oltre 12 mesi se non nasce una collaborazione. Se lavoriamo insieme, i dati legati al lavoro seguono i tempi previsti dagli obblighi fiscali (10 anni).' },
+      { h: 'Cookie', p: 'Il sito non usa cookie di profilazione né strumenti di tracciamento pubblicitario.' },
+      { h: 'I tuoi diritti', p: 'Puoi chiedere in ogni momento di accedere ai tuoi dati, correggerli, cancellarli, limitarne il trattamento, opporti o riceverne una copia (artt. 15-22 GDPR), scrivendo all’email sopra. Hai anche il diritto di presentare reclamo al Garante per la protezione dei dati personali (garanteprivacy.it).' },
+      { h: 'Obbligatorietà', p: 'Nome ed email sono necessari per risponderti: senza questi dati non posso dare seguito alla richiesta.' },
+    ],
   },
 };
 

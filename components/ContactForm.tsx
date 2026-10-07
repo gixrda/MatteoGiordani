@@ -10,23 +10,24 @@ type Field = 'need' | 'name' | 'email' | 'privacy';
 /** Strips protocol, "www." and trailing slashes. */
 const normaliseSite = (v: string) => v.trim().replace(/^[a-z]+:\/\//i, '').replace(/^www\./i, '').replace(/\/+$/, '');
 
+// Web3Forms access key (public by design: it only lets the form send to the owner's inbox). Set it on Vercel.
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
 /**
  * Contact form (spec §6.26, §7.10).
- * ponytail: the form provider is still [CHOOSE: Resend / Formspree / other], and the site is a static export,
- * so a valid submit opens the visitor's email app with the request prefilled. Swap `send` for a fetch() to the
- * chosen provider when it exists.
+ * The site is a static export, so a valid submit posts straight to Web3Forms, which emails the request to PERSON.email.
  */
 export function ContactForm({ c, privacyHref }: { c: Dict['contact']; privacyHref: string }) {
   const [site, setSite] = useState('');
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle');
 
   useEffect(() => {
     const q = new URLSearchParams(location.search).get('site');
     if (q) setSite(normaliseSite(q));
   }, []);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const d = new FormData(form);
@@ -40,24 +41,37 @@ export function ContactForm({ c, privacyHref }: { c: Dict['contact']; privacyHre
     const first = Object.keys(errs)[0];
     if (first) return void (form.elements.namedItem(first) as HTMLElement | null)?.focus();
 
-    const body = [
-      `${c.need} ${v('need')}`,
-      `${c.name}: ${v('name')}`,
-      `${c.email}: ${v('email')}`,
-      v('website') && `${c.website}: ${normaliseSite(v('website'))}`,
-      v('message') && `\n${v('message')}`,
-    ]
-      .filter(Boolean)
-      .join('\n');
-    location.href = `mailto:${PERSON.email}?subject=${encodeURIComponent(`${c.submit}: ${v('need')}`)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    if (d.get('botcheck')) return; // honeypot filled: a bot, drop silently
+
+    setStatus('sending');
+    try {
+      const r = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `${c.submit}: ${v('need')}`,
+          from_name: v('name'),
+          replyto: v('email'),
+          [c.need]: v('need'),
+          [c.name]: v('name'),
+          [c.email]: v('email'),
+          [c.website]: normaliseSite(v('website')) || '—',
+          [c.message]: v('message') || '—',
+        }),
+      });
+      if (!(await r.json()).success) throw new Error();
+      setStatus('sent');
+    } catch {
+      setStatus('failed');
+    }
   };
 
-  if (sent)
+  if (status === 'sent')
     return (
       <p className="form-done" role="status">
         <Icon name="check" size={18} />
-        <span>{c.success} <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a>.</span>
+        <span>{c.success}</span>
       </p>
     );
 
@@ -105,11 +119,12 @@ export function ContactForm({ c, privacyHref }: { c: Dict['contact']; privacyHre
         {msg('privacy')}
       </div>
       <div className="full cform-foot">
-        <button type="submit" className="btn btn-primary">
-          {c.submit}
+        <input type="checkbox" name="botcheck" hidden tabIndex={-1} autoComplete="off" />
+        <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>
+          {status === 'sending' ? c.sending : c.submit}
           <Icon name="arrow-right" className="nudge" />
         </button>
-        {/* mailto can fail silently (no mail app configured): the address stays visible as a fallback. */}
+        {status === 'failed' && <p className="err" role="alert">{c.failed}</p>}
         <p className="caption">{c.orEmail} <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a></p>
       </div>
     </form>

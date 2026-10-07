@@ -272,7 +272,9 @@ const en = {
       email: 'Add an email address like name@business.it.',
       privacy: 'Tick the box to accept the privacy policy, otherwise I can’t reply.',
     },
-    success: 'Your email app has opened with your request: send it and I’ll reply within 24 to 48 hours. If it didn’t open, email me at',
+    sending: 'Sending…',
+    failed: 'Sending failed. Try again shortly or email me directly at the address below.',
+    success: 'Request sent. I’ll reply within 24 to 48 hours.',
     instagram: 'Instagram',
     metaTitle: 'Contact · Matteo Giordani',
     metaDescription: 'Tell me about your website and book a first call, no commitment.',
@@ -595,7 +597,17 @@ const en = {
   privacy: {
     metaTitle: 'Privacy policy · Matteo Giordani',
     h1: 'Privacy *policy*',
-    body: '[PRIVACY POLICY TO ADD — Italian GDPR text, data controller, purposes, retention, rights]',
+    body: 'How I handle the data you send me through the contact form or by email, under EU Regulation 2016/679 (GDPR). Last updated: 7 October 2026.',
+    sections: [
+      { h: 'Data controller', p: 'Matteo Giordani, Pisa (Italy). For any request about your data, email mattegiordani02@gmail.com.' },
+      { h: 'What data I collect', p: 'Only what you enter in the form: name, email, the service you are interested in and, if you add them, your website address and message. If you email me, I process your address and the content of the message.' },
+      { h: 'Why I use it and on what basis', p: 'To reply to your request, set up a call and, if you ask, prepare a quote. The legal basis is taking steps at your request before entering into a contract (Art. 6(1)(b) GDPR). I don’t use your data for newsletters or marketing, and I don’t sell or share it with third parties.' },
+      { h: 'Who receives it', p: 'The form is sent through Web3Forms, which forwards the request to my mailbox (Gmail, Google). The site is hosted on Vercel. These providers process the data on my behalf as processors; some are based in the United States, and transfers rely on the European Commission’s Standard Contractual Clauses or the EU-US Data Privacy Framework.' },
+      { h: 'How long I keep it', p: 'I keep the data as long as needed to handle your request, and no longer than 12 months if no collaboration follows. If we work together, data related to the work follows the retention required by tax law (10 years).' },
+      { h: 'Cookies', p: 'The site uses no profiling cookies and no advertising trackers.' },
+      { h: 'Your rights', p: 'You can ask at any time to access, correct or delete your data, restrict or object to its processing, or receive a copy (Arts. 15-22 GDPR), by writing to the email above. You also have the right to lodge a complaint with the Italian Data Protection Authority (garanteprivacy.it).' },
+      { h: 'Required data', p: 'Name and email are needed to reply: without them I can’t follow up on your request.' },
+    ],
   },
 };
 

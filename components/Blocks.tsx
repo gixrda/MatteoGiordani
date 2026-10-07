@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Locale } from '@/lib/routes';
 import { href } from '@/lib/routes';
 import { getDict } from '@/lib/i18n';
-import { PERSON, SITE_URL, bookHref } from '@/lib/site';
+import { BOOKING_URL, SITE_URL, bookHref } from '@/lib/site';
 import { Icon } from './Icon';
 import { Rich } from './Rich';
 import { JsonLd } from './JsonLd';
@@ -73,7 +73,8 @@ export function CtaPanel({ locale, title, text, visual }: { locale: Locale; titl
             <p><Rich text={text} /></p>
             <div className="btn-row">
               <BookButton locale={locale} className="btn btn-on-ink" icon="arrow-up-right" />
-              <a href={`mailto:${PERSON.email}`} className="btn btn-ghost-ink">{t.ui.emailMe}</a>
+              {/* Book already leads to the form until a booking page exists: show the second button only then. */}
+              {BOOKING_URL && <Link href={href.contact(locale)} className="btn btn-ghost-ink">{t.ui.emailMe}</Link>}
             </div>
           </div>
           {visual && <div className="cta-panel-visual" aria-hidden="true">{visual}</div>}
