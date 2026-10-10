@@ -212,13 +212,14 @@
 .proj-facts dd { margin: 0; font-weight: 600; }
 .proj-band { padding: clamp(24px, 5vw, 56px); border-radius: 26px; background: var(--grad-band); }
 .proj-ez { display: grid; grid-template-columns: 1fr 22%; gap: clamp(16px, 3vw, 32px); align-items: end; }
-/* Five app screens and the promo film in one row; Today (3rd) sits higher. Wraps to 3 + 3, then 2 + 2 + 2. */
+/* App screens in one row; the centre one (Today) sits higher. Wraps to 3 + 2, then 2 + 2 + 1. */
 .proj-phones { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: clamp(16px, 2.5vw, 28px); }
-.proj-phones .phone-shot { width: calc((100% - 5 * clamp(16px, 2.5vw, 28px)) / 6); max-width: 240px; }
+.proj-phones .phone-shot { width: calc((100% - 4 * clamp(16px, 2.5vw, 28px)) / 5); max-width: 240px; }
 .shot-btn { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 12%/6%; transition: translate var(--t-fast) var(--e); }
 .shot-btn img { display: block; width: 100%; height: auto; }
 .shot-btn:hover { translate: 0 -4px; }
-.proj-phones .film { border-radius: 18px; background: var(--phone-bezel); }
+/* Promo film card: 9:16, as tall as the viewport allows, never wider than the card. */
+.proj-film video { display: block; width: auto; height: auto; max-width: 100%; max-height: min(80dvh, 760px); margin-inline: auto; border-radius: 22px; background: var(--phone-bezel); box-shadow: var(--sh-media); }
 /* Zoom: the full-resolution screen, fitted to the viewport. */
 .zoom { margin: auto; padding: 0; border: 0; background: none; max-width: none; max-height: none; overflow: visible; cursor: zoom-out; }
 .zoom::backdrop { background: rgb(5 8 20 / .85); }
