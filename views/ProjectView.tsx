@@ -7,6 +7,7 @@ import { Icon } from '@/components/Icon';
 import { JsonLd } from '@/components/JsonLd';
 import { CwvTable } from '@/components/ProjectCard';
 import { Rich, plain } from '@/components/Rich';
+import { TrainlyGallery } from '@/components/TrainlyGallery';
 import { CtaVisual } from './ServiceView';
 import '@/styles/service.css';
 import '@/styles/build.css';
@@ -65,11 +66,7 @@ export function ProjectView({ locale, slug }: { locale: Locale; slug: ProjectSlu
             </div>
           )}
           {slug === 'trainly' && p.shots && (
-            <div className="proj-phones">
-              {p.shots.map((sh) => (
-                <img key={sh.src} src={sh.src} alt={sh.alt} width={sh.w} height={sh.h} decoding="async" className="phone-shot" />
-              ))}
-            </div>
+            <TrainlyGallery shots={p.shots} labels={{ zoom: pp.zoom, close: pp.close, film: pp.film }} />
           )}
         </div>
       </section>

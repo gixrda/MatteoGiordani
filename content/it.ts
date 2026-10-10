@@ -540,6 +540,9 @@ const it: Dict = {
     desktop: 'desktop',
     mobile: 'mobile',
     screenshot: 'screenshot da aggiungere',
+    zoom: 'Ingrandisci schermata',
+    close: 'Chiudi',
+    film: 'Video promozionale di Trainly',
   },
 
   footer: {

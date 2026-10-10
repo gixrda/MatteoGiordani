@@ -583,6 +583,9 @@ const en = {
     desktop: 'desktop',
     mobile: 'mobile',
     screenshot: 'screenshot to add',
+    zoom: 'Enlarge screen',
+    close: 'Close',
+    film: 'Trainly promo video',
   },
 
   footer: {
