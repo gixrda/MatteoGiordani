@@ -586,6 +586,8 @@ const en = {
     zoom: 'Enlarge screen',
     close: 'Close',
     film: 'Trainly promo video',
+    shotPrev: 'Previous screen',
+    shotNext: 'Next screen',
   },
 
   footer: {

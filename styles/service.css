@@ -212,14 +212,21 @@
 .proj-facts dd { margin: 0; font-weight: 600; }
 .proj-band { padding: clamp(24px, 5vw, 56px); border-radius: 26px; background: var(--grad-band); }
 .proj-ez { display: grid; grid-template-columns: 1fr 22%; gap: clamp(16px, 3vw, 32px); align-items: end; }
-/* App screens in one row; the centre one (Today) sits higher. Wraps to 3 + 2, then 2 + 2 + 1. */
-.proj-phones { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: clamp(16px, 2.5vw, 28px); }
-.proj-phones .phone-shot { width: calc((100% - 4 * clamp(16px, 2.5vw, 28px)) / 5); max-width: 240px; }
-.shot-btn { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 12%/6%; transition: translate var(--t-fast) var(--e); }
+/* Trainly: the promo film in a phone beside a slider of the app screens (3 visible, 2 on tablet); stacked on mobile. */
+.proj-trainly { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: center; }
+.phone-film { position: relative; padding: 2.2%; border-radius: 14% / 7.9%; background: #000; box-shadow: inset 0 0 0 1.5px #3a3a3c, var(--sh-media); } /* same black bezel as the frames in the screenshots */
+.phone-film .phone-screen { aspect-ratio: 9 / 16; border-radius: 12% / 6.8%; } /* the film is 9:16: a taller screen would crop its captions */
+.phone-film::after { content: ''; position: absolute; top: 3.4%; left: 50%; translate: -50%; width: 29%; aspect-ratio: 3.4; border-radius: 99px; background: #000; }
+.phone-film video { display: block; }
+.shots-slider { display: grid; gap: 16px; min-width: 0; }
+.shots-track { --g: clamp(16px, 2vw, 24px); display: flex; gap: var(--g); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-top: 8px; }
+.shots-track::-webkit-scrollbar { display: none; } /* arrows, swipe and Tab move it */
+.shots-track .phone-shot { flex: 0 0 calc((100% - 2 * var(--g)) / 3); scroll-snap-align: start; filter: none; } /* a drop-shadow in a scroller paints a pale box in Chromium */
+.shots-nav { display: flex; justify-content: flex-end; gap: 8px; }
+.shots-nav .round-btn:disabled { opacity: .35; cursor: default; }
+.shot-btn { position: relative; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 12%/6%; transition: translate var(--t-fast) var(--e); }
 .shot-btn img { display: block; width: 100%; height: auto; }
 .shot-btn:hover { translate: 0 -4px; }
-/* Promo film card: 9:16, as tall as the viewport allows, never wider than the card. */
-.proj-film video { display: block; width: auto; height: auto; max-width: 100%; max-height: min(80dvh, 760px); margin-inline: auto; border-radius: 22px; background: var(--phone-bezel); box-shadow: var(--sh-media); }
 /* Zoom: the full-resolution screen, fitted to the viewport. */
 .zoom { margin: auto; padding: 0; border: 0; background: none; max-width: none; max-height: none; overflow: visible; cursor: zoom-out; }
 .zoom::backdrop { background: rgb(5 8 20 / .85); }
@@ -227,7 +234,6 @@
 .zoom-close { position: fixed; top: 16px; right: 16px; color: #fff; border-color: rgb(255 255 255 / .4); background: rgb(5 8 20 / .5); }
 .zoom-close:hover { border-color: #fff; }
 @media (prefers-reduced-motion: reduce) { .shot-btn { transition: none; } .shot-btn:hover { translate: none; } }
-.proj-phones .phone-shot:nth-child(3) { margin-bottom: 32px; }
 .proj-story { display: grid; gap: 0; }
 .proj-row { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; padding: 32px 0; border-top: 1px solid var(--ln); }
 .proj-list { display: grid; gap: 10px; }
@@ -241,13 +247,15 @@
 .proj-nav-link.next { text-align: right; justify-items: end; }
 .proj-nav-link.next:only-child { grid-column: 1 / -1; }
 .proj-nav-link:hover .s-m { color: var(--act); }
-@media (max-width: 900px) {
-  .proj-phones { align-items: flex-start; }
-  .proj-phones .phone-shot { width: calc((100% - 2 * clamp(16px, 2.5vw, 28px)) / 3); }
-  .proj-phones .phone-shot:nth-child(3) { margin-bottom: 0; }
+@media (max-width: 1100px) {
+  .shots-track .phone-shot { flex-basis: calc((100% - var(--g)) / 2); }
 }
-@media (max-width: 560px) {
-  .proj-phones .phone-shot { width: calc((100% - clamp(16px, 2.5vw, 28px)) / 2); }
+@media (max-width: 900px) {
+  .proj-trainly { grid-template-columns: minmax(0, 240px) minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .proj-trainly { grid-template-columns: minmax(0, 1fr); }
+  .phone-film { width: min(100%, 280px); justify-self: center; }
 }
 @media (max-width: 900px) {
   .proj-row { grid-template-columns: 1fr; gap: 16px; }

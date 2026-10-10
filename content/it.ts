@@ -543,6 +543,8 @@ const it: Dict = {
     zoom: 'Ingrandisci schermata',
     close: 'Chiudi',
     film: 'Video promozionale di Trainly',
+    shotPrev: 'Schermata precedente',
+    shotNext: 'Schermata successiva',
   },
 
   footer: {
